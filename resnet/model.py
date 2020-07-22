@@ -181,10 +181,10 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
     ResidualBlock_order = 0
     
     for layer, channel, strides in zip(layerlist, chalist, strilist):
-        x = ResidualBlockWithDown(x,order=ResidualBlockWithDown_order,out_channels=channel,strides=strides)
+        x = ResidualBlockWithDown(x,order=ResidualBlockWithDown_order,out_channels=channel,strides=(strides,strides))
         ResidualBlockWithDown_order +=1
         for _ in range(layer-1):
-            x = ResidualBlock(x, order=ResidualBlock_order,out_channels=channel,strides=1)
+            x = ResidualBlock(x, order=ResidualBlock_order,out_channels=channel,strides=(1,1))
             ResidualBlock_order += 1
     x = mtf.einsum(x, output_shape=mtf.Shape([x.shape.dims[0],x.shape.dims[1]]), name="einsum")
 
