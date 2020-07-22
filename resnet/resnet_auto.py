@@ -26,6 +26,8 @@ from dataset import load_dataset  # local file import
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow.auto_mtf
 import os
+from model import resnet_model
+from config import *
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
@@ -58,50 +60,21 @@ def mnist_model(image, labels, mesh):
 		loss: a mtf.Tensor with shape []
 	"""
 	batch_dim = mtf.Dimension("batch", FLAGS.batch_size)
-	row_blocks_dim = mtf.Dimension("row_blocks", 4)
-	col_blocks_dim = mtf.Dimension("col_blocks", 4)
-	rows_dim = mtf.Dimension("rows_size", 8)
-	cols_dim = mtf.Dimension("cols_size", 8)
-
-	classes_dim = mtf.Dimension("classes", 10)
-	one_channel_dim = mtf.Dimension("one_channel", 3)
-
+	rows_dim = mtf.Dimension("rows_size", image_height)
+	cols_dim = mtf.Dimension("cols_size", image_width)
+	channel_dim = mtf.Dimension("image_channel", num_channels)
+	classes_dim = mtf.Dimension(name='classesnum',size=classesnum)
 	x = mtf.import_tf_tensor(
-		mesh, tf.reshape(image, [FLAGS.batch_size, 4, 8, 4, 8, 3]),
+		mesh, tf.reshape(image, [FLAGS.batch_size, image_height, image_width, num_channels]),
 		mtf.Shape(
-			[batch_dim, row_blocks_dim, rows_dim,
-			col_blocks_dim, cols_dim, one_channel_dim]))
-	x = mtf.transpose(x, [
-		batch_dim, row_blocks_dim, col_blocks_dim,
-		rows_dim, cols_dim, one_channel_dim])
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(x.name,x.shape))
-	# add some convolutional layers to demonstrate that convolution works.
-	filters1_dim = mtf.Dimension("filters1", 16)
-	filters2_dim = mtf.Dimension("filters2", 16)
-	f1 = mtf.relu(mtf.layers.conv2d_with_blocks(
-		x, filters1_dim, filter_size=[9, 9], strides=[1, 1], padding="SAME",
-		h_blocks_dim=row_blocks_dim, w_blocks_dim=col_blocks_dim, name="conv0"))
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(f1.name,f1.shape))
-	f2 = mtf.relu(mtf.layers.conv2d_with_blocks(
-		f1, filters2_dim, filter_size=[9, 9], strides=[1, 1], padding="SAME",
-		h_blocks_dim=row_blocks_dim, w_blocks_dim=col_blocks_dim, name="conv1"))
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(f2.name,f2.shape))
-	x = mtf.reduce_mean(f2, reduced_dim=filters2_dim)
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(x.name,x.shape))
-	# add some fully-connected dense layers.
-	hidden_dim1 = mtf.Dimension("hidden1", FLAGS.hidden_size)
-	hidden_dim2 = mtf.Dimension("hidden2", FLAGS.hidden_size)
+			[batch_dim, rows_dim, cols_dim, channel_dim]))
+	# x = mtf.transpose(x, [
+	# 	batch_dim, row_blocks_dim, col_blocks_dim,
+	# 	rows_dim, cols_dim, channel_dim])
+	
+	logits = resnet_model(x, classes_dim=classes_dim,depth=50)
 
-	h1 = mtf.layers.dense(
-		x, hidden_dim1,
-		reduced_dims=x.shape.dims[-4:],
-		activation=mtf.relu, name="hidden1")
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(h1.name,h1.shape))
-	h2 = mtf.layers.dense(
-		h1, hidden_dim2,
-		activation=mtf.relu, name="hidden2")
-	tf.logging.info("[intra variable] (name, shape): ({},{})".format(h2.name,h2.shape))
-	logits = mtf.layers.dense(h2, classes_dim, name="logits")
+
 	if labels is None:
 		loss = None
 	else:

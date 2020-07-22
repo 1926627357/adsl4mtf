@@ -152,9 +152,8 @@ def ResidualBlock(x, order, out_channels, strides):
     x = mtf.relu(x)
     return x
 
-def backbone(x, layerlist, chalist, strilist, classesnum):
+def backbone(x, layerlist, chalist, strilist, classes_dim):
     name = "backbone"
-    classes_dim = mtf.Dimension(name='classesnum',size=classesnum)
     x = mtf.layers.conv2d(
                             x,
                             output_dim=mtf.Dimension(
@@ -192,7 +191,7 @@ def backbone(x, layerlist, chalist, strilist, classesnum):
     logit = mtf.layers.dense(x, classes_dim, name="dense")
     return logit
 
-def resnet_model(x, classesnum, depth):
+def resnet_model(x, classes_dim, depth):
     if depth not in white_list:
         print("Renet-{}".format(depth))
         raise ValueError
@@ -204,6 +203,6 @@ def resnet_model(x, classesnum, depth):
                             layerlist=[3,4,6,3],
                             chalist=[256,512,1024,2048],
                             strilist=[1,2,2,2],
-                            classesnum=classesnum
+                            classes_dim=classes_dim
                             )
     return x
