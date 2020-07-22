@@ -20,7 +20,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                             strides=strides,
                             name="conv1x1"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -58,7 +58,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                             strides=(1,1),
                             name="conv1x1"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -75,7 +75,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                     strides=strides,
                                     name="conv1x1"
                                     )
-    identity = mtf.layers.batch_norm(
+    identity,_ = mtf.layers.batch_norm(
                                         identity,
                                         is_training=True,
                                         momentum=0.99,
@@ -103,7 +103,7 @@ def ResidualBlock(x, order, out_channels, strides):
                             strides=strides,
                             name="conv1x1"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -122,7 +122,7 @@ def ResidualBlock(x, order, out_channels, strides):
                             strides=(1,1),
                             name="conv3x3"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -141,7 +141,7 @@ def ResidualBlock(x, order, out_channels, strides):
                             strides=(1,1),
                             name="conv1x1"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -164,7 +164,7 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
                             strides=(2,2),
                             name="conv7x7"
                             )
-    x = mtf.layers.batch_norm(
+    x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
