@@ -1,0 +1,898 @@
+I0719 17:16:37.448542 140224315221824 estimator.py:216] Using config: {'_model_dir': '/home/haiqwa/output/mnist', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+graph_options {
+  rewrite_options {
+    meta_optimizer_iterations: ONE
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+WARNING:tensorflow:Estimator's model_fn (<function model_fn at 0x7f8832f527b8>) includes params argument, but params are not passed to Estimator.
+W0719 17:16:37.449155 140224315221824 model_fn.py:630] Estimator's model_fn (<function model_fn at 0x7f8832f527b8>) includes params argument, but params are not passed to Estimator.
+WARNING:tensorflow:From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/training_util.py:236: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+W0719 17:16:37.454915 140224315221824 deprecation.py:323] From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/training_util.py:236: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+WARNING:tensorflow:From /home/haiqwa/document/mtf/mnist/mnist_dataset.py:114: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+W0719 17:16:37.673342 140224315221824 deprecation.py:323] From /home/haiqwa/document/mtf/mnist/mnist_dataset.py:114: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+INFO:tensorflow:Calling model_fn.
+I0719 17:16:37.691466 140224315221824 estimator.py:1151] Calling model_fn.
+INFO:tensorflow:features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32) mode = train params={}
+I0719 17:16:37.691707 140224315221824 mnist_auto.py:115] features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32) mode = train params={}
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:16:37.693709 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:16:37.702092 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:16:37.720178 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:16:37.730639 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+INFO:tensorflow:[auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+I0719 17:16:37.954298 140224315221824 mnist_auto.py:122] [auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+INFO:tensorflow:Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+I0719 17:16:39.863805 140224315221824 ops.py:5936] Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+INFO:tensorflow:Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+I0719 17:16:39.864070 140224315221824 ops.py:5936] Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+INFO:tensorflow:Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+I0719 17:16:39.864192 140224315221824 ops.py:5936] Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+INFO:tensorflow:Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+I0719 17:16:39.864320 140224315221824 ops.py:5936] Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+INFO:tensorflow:Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+I0719 17:16:39.864441 140224315221824 ops.py:5936] Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+INFO:tensorflow:Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+I0719 17:16:39.864559 140224315221824 ops.py:5936] Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+INFO:tensorflow:Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+I0719 17:16:39.864665 140224315221824 ops.py:5936] Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+INFO:tensorflow:Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+I0719 17:16:39.864773 140224315221824 ops.py:5936] Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+INFO:tensorflow:Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:16:39.864854 140224315221824 ops.py:5936] Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:All Variables                  count: 15      Total size: 1122356          Total slice_size: 292378         
+I0719 17:16:39.865175 140224315221824 ops.py:5936] All Variables                  count: 15      Total size: 1122356          Total slice_size: 292378         
+INFO:tensorflow:Counters:
+allreduce: 2.02e+06
+ allreduce/[0, 1]: 16
+  allreduce/[0, 1]/reduce_op: 16
+ allreduce/[0]: 1.77e+05
+  allreduce/[0]/conv2d_backprop_filter: 4.41e+04
+  allreduce/[0]/einsum_op: 1.32e+05
+  allreduce/[0]/reduce_op: 1.04e+03
+ allreduce/[1, 0]: 8
+  allreduce/[1, 0]/reduce_op: 8
+ allreduce/[1]: 1.84e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 2.31e+05
+  allreduce/[1]/reduce_op: 2.08e+03
+conv2d: 3.32e+09
+ conv2d/backprop_filter: 1.11e+09
+ conv2d/backprop_input: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 3.32e+09
+ conv2d_unique/backprop_filter: 1.11e+09
+ conv2d_unique/backprop_input: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 1.33e+08
+einsum_unique: 1.32e+08
+output: 5.93e+07
+ output/AddOperation: 5.64e+06
+ output/BinaryOpWithBroadcasting: 2.54e+06
+ output/BroadcastOperation: 1.61e+06
+ output/ConcatOperation: 6.08e+06
+ output/Constant: 4
+ output/Conv2dOperation: 2.41e+06
+ output/Conv2or3dBackpropFilterOperation: 4.41e+04
+ output/Conv2or3dBackpropInputOperation: 4.15e+06
+ output/EinsumOperation: 6.09e+06
+ output/ImportOperation: 1.01e+05
+ output/MinMaxOperation: 64
+ output/OneHotOperation: 1.28e+03
+ output/PadOperation: 5.05e+06
+ output/ReduceOperation: 1.06e+05
+ output/ScalarAddOperation: 7.15e+05
+ output/ScalarMultiplyOperation: 1.11e+06
+ output/ShiftOperation: 6.13e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 7.68e+06
+ output/SplitOperation: 5.41e+06
+ output/StackOperation: 4.1e+03
+ output/StackedVariable: 4.1e+03
+ output/StopGradient: 1.28e+03
+ output/UnstackOperation: 4.1e+03
+ output/Variable: 1.17e+06
+output_unique: 5.24e+07
+ output_unique/AddOperation: 5.55e+06
+ output_unique/BinaryOpWithBroadcasting: 1.67e+06
+ output_unique/BroadcastOperation: 8.04e+05
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Constant: 1
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/Conv2or3dBackpropFilterOperation: 2.2e+04
+ output_unique/Conv2or3dBackpropInputOperation: 3.92e+06
+ output_unique/EinsumOperation: 4.91e+06
+ output_unique/ImportOperation: 5.03e+04
+ output_unique/MinMaxOperation: 16
+ output_unique/OneHotOperation: 640
+ output_unique/PadOperation: 5.05e+06
+ output_unique/ReduceOperation: 5.26e+04
+ output_unique/ScalarAddOperation: 6.92e+05
+ output_unique/ScalarMultiplyOperation: 9.63e+05
+ output_unique/ShiftOperation: 5.95e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 5.85e+06
+ output_unique/SplitOperation: 5.41e+06
+ output_unique/StackOperation: 2.05e+03
+ output_unique/StackedVariable: 2.05e+03
+ output_unique/StopGradient: 640
+ output_unique/UnstackOperation: 2.05e+03
+ output_unique/Variable: 1.12e+06
+shift[-1]: 4.87e+05
+shift[0]: 9.75e+05
+shift[1]: 4.87e+05
+variables: 1.12e+06
+ variables/trainable: 6.92e+05
+ variables/untrainable: 4.31e+05
+I0719 17:16:39.867565 140224315221824 ops.py:5936] Counters:
+allreduce: 2.02e+06
+ allreduce/[0, 1]: 16
+  allreduce/[0, 1]/reduce_op: 16
+ allreduce/[0]: 1.77e+05
+  allreduce/[0]/conv2d_backprop_filter: 4.41e+04
+  allreduce/[0]/einsum_op: 1.32e+05
+  allreduce/[0]/reduce_op: 1.04e+03
+ allreduce/[1, 0]: 8
+  allreduce/[1, 0]/reduce_op: 8
+ allreduce/[1]: 1.84e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 2.31e+05
+  allreduce/[1]/reduce_op: 2.08e+03
+conv2d: 3.32e+09
+ conv2d/backprop_filter: 1.11e+09
+ conv2d/backprop_input: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 3.32e+09
+ conv2d_unique/backprop_filter: 1.11e+09
+ conv2d_unique/backprop_input: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 1.33e+08
+einsum_unique: 1.32e+08
+output: 5.93e+07
+ output/AddOperation: 5.64e+06
+ output/BinaryOpWithBroadcasting: 2.54e+06
+ output/BroadcastOperation: 1.61e+06
+ output/ConcatOperation: 6.08e+06
+ output/Constant: 4
+ output/Conv2dOperation: 2.41e+06
+ output/Conv2or3dBackpropFilterOperation: 4.41e+04
+ output/Conv2or3dBackpropInputOperation: 4.15e+06
+ output/EinsumOperation: 6.09e+06
+ output/ImportOperation: 1.01e+05
+ output/MinMaxOperation: 64
+ output/OneHotOperation: 1.28e+03
+ output/PadOperation: 5.05e+06
+ output/ReduceOperation: 1.06e+05
+ output/ScalarAddOperation: 7.15e+05
+ output/ScalarMultiplyOperation: 1.11e+06
+ output/ShiftOperation: 6.13e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 7.68e+06
+ output/SplitOperation: 5.41e+06
+ output/StackOperation: 4.1e+03
+ output/StackedVariable: 4.1e+03
+ output/StopGradient: 1.28e+03
+ output/UnstackOperation: 4.1e+03
+ output/Variable: 1.17e+06
+output_unique: 5.24e+07
+ output_unique/AddOperation: 5.55e+06
+ output_unique/BinaryOpWithBroadcasting: 1.67e+06
+ output_unique/BroadcastOperation: 8.04e+05
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Constant: 1
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/Conv2or3dBackpropFilterOperation: 2.2e+04
+ output_unique/Conv2or3dBackpropInputOperation: 3.92e+06
+ output_unique/EinsumOperation: 4.91e+06
+ output_unique/ImportOperation: 5.03e+04
+ output_unique/MinMaxOperation: 16
+ output_unique/OneHotOperation: 640
+ output_unique/PadOperation: 5.05e+06
+ output_unique/ReduceOperation: 5.26e+04
+ output_unique/ScalarAddOperation: 6.92e+05
+ output_unique/ScalarMultiplyOperation: 9.63e+05
+ output_unique/ShiftOperation: 5.95e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 5.85e+06
+ output_unique/SplitOperation: 5.41e+06
+ output_unique/StackOperation: 2.05e+03
+ output_unique/StackedVariable: 2.05e+03
+ output_unique/StopGradient: 640
+ output_unique/UnstackOperation: 2.05e+03
+ output_unique/Variable: 1.12e+06
+shift[-1]: 4.87e+05
+shift[0]: 9.75e+05
+shift[1]: 4.87e+05
+variables: 1.12e+06
+ variables/trainable: 6.92e+05
+ variables/untrainable: 4.31e+05
+INFO:tensorflow:Create CheckpointSaverHook.
+I0719 17:16:39.893471 140224315221824 basic_session_run_hooks.py:546] Create CheckpointSaverHook.
+INFO:tensorflow:Done calling model_fn.
+I0719 17:16:39.905506 140224315221824 estimator.py:1153] Done calling model_fn.
+INFO:tensorflow:Starting the session.
+I0719 17:16:40.281142 140224315221824 ops.py:5738] Starting the session.
+INFO:tensorflow:Graph was finalized.
+I0719 17:16:40.328735 140224315221824 monitored_session.py:246] Graph was finalized.
+INFO:tensorflow:Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-18800
+I0719 17:16:43.111965 140224315221824 saver.py:1284] Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-18800
+WARNING:tensorflow:From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:1069: get_checkpoint_mtimes (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file utilities to get mtimes.
+W0719 17:16:44.146941 140224315221824 deprecation.py:323] From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:1069: get_checkpoint_mtimes (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file utilities to get mtimes.
+INFO:tensorflow:Running local_init_op.
+I0719 17:16:44.237400 140224315221824 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0719 17:16:44.283348 140224315221824 session_manager.py:507] Done running local_init_op.
+INFO:tensorflow:Before copy master to slices.
+I0719 17:16:44.342436 140224315221824 ops.py:5767] Before copy master to slices.
+INFO:tensorflow:Done with copy master to slices.
+I0719 17:16:46.858610 140224315221824 ops.py:5769] Done with copy master to slices.
+INFO:tensorflow:Saving checkpoints for 18800 into /home/haiqwa/output/mnist/model.ckpt.
+I0719 17:16:48.448527 140224315221824 basic_session_run_hooks.py:613] Saving checkpoints for 18800 into /home/haiqwa/output/mnist/model.ckpt.
+INFO:tensorflow:Before Save.
+I0719 17:16:48.450657 140224315221824 ops.py:5742] Before Save.
+INFO:tensorflow:About to write a checkpoint
+I0719 17:16:48.536484 140224315221824 ops.py:5744] About to write a checkpoint
+INFO:tensorflow:Done writing checkpoint.
+I0719 17:16:48.837288 140224315221824 ops.py:5747] Done writing checkpoint.
+INFO:tensorflow:loss = 2.3841858e-07, step = 18800
+I0719 17:16:58.550044 140224315221824 basic_session_run_hooks.py:262] loss = 2.3841858e-07, step = 18800
+INFO:tensorflow:global_step/sec: 26.2727
+I0719 17:17:02.354961 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 26.2727
+INFO:tensorflow:loss = 8.940697e-08, step = 18901 (3.806 sec)
+I0719 17:17:02.355533 140224315221824 basic_session_run_hooks.py:260] loss = 8.940697e-08, step = 18901 (3.806 sec)
+INFO:tensorflow:global_step/sec: 81.111
+I0719 17:17:03.587680 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 81.111
+INFO:tensorflow:loss = 7.0929527e-06, step = 19001 (1.233 sec)
+I0719 17:17:03.588057 140224315221824 basic_session_run_hooks.py:260] loss = 7.0929527e-06, step = 19001 (1.233 sec)
+INFO:tensorflow:global_step/sec: 91.8439
+I0719 17:17:04.676491 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 91.8439
+INFO:tensorflow:loss = 4.4703484e-08, step = 19101 (1.089 sec)
+I0719 17:17:04.676876 140224315221824 basic_session_run_hooks.py:260] loss = 4.4703484e-08, step = 19101 (1.089 sec)
+INFO:tensorflow:global_step/sec: 90.6374
+I0719 17:17:05.779782 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 90.6374
+INFO:tensorflow:loss = 4.4703484e-08, step = 19201 (1.103 sec)
+I0719 17:17:05.780170 140224315221824 basic_session_run_hooks.py:260] loss = 4.4703484e-08, step = 19201 (1.103 sec)
+INFO:tensorflow:global_step/sec: 89.9397
+I0719 17:17:06.891652 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 89.9397
+INFO:tensorflow:loss = 1.3411045e-07, step = 19301 (1.112 sec)
+I0719 17:17:06.892012 140224315221824 basic_session_run_hooks.py:260] loss = 1.3411045e-07, step = 19301 (1.112 sec)
+INFO:tensorflow:global_step/sec: 90.807
+I0719 17:17:07.992879 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 90.807
+INFO:tensorflow:loss = 1.6838312e-06, step = 19401 (1.101 sec)
+I0719 17:17:07.993245 140224315221824 basic_session_run_hooks.py:260] loss = 1.6838312e-06, step = 19401 (1.101 sec)
+INFO:tensorflow:global_step/sec: 89.578
+I0719 17:17:09.109367 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 89.578
+INFO:tensorflow:loss = -0.0, step = 19501 (1.117 sec)
+I0719 17:17:09.110126 140224315221824 basic_session_run_hooks.py:260] loss = -0.0, step = 19501 (1.117 sec)
+INFO:tensorflow:global_step/sec: 90.0126
+I0719 17:17:10.220177 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 90.0126
+INFO:tensorflow:loss = -0.0, step = 19601 (1.110 sec)
+I0719 17:17:10.220560 140224315221824 basic_session_run_hooks.py:260] loss = -0.0, step = 19601 (1.110 sec)
+INFO:tensorflow:global_step/sec: 89.6193
+I0719 17:17:11.336014 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 89.6193
+INFO:tensorflow:loss = 5.9604645e-08, step = 19701 (1.116 sec)
+I0719 17:17:11.336405 140224315221824 basic_session_run_hooks.py:260] loss = 5.9604645e-08, step = 19701 (1.116 sec)
+INFO:tensorflow:Saving checkpoints for 19738 into /home/haiqwa/output/mnist/model.ckpt.
+I0719 17:17:11.745257 140224315221824 basic_session_run_hooks.py:613] Saving checkpoints for 19738 into /home/haiqwa/output/mnist/model.ckpt.
+INFO:tensorflow:Before Save.
+I0719 17:17:11.745521 140224315221824 ops.py:5742] Before Save.
+INFO:tensorflow:About to write a checkpoint
+I0719 17:17:11.750118 140224315221824 ops.py:5744] About to write a checkpoint
+WARNING:tensorflow:From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:963: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+W0719 17:17:11.759966 140224315221824 deprecation.py:323] From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/saver.py:963: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+INFO:tensorflow:Done writing checkpoint.
+I0719 17:17:11.988341 140224315221824 ops.py:5747] Done writing checkpoint.
+INFO:tensorflow:Done with the session.
+I0719 17:17:11.988785 140224315221824 ops.py:5750] Done with the session.
+INFO:tensorflow:Loss for final step: 1.0430813e-06.
+I0719 17:17:12.136662 140224315221824 estimator.py:375] Loss for final step: 1.0430813e-06.
+WARNING:tensorflow:From /home/haiqwa/document/mtf/mnist/mnist_auto.py:223: DatasetV1.make_one_shot_iterator (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `for ... in dataset:` to iterate over a dataset. If using `tf.estimator`, return the `Dataset` object directly from your input function. As a last resort, you can use `tf.compat.v1.data.make_one_shot_iterator(dataset)`.
+W0719 17:17:12.171955 140224315221824 deprecation.py:323] From /home/haiqwa/document/mtf/mnist/mnist_auto.py:223: DatasetV1.make_one_shot_iterator (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `for ... in dataset:` to iterate over a dataset. If using `tf.estimator`, return the `Dataset` object directly from your input function. As a last resort, you can use `tf.compat.v1.data.make_one_shot_iterator(dataset)`.
+INFO:tensorflow:Calling model_fn.
+I0719 17:17:12.182059 140224315221824 estimator.py:1151] Calling model_fn.
+INFO:tensorflow:features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32, device=/device:CPU:0) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32, device=/device:CPU:0) mode = eval params={}
+I0719 17:17:12.182245 140224315221824 mnist_auto.py:115] features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32, device=/device:CPU:0) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32, device=/device:CPU:0) mode = eval params={}
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:12.184078 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:12.190235 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:12.204327 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:12.212072 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+INFO:tensorflow:[auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+I0719 17:17:12.367183 140224315221824 mnist_auto.py:122] [auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+INFO:tensorflow:Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+I0719 17:17:12.974039 140224315221824 ops.py:5936] Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+INFO:tensorflow:Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+I0719 17:17:12.974235 140224315221824 ops.py:5936] Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+INFO:tensorflow:Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+I0719 17:17:12.974350 140224315221824 ops.py:5936] Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+INFO:tensorflow:Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+I0719 17:17:12.974471 140224315221824 ops.py:5936] Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+INFO:tensorflow:Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+I0719 17:17:12.974611 140224315221824 ops.py:5936] Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+INFO:tensorflow:Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+I0719 17:17:12.974724 140224315221824 ops.py:5936] Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+INFO:tensorflow:Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+I0719 17:17:12.974831 140224315221824 ops.py:5936] Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+INFO:tensorflow:Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+I0719 17:17:12.974950 140224315221824 ops.py:5936] Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+INFO:tensorflow:Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:17:12.975029 140224315221824 ops.py:5936] Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:All Variables                  count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:17:12.975231 140224315221824 ops.py:5936] All Variables                  count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:Counters:
+allreduce: 1.74e+06
+ allreduce/[0]: 6.68e+04
+  allreduce/[0]/einsum_op: 6.68e+04
+ allreduce/[1]: 1.67e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 6.55e+04
+  allreduce/[1]/reduce_op: 768
+conv2d: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 4.29e+07
+einsum_unique: 4.28e+07
+output: 1.89e+07
+ output/AddOperation: 1.35e+05
+ output/ConcatOperation: 6.08e+06
+ output/Conv2dOperation: 2.41e+06
+ output/EinsumOperation: 2.34e+05
+ output/ImportOperation: 1.01e+05
+ output/OneHotOperation: 1.28e+03
+ output/ReduceOperation: 1.01e+05
+ output/ScalarMultiplyOperation: 1e+05
+ output/ShiftOperation: 3.24e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 2.54e+06
+ output/StopGradient: 1.28e+03
+ output/Variable: 7.15e+05
+output_unique: 1.62e+07
+ output_unique/AddOperation: 6.75e+04
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/EinsumOperation: 1.17e+05
+ output_unique/ImportOperation: 5.02e+04
+ output_unique/OneHotOperation: 640
+ output_unique/ReduceOperation: 5.04e+04
+ output_unique/ScalarMultiplyOperation: 5.02e+04
+ output_unique/ShiftOperation: 3.06e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 1.67e+06
+ output_unique/StopGradient: 640
+ output_unique/Variable: 6.92e+05
+shift[-1]: 2.58e+05
+shift[0]: 5.16e+05
+shift[1]: 2.58e+05
+variables: 6.92e+05
+ variables/trainable: 6.92e+05
+I0719 17:17:12.975807 140224315221824 ops.py:5936] Counters:
+allreduce: 1.74e+06
+ allreduce/[0]: 6.68e+04
+  allreduce/[0]/einsum_op: 6.68e+04
+ allreduce/[1]: 1.67e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 6.55e+04
+  allreduce/[1]/reduce_op: 768
+conv2d: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 4.29e+07
+einsum_unique: 4.28e+07
+output: 1.89e+07
+ output/AddOperation: 1.35e+05
+ output/ConcatOperation: 6.08e+06
+ output/Conv2dOperation: 2.41e+06
+ output/EinsumOperation: 2.34e+05
+ output/ImportOperation: 1.01e+05
+ output/OneHotOperation: 1.28e+03
+ output/ReduceOperation: 1.01e+05
+ output/ScalarMultiplyOperation: 1e+05
+ output/ShiftOperation: 3.24e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 2.54e+06
+ output/StopGradient: 1.28e+03
+ output/Variable: 7.15e+05
+output_unique: 1.62e+07
+ output_unique/AddOperation: 6.75e+04
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/EinsumOperation: 1.17e+05
+ output_unique/ImportOperation: 5.02e+04
+ output_unique/OneHotOperation: 640
+ output_unique/ReduceOperation: 5.04e+04
+ output_unique/ScalarMultiplyOperation: 5.02e+04
+ output_unique/ShiftOperation: 3.06e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 1.67e+06
+ output_unique/StopGradient: 640
+ output_unique/Variable: 6.92e+05
+shift[-1]: 2.58e+05
+shift[0]: 5.16e+05
+shift[1]: 2.58e+05
+variables: 6.92e+05
+ variables/trainable: 6.92e+05
+INFO:tensorflow:Done calling model_fn.
+I0719 17:17:12.989328 140224315221824 estimator.py:1153] Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2020-07-19T17:17:13Z
+I0719 17:17:13.001888 140224315221824 evaluation.py:255] Starting evaluation at 2020-07-19T17:17:13Z
+INFO:tensorflow:Graph was finalized.
+I0719 17:17:13.058583 140224315221824 monitored_session.py:246] Graph was finalized.
+INFO:tensorflow:Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-19738
+I0719 17:17:13.073893 140224315221824 saver.py:1284] Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-19738
+INFO:tensorflow:Running local_init_op.
+I0719 17:17:13.155594 140224315221824 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0719 17:17:13.192673 140224315221824 session_manager.py:507] Done running local_init_op.
+INFO:tensorflow:Before copy master to slices.
+I0719 17:17:13.253592 140224315221824 ops.py:5767] Before copy master to slices.
+INFO:tensorflow:Done with copy master to slices.
+I0719 17:17:13.320998 140224315221824 ops.py:5769] Done with copy master to slices.
+INFO:tensorflow:Inference Time : 1.78552s
+I0719 17:17:14.787572 140224315221824 evaluation.py:273] Inference Time : 1.78552s
+INFO:tensorflow:Finished evaluation at 2020-07-19-17:17:14
+I0719 17:17:14.787856 140224315221824 evaluation.py:276] Finished evaluation at 2020-07-19-17:17:14
+INFO:tensorflow:Saving dict for global step 19738: accuracy = 0.9900841, global_step = 19738, loss = 0.08604264
+I0719 17:17:14.788010 140224315221824 estimator.py:2053] Saving dict for global step 19738: accuracy = 0.9900841, global_step = 19738, loss = 0.08604264
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 19738: /home/haiqwa/output/mnist/model.ckpt-19738
+I0719 17:17:14.947010 140224315221824 estimator.py:2113] Saving 'checkpoint_path' summary for global step 19738: /home/haiqwa/output/mnist/model.ckpt-19738
+
+Evaluation results:
+        {'accuracy': 0.9900841, 'loss': 0.08604264, 'global_step': 19738}
+
+INFO:tensorflow:Calling model_fn.
+I0719 17:17:14.988227 140224315221824 estimator.py:1151] Calling model_fn.
+INFO:tensorflow:features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32) mode = train params={}
+I0719 17:17:14.988423 140224315221824 mnist_auto.py:115] features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32) mode = train params={}
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:14.990135 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:14.996490 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:15.010384 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:15.018218 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+INFO:tensorflow:[auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+I0719 17:17:15.171730 140224315221824 mnist_auto.py:122] [auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+INFO:tensorflow:Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+I0719 17:17:17.091753 140224315221824 ops.py:5936] Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+INFO:tensorflow:Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+I0719 17:17:17.091978 140224315221824 ops.py:5936] Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+INFO:tensorflow:Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+I0719 17:17:17.092093 140224315221824 ops.py:5936] Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+INFO:tensorflow:Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+I0719 17:17:17.092213 140224315221824 ops.py:5936] Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+INFO:tensorflow:Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+I0719 17:17:17.092329 140224315221824 ops.py:5936] Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+INFO:tensorflow:Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+I0719 17:17:17.092434 140224315221824 ops.py:5936] Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+INFO:tensorflow:Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+I0719 17:17:17.092534 140224315221824 ops.py:5936] Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+INFO:tensorflow:Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+I0719 17:17:17.092643 140224315221824 ops.py:5936] Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+INFO:tensorflow:Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:17:17.092721 140224315221824 ops.py:5936] Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:All Variables                  count: 15      Total size: 1122356          Total slice_size: 292378         
+I0719 17:17:17.093025 140224315221824 ops.py:5936] All Variables                  count: 15      Total size: 1122356          Total slice_size: 292378         
+INFO:tensorflow:Counters:
+allreduce: 2.02e+06
+ allreduce/[0, 1]: 16
+  allreduce/[0, 1]/reduce_op: 16
+ allreduce/[0]: 1.77e+05
+  allreduce/[0]/conv2d_backprop_filter: 4.41e+04
+  allreduce/[0]/einsum_op: 1.32e+05
+  allreduce/[0]/reduce_op: 1.04e+03
+ allreduce/[1, 0]: 8
+  allreduce/[1, 0]/reduce_op: 8
+ allreduce/[1]: 1.84e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 2.31e+05
+  allreduce/[1]/reduce_op: 2.08e+03
+conv2d: 3.32e+09
+ conv2d/backprop_filter: 1.11e+09
+ conv2d/backprop_input: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 3.32e+09
+ conv2d_unique/backprop_filter: 1.11e+09
+ conv2d_unique/backprop_input: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 1.33e+08
+einsum_unique: 1.32e+08
+output: 5.93e+07
+ output/AddOperation: 5.64e+06
+ output/BinaryOpWithBroadcasting: 2.54e+06
+ output/BroadcastOperation: 1.61e+06
+ output/ConcatOperation: 6.08e+06
+ output/Constant: 4
+ output/Conv2dOperation: 2.41e+06
+ output/Conv2or3dBackpropFilterOperation: 4.41e+04
+ output/Conv2or3dBackpropInputOperation: 4.15e+06
+ output/EinsumOperation: 6.09e+06
+ output/ImportOperation: 1.01e+05
+ output/MinMaxOperation: 64
+ output/OneHotOperation: 1.28e+03
+ output/PadOperation: 5.05e+06
+ output/ReduceOperation: 1.06e+05
+ output/ScalarAddOperation: 7.15e+05
+ output/ScalarMultiplyOperation: 1.11e+06
+ output/ShiftOperation: 6.13e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 7.68e+06
+ output/SplitOperation: 5.41e+06
+ output/StackOperation: 4.1e+03
+ output/StackedVariable: 4.1e+03
+ output/StopGradient: 1.28e+03
+ output/UnstackOperation: 4.1e+03
+ output/Variable: 1.17e+06
+output_unique: 5.24e+07
+ output_unique/AddOperation: 5.55e+06
+ output_unique/BinaryOpWithBroadcasting: 1.67e+06
+ output_unique/BroadcastOperation: 8.04e+05
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Constant: 1
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/Conv2or3dBackpropFilterOperation: 2.2e+04
+ output_unique/Conv2or3dBackpropInputOperation: 3.92e+06
+ output_unique/EinsumOperation: 4.91e+06
+ output_unique/ImportOperation: 5.03e+04
+ output_unique/MinMaxOperation: 16
+ output_unique/OneHotOperation: 640
+ output_unique/PadOperation: 5.05e+06
+ output_unique/ReduceOperation: 5.26e+04
+ output_unique/ScalarAddOperation: 6.92e+05
+ output_unique/ScalarMultiplyOperation: 9.63e+05
+ output_unique/ShiftOperation: 5.95e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 5.85e+06
+ output_unique/SplitOperation: 5.41e+06
+ output_unique/StackOperation: 2.05e+03
+ output_unique/StackedVariable: 2.05e+03
+ output_unique/StopGradient: 640
+ output_unique/UnstackOperation: 2.05e+03
+ output_unique/Variable: 1.12e+06
+shift[-1]: 4.87e+05
+shift[0]: 9.75e+05
+shift[1]: 4.87e+05
+variables: 1.12e+06
+ variables/trainable: 6.92e+05
+ variables/untrainable: 4.31e+05
+I0719 17:17:17.095289 140224315221824 ops.py:5936] Counters:
+allreduce: 2.02e+06
+ allreduce/[0, 1]: 16
+  allreduce/[0, 1]/reduce_op: 16
+ allreduce/[0]: 1.77e+05
+  allreduce/[0]/conv2d_backprop_filter: 4.41e+04
+  allreduce/[0]/einsum_op: 1.32e+05
+  allreduce/[0]/reduce_op: 1.04e+03
+ allreduce/[1, 0]: 8
+  allreduce/[1, 0]/reduce_op: 8
+ allreduce/[1]: 1.84e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 2.31e+05
+  allreduce/[1]/reduce_op: 2.08e+03
+conv2d: 3.32e+09
+ conv2d/backprop_filter: 1.11e+09
+ conv2d/backprop_input: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 3.32e+09
+ conv2d_unique/backprop_filter: 1.11e+09
+ conv2d_unique/backprop_input: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 1.33e+08
+einsum_unique: 1.32e+08
+output: 5.93e+07
+ output/AddOperation: 5.64e+06
+ output/BinaryOpWithBroadcasting: 2.54e+06
+ output/BroadcastOperation: 1.61e+06
+ output/ConcatOperation: 6.08e+06
+ output/Constant: 4
+ output/Conv2dOperation: 2.41e+06
+ output/Conv2or3dBackpropFilterOperation: 4.41e+04
+ output/Conv2or3dBackpropInputOperation: 4.15e+06
+ output/EinsumOperation: 6.09e+06
+ output/ImportOperation: 1.01e+05
+ output/MinMaxOperation: 64
+ output/OneHotOperation: 1.28e+03
+ output/PadOperation: 5.05e+06
+ output/ReduceOperation: 1.06e+05
+ output/ScalarAddOperation: 7.15e+05
+ output/ScalarMultiplyOperation: 1.11e+06
+ output/ShiftOperation: 6.13e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 7.68e+06
+ output/SplitOperation: 5.41e+06
+ output/StackOperation: 4.1e+03
+ output/StackedVariable: 4.1e+03
+ output/StopGradient: 1.28e+03
+ output/UnstackOperation: 4.1e+03
+ output/Variable: 1.17e+06
+output_unique: 5.24e+07
+ output_unique/AddOperation: 5.55e+06
+ output_unique/BinaryOpWithBroadcasting: 1.67e+06
+ output_unique/BroadcastOperation: 8.04e+05
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Constant: 1
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/Conv2or3dBackpropFilterOperation: 2.2e+04
+ output_unique/Conv2or3dBackpropInputOperation: 3.92e+06
+ output_unique/EinsumOperation: 4.91e+06
+ output_unique/ImportOperation: 5.03e+04
+ output_unique/MinMaxOperation: 16
+ output_unique/OneHotOperation: 640
+ output_unique/PadOperation: 5.05e+06
+ output_unique/ReduceOperation: 5.26e+04
+ output_unique/ScalarAddOperation: 6.92e+05
+ output_unique/ScalarMultiplyOperation: 9.63e+05
+ output_unique/ShiftOperation: 5.95e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 5.85e+06
+ output_unique/SplitOperation: 5.41e+06
+ output_unique/StackOperation: 2.05e+03
+ output_unique/StackedVariable: 2.05e+03
+ output_unique/StopGradient: 640
+ output_unique/UnstackOperation: 2.05e+03
+ output_unique/Variable: 1.12e+06
+shift[-1]: 4.87e+05
+shift[0]: 9.75e+05
+shift[1]: 4.87e+05
+variables: 1.12e+06
+ variables/trainable: 6.92e+05
+ variables/untrainable: 4.31e+05
+INFO:tensorflow:Create CheckpointSaverHook.
+I0719 17:17:17.120646 140224315221824 basic_session_run_hooks.py:546] Create CheckpointSaverHook.
+INFO:tensorflow:Done calling model_fn.
+I0719 17:17:17.132440 140224315221824 estimator.py:1153] Done calling model_fn.
+INFO:tensorflow:Starting the session.
+I0719 17:17:17.133211 140224315221824 ops.py:5738] Starting the session.
+INFO:tensorflow:Graph was finalized.
+I0719 17:17:17.178630 140224315221824 monitored_session.py:246] Graph was finalized.
+INFO:tensorflow:Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-19738
+I0719 17:17:17.195140 140224315221824 saver.py:1284] Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-19738
+INFO:tensorflow:Running local_init_op.
+I0719 17:17:17.360533 140224315221824 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0719 17:17:17.393594 140224315221824 session_manager.py:507] Done running local_init_op.
+INFO:tensorflow:Before copy master to slices.
+I0719 17:17:17.436870 140224315221824 ops.py:5767] Before copy master to slices.
+INFO:tensorflow:Done with copy master to slices.
+I0719 17:17:17.527734 140224315221824 ops.py:5769] Done with copy master to slices.
+INFO:tensorflow:Saving checkpoints for 19738 into /home/haiqwa/output/mnist/model.ckpt.
+I0719 17:17:18.962643 140224315221824 basic_session_run_hooks.py:613] Saving checkpoints for 19738 into /home/haiqwa/output/mnist/model.ckpt.
+INFO:tensorflow:Before Save.
+I0719 17:17:18.964817 140224315221824 ops.py:5742] Before Save.
+INFO:tensorflow:About to write a checkpoint
+I0719 17:17:19.049212 140224315221824 ops.py:5744] About to write a checkpoint
+INFO:tensorflow:Done writing checkpoint.
+I0719 17:17:19.333876 140224315221824 ops.py:5747] Done writing checkpoint.
+INFO:tensorflow:loss = 9.23872e-07, step = 19739
+I0719 17:17:23.032411 140224315221824 basic_session_run_hooks.py:262] loss = 9.23872e-07, step = 19739
+INFO:tensorflow:global_step/sec: 27.0819
+I0719 17:17:26.724045 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 27.0819
+INFO:tensorflow:loss = 2.9802322e-08, step = 19839 (3.692 sec)
+I0719 17:17:26.724480 140224315221824 basic_session_run_hooks.py:260] loss = 2.9802322e-08, step = 19839 (3.692 sec)
+INFO:tensorflow:global_step/sec: 81.735
+I0719 17:17:27.947406 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 81.735
+INFO:tensorflow:loss = 1.4901161e-07, step = 19939 (1.223 sec)
+I0719 17:17:27.947782 140224315221824 basic_session_run_hooks.py:260] loss = 1.4901161e-07, step = 19939 (1.223 sec)
+INFO:tensorflow:global_step/sec: 89.5186
+I0719 17:17:29.064613 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 89.5186
+INFO:tensorflow:loss = 1.2516975e-06, step = 20039 (1.117 sec)
+I0719 17:17:29.065275 140224315221824 basic_session_run_hooks.py:260] loss = 1.2516975e-06, step = 20039 (1.117 sec)
+INFO:tensorflow:global_step/sec: 92.0987
+I0719 17:17:30.150311 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 92.0987
+INFO:tensorflow:loss = 1.4305115e-06, step = 20139 (1.085 sec)
+I0719 17:17:30.150713 140224315221824 basic_session_run_hooks.py:260] loss = 1.4305115e-06, step = 20139 (1.085 sec)
+INFO:tensorflow:global_step/sec: 92.9181
+I0719 17:17:31.226511 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 92.9181
+INFO:tensorflow:loss = -0.0, step = 20239 (1.076 sec)
+I0719 17:17:31.226888 140224315221824 basic_session_run_hooks.py:260] loss = -0.0, step = 20239 (1.076 sec)
+INFO:tensorflow:global_step/sec: 91.5948
+I0719 17:17:32.318361 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 91.5948
+INFO:tensorflow:loss = 7.4505806e-08, step = 20339 (1.092 sec)
+I0719 17:17:32.319000 140224315221824 basic_session_run_hooks.py:260] loss = 7.4505806e-08, step = 20339 (1.092 sec)
+INFO:tensorflow:global_step/sec: 92.2113
+I0719 17:17:33.402769 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 92.2113
+INFO:tensorflow:loss = 7.748604e-07, step = 20439 (1.084 sec)
+I0719 17:17:33.403230 140224315221824 basic_session_run_hooks.py:260] loss = 7.748604e-07, step = 20439 (1.084 sec)
+INFO:tensorflow:global_step/sec: 92.2063
+I0719 17:17:34.487280 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 92.2063
+INFO:tensorflow:loss = 6.556511e-07, step = 20539 (1.084 sec)
+I0719 17:17:34.487647 140224315221824 basic_session_run_hooks.py:260] loss = 6.556511e-07, step = 20539 (1.084 sec)
+INFO:tensorflow:global_step/sec: 89.4406
+I0719 17:17:35.605535 140224315221824 basic_session_run_hooks.py:700] global_step/sec: 89.4406
+INFO:tensorflow:loss = 8.940697e-08, step = 20639 (1.119 sec)
+I0719 17:17:35.606303 140224315221824 basic_session_run_hooks.py:260] loss = 8.940697e-08, step = 20639 (1.119 sec)
+INFO:tensorflow:Saving checkpoints for 20676 into /home/haiqwa/output/mnist/model.ckpt.
+I0719 17:17:36.007810 140224315221824 basic_session_run_hooks.py:613] Saving checkpoints for 20676 into /home/haiqwa/output/mnist/model.ckpt.
+INFO:tensorflow:Before Save.
+I0719 17:17:36.008131 140224315221824 ops.py:5742] Before Save.
+INFO:tensorflow:About to write a checkpoint
+I0719 17:17:36.012446 140224315221824 ops.py:5744] About to write a checkpoint
+INFO:tensorflow:Done writing checkpoint.
+I0719 17:17:36.278749 140224315221824 ops.py:5747] Done writing checkpoint.
+INFO:tensorflow:Done with the session.
+I0719 17:17:36.279044 140224315221824 ops.py:5750] Done with the session.
+INFO:tensorflow:Loss for final step: 1.4901161e-07.
+I0719 17:17:36.457487 140224315221824 estimator.py:375] Loss for final step: 1.4901161e-07.
+INFO:tensorflow:Calling model_fn.
+I0719 17:17:36.500375 140224315221824 estimator.py:1151] Calling model_fn.
+INFO:tensorflow:features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32, device=/device:CPU:0) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32, device=/device:CPU:0) mode = eval params={}
+I0719 17:17:36.500618 140224315221824 mnist_auto.py:115] features = Tensor("IteratorGetNext:0", shape=(64, 784), dtype=float32, device=/device:CPU:0) labels = Tensor("IteratorGetNext:1", shape=(64,), dtype=int32, device=/device:CPU:0) mode = eval params={}
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:36.502249 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv0/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+W0719 17:17:36.508448 140224315221824 ops.py:4193] Using default tf glorot_uniform_initializer for variable conv1/kernel  The initialzer will guess the input and output dimensions  based on dimension order.
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:36.521853 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+WARNING:tensorflow:Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+W0719 17:17:36.529465 140224315221824 layers.py:160] Deprecation warning - it is recommended to pass reduced_dims explicitly to mtf.layers.dense() so as not to depend on dimension order. To silence this warning, explicitly pass reduced_dims=x.shape.dims[-1:] (in scope )
+INFO:tensorflow:[auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+I0719 17:17:36.684226 140224315221824 mnist_auto.py:122] [auto mtf search] strategy: LayoutRules{('classes', 'b2'), ('hidden1', 'b2'), ('hidden2', 'b1'), ('row_blocks', 'b1'), ('filters1', 'b2')}
+INFO:tensorflow:Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+I0719 17:17:37.376385 140224315221824 ops.py:5936] Variable conv0/kernel                                                 size 1296         slice_size 648          Shape[fh=9, fw=9, one_channel=1, filters1=16]               
+INFO:tensorflow:Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+I0719 17:17:37.376637 140224315221824 ops.py:5936] Variable conv1/kernel                                                 size 20736        slice_size 10368        Shape[fh=9, fw=9, filters1=16, filters2=16]                 
+INFO:tensorflow:Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+I0719 17:17:37.376772 140224315221824 ops.py:5936] Variable hidden1/bias                                                 size 512          slice_size 256          Shape[hidden1=512]                                          
+INFO:tensorflow:Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+I0719 17:17:37.376911 140224315221824 ops.py:5936] Variable hidden1/kernel                                               size 401408       slice_size 100352       Shape[row_blocks=4, col_blocks=4, rows_size=7, cols_size=7, hidden1=512]
+INFO:tensorflow:Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+I0719 17:17:37.377019 140224315221824 ops.py:5936] Variable hidden2/bias                                                 size 512          slice_size 256          Shape[hidden2=512]                                          
+INFO:tensorflow:Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+I0719 17:17:37.377125 140224315221824 ops.py:5936] Variable hidden2/kernel                                               size 262144       slice_size 65536        Shape[hidden1=512, hidden2=512]                             
+INFO:tensorflow:Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+I0719 17:17:37.377225 140224315221824 ops.py:5936] Variable logits/bias                                                  size 10           slice_size 5            Shape[classes=10]                                           
+INFO:tensorflow:Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+I0719 17:17:37.377327 140224315221824 ops.py:5936] Variable logits/kernel                                                size 5120         slice_size 1280         Shape[hidden2=512, classes=10]                              
+INFO:tensorflow:Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:17:37.377405 140224315221824 ops.py:5936] Trainable Variables            count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:All Variables                  count: 8       Total size: 691738           Total slice_size: 178701         
+I0719 17:17:37.377614 140224315221824 ops.py:5936] All Variables                  count: 8       Total size: 691738           Total slice_size: 178701         
+INFO:tensorflow:Counters:
+allreduce: 1.74e+06
+ allreduce/[0]: 6.68e+04
+  allreduce/[0]/einsum_op: 6.68e+04
+ allreduce/[1]: 1.67e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 6.55e+04
+  allreduce/[1]/reduce_op: 768
+conv2d: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 4.29e+07
+einsum_unique: 4.28e+07
+output: 1.89e+07
+ output/AddOperation: 1.35e+05
+ output/ConcatOperation: 6.08e+06
+ output/Conv2dOperation: 2.41e+06
+ output/EinsumOperation: 2.34e+05
+ output/ImportOperation: 1.01e+05
+ output/OneHotOperation: 1.28e+03
+ output/ReduceOperation: 1.01e+05
+ output/ScalarMultiplyOperation: 1e+05
+ output/ShiftOperation: 3.24e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 2.54e+06
+ output/StopGradient: 1.28e+03
+ output/Variable: 7.15e+05
+output_unique: 1.62e+07
+ output_unique/AddOperation: 6.75e+04
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/EinsumOperation: 1.17e+05
+ output_unique/ImportOperation: 5.02e+04
+ output_unique/OneHotOperation: 640
+ output_unique/ReduceOperation: 5.04e+04
+ output_unique/ScalarMultiplyOperation: 5.02e+04
+ output_unique/ShiftOperation: 3.06e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 1.67e+06
+ output_unique/StopGradient: 640
+ output_unique/Variable: 6.92e+05
+shift[-1]: 2.58e+05
+shift[0]: 5.16e+05
+shift[1]: 2.58e+05
+variables: 6.92e+05
+ variables/trainable: 6.92e+05
+I0719 17:17:37.378184 140224315221824 ops.py:5936] Counters:
+allreduce: 1.74e+06
+ allreduce/[0]: 6.68e+04
+  allreduce/[0]/einsum_op: 6.68e+04
+ allreduce/[1]: 1.67e+06
+  allreduce/[1]/conv2d_op: 1.61e+06
+  allreduce/[1]/einsum_op: 6.55e+04
+  allreduce/[1]/reduce_op: 768
+conv2d: 1.11e+09
+ conv2d/forward: 1.11e+09
+conv2d_unique: 1.11e+09
+ conv2d_unique/forward: 1.11e+09
+einsum: 4.29e+07
+einsum_unique: 4.28e+07
+output: 1.89e+07
+ output/AddOperation: 1.35e+05
+ output/ConcatOperation: 6.08e+06
+ output/Conv2dOperation: 2.41e+06
+ output/EinsumOperation: 2.34e+05
+ output/ImportOperation: 1.01e+05
+ output/OneHotOperation: 1.28e+03
+ output/ReduceOperation: 1.01e+05
+ output/ScalarMultiplyOperation: 1e+05
+ output/ShiftOperation: 3.24e+06
+ output/SliceOperation: 3.24e+06
+ output/SlicewiseOperation: 2.54e+06
+ output/StopGradient: 1.28e+03
+ output/Variable: 7.15e+05
+output_unique: 1.62e+07
+ output_unique/AddOperation: 6.75e+04
+ output_unique/ConcatOperation: 5.74e+06
+ output_unique/Conv2dOperation: 1.61e+06
+ output_unique/EinsumOperation: 1.17e+05
+ output_unique/ImportOperation: 5.02e+04
+ output_unique/OneHotOperation: 640
+ output_unique/ReduceOperation: 5.04e+04
+ output_unique/ScalarMultiplyOperation: 5.02e+04
+ output_unique/ShiftOperation: 3.06e+06
+ output_unique/SliceOperation: 3.06e+06
+ output_unique/SlicewiseOperation: 1.67e+06
+ output_unique/StopGradient: 640
+ output_unique/Variable: 6.92e+05
+shift[-1]: 2.58e+05
+shift[0]: 5.16e+05
+shift[1]: 2.58e+05
+variables: 6.92e+05
+ variables/trainable: 6.92e+05
+INFO:tensorflow:Done calling model_fn.
+I0719 17:17:37.390704 140224315221824 estimator.py:1153] Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2020-07-19T17:17:37Z
+I0719 17:17:37.403041 140224315221824 evaluation.py:255] Starting evaluation at 2020-07-19T17:17:37Z
+INFO:tensorflow:Graph was finalized.
+I0719 17:17:37.457183 140224315221824 monitored_session.py:246] Graph was finalized.
+INFO:tensorflow:Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-20676
+I0719 17:17:37.477080 140224315221824 saver.py:1284] Restoring parameters from /home/haiqwa/output/mnist/model.ckpt-20676
+INFO:tensorflow:Running local_init_op.
+I0719 17:17:37.594972 140224315221824 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0719 17:17:37.622955 140224315221824 session_manager.py:507] Done running local_init_op.
+INFO:tensorflow:Before copy master to slices.
+I0719 17:17:37.670203 140224315221824 ops.py:5767] Before copy master to slices.
+INFO:tensorflow:Done with copy master to slices.
+I0719 17:17:37.739547 140224315221824 ops.py:5769] Done with copy master to slices.
+INFO:tensorflow:Inference Time : 1.79167s
+I0719 17:17:39.194854 140224315221824 evaluation.py:273] Inference Time : 1.79167s
+INFO:tensorflow:Finished evaluation at 2020-07-19-17:17:39
+I0719 17:17:39.196342 140224315221824 evaluation.py:276] Finished evaluation at 2020-07-19-17:17:39
+INFO:tensorflow:Saving dict for global step 20676: accuracy = 0.9900841, global_step = 20676, loss = 0.087094545
+I0719 17:17:39.196518 140224315221824 estimator.py:2053] Saving dict for global step 20676: accuracy = 0.9900841, global_step = 20676, loss = 0.087094545
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 20676: /home/haiqwa/output/mnist/model.ckpt-20676
+I0719 17:17:39.197153 140224315221824 estimator.py:2113] Saving 'checkpoint_path' summary for global step 20676: /home/haiqwa/output/mnist/model.ckpt-20676
+
+Evaluation results:
+        {'accuracy': 0.9900841, 'loss': 0.087094545, 'global_step': 20676}
