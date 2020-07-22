@@ -1,6 +1,6 @@
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow as mtf
-white_list = [18,50,101,152]
+white_list = [50,101,152]
 
 
 
@@ -192,9 +192,18 @@ def backbone(x, layerlist, chalist, strilist, classesnum):
     logit = mtf.layers.dense(x, classes_dim, name="dense")
     return logit
 
-def resnet_model(classesnum, depth):
+def resnet_model(x, classesnum, depth):
     if depth not in white_list:
         print("Renet-{}".format(depth))
         raise ValueError
     else:
-        pass
+        if depth==50:
+        # resnet50
+            x = backbone(
+                            x,
+                            layerlist=[3,4,6,3],
+                            chalist=[256,512,1024,2048],
+                            strilist=[1,2,2,2],
+                            classesnum=classesnum
+                            )
+    return x
