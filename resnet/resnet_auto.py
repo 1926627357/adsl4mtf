@@ -68,10 +68,8 @@ def mnist_model(image, labels, mesh):
 		mesh, tf.reshape(image, [FLAGS.batch_size, image_height, image_width, num_channels]),
 		mtf.Shape(
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
-	# x = mtf.transpose(x, [
-	# 	batch_dim, row_blocks_dim, col_blocks_dim,
-	# 	rows_dim, cols_dim, channel_dim])
-	
+	x = mtf.transpose(x, [batch_dim, rows_dim, cols_dim, channel_dim])
+	# print(x.shape)
 	logits = resnet_model(x, classes_dim=classes_dim,depth=50)
 
 
