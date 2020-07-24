@@ -75,7 +75,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     identity = mtf.layers.conv2d(
                                     identity,
                                     output_dim=mtf.Dimension(
-                                                                name=name+'-'+str(order)+'-'+'filters4',
+                                                                name=name+'-'+str(order)+'-'+'filters3',
                                                                 size=out_channels
                                                                 ),
                                     filter_size=(1,1),
@@ -165,6 +165,11 @@ def ResidualBlock(x, order, out_channels, strides):
                                 epsilon=1e-5,
                                 name="batch_norm_RB_3"+'-'+str(order)
                                 )
+    identity = mtf.reshape(
+                            identity, 
+                            new_shape=[identity.shape.dims[0],identity.shape.dims[1],identity.shape.dims[2], x.shape.dims[3]],
+                            name="reshape_RB"+str(order)
+                            )
     x = mtf.add(x,identity,output_shape=x.shape,name="add_RB_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_RB_3"+'-'+str(order))
     print(x.name)
@@ -200,7 +205,7 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
     print(x.shape)
     x = mtf.layers.max_pool2d(
                                 x,
-                                ksize=(3,3),
+                                ksize=(2,2),
                                 name="maxpool_backbone"
                                 )
     print(x.name)
@@ -227,11 +232,11 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
         for tindex in range(layer-1):
             x = ResidualBlock(x, order= index * layer +tindex+1,out_channels=channel,strides=(1,1))
     
+    x = mtf.einsum([x], output_shape=[list(x.shape.dims)[0],list(x.shape.dims)[3]], name="einsum_backbone")
 
-    print("x.shape.dims",x.shape.dims)
-    x = mtf.einsum(x, output_shape=mtf.Shape([x.shape.dims[0],x.shape.dims[1]]), name="einsum")
-
-    logit = mtf.layers.dense(x, classes_dim, name="dense")
+    logit = mtf.layers.dense(x, classes_dim, name="dense_backbone")
+    print(logit.name)
+    print(logit.shape)
     return logit
 
 def resnet_model(x, classes_dim, depth):

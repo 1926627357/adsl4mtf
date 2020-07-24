@@ -28,10 +28,11 @@ import mesh_tensorflow.auto_mtf
 import os
 from model import resnet_model
 from config import *
+tf.compat.v1.disable_eager_execution()
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
-tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/mnist", "Estimator model_dir")
+tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet", "Estimator model_dir")
 tf.flags.DEFINE_integer("batch_size", 64,
                         "Mini-batch size for the training. Note that this "
                         "is the global batch size and not the per-shard batch.")

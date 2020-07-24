@@ -26,6 +26,7 @@ import mnist_dataset as dataset  # local file import
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow.auto_mtf
 import os
+tf.compat.v1.disable_eager_execution()
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/mnist",
                        "Path to directory containing the MNIST dataset")
