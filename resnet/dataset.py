@@ -17,7 +17,7 @@ def load_dataset(dataset_root_dir, train_logic=True):
     def decode_image(inputstream):
         inputstream = tf.decode_raw(inputstream, tf.uint8)
         image, label = tf.slice(inputstream,[1],[image_vec_length]), tf.slice(inputstream,[0],[1])
-        image = tf.cast(image, tf.float32)
+        image = tf.cast(image, tf.float16)
         image = tf.reshape(image, [32*32*3])
         image = image/255
         # label = tf.reshape(label, [])

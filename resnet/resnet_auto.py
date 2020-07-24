@@ -29,7 +29,10 @@ import os
 from model import resnet_model
 from config import *
 tf.compat.v1.disable_eager_execution()
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+os.environ["TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE"] = "1"
+os.environ['TF_ENABLE_AUTO_MIXED_PRECISION'] = '1'
+os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
 tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet", "Estimator model_dir")
@@ -43,7 +46,7 @@ tf.flags.DEFINE_integer("epochs_between_evals", 1,
 tf.flags.DEFINE_integer("eval_steps", 0,
                         "Total number of evaluation steps. If `0`, evaluation "
                         "after training is skipped.")
-tf.flags.DEFINE_string("mesh_shape", "b1:2;b2:2", "mesh shape")
+tf.flags.DEFINE_string("mesh_shape", "b1:1;b2:2", "mesh shape")
 tf.flags.DEFINE_string("layout", "row_blocks:b1;col_blocks:b2",
                        "layout rules")
 
@@ -69,10 +72,10 @@ def mnist_model(image, labels, mesh):
 		mesh, tf.reshape(image, [FLAGS.batch_size, image_height, image_width, num_channels]),
 		mtf.Shape(
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
-	x = mtf.transpose(x, [batch_dim, rows_dim, cols_dim, channel_dim])
+	# x = mtf.transpose(x, [batch_dim, rows_dim, cols_dim, channel_dim])
 	# print(x.shape)
 	logits = resnet_model(x, classes_dim=classes_dim,depth=50)
-
+	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:
 		loss = None
@@ -104,7 +107,7 @@ def model_fn(features, labels, mode, params):
 	tf.logging.info("[auto mtf search] strategy: {}".format(layout_rules))
 	
 	mesh_size = mesh_shape.size
-	mesh_devices = ["gpu:0", "gpu:1", "gpu:2", "gpu:3"]
+	mesh_devices = ["gpu:2", "gpu:3"]
 	mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(
 		mesh_shape, layout_rules, mesh_devices)
 
@@ -112,6 +115,7 @@ def model_fn(features, labels, mode, params):
 		var_grads = mtf.gradients(
 			[loss], [v.outputs[0] for v in graph.trainable_variables])
 		optimizer = mtf.optimize.AdafactorOptimizer()
+		# optimizer = tf.train.experimental.enable_mixed_precision_graph_rewrite(optimizer)
 		update_ops = optimizer.apply_grads(var_grads, graph.trainable_variables)
 
 	lowering = mtf.Lowering(graph, {mesh: mesh_impl})
@@ -126,19 +130,19 @@ def model_fn(features, labels, mode, params):
 		tf_update_ops = [lowering.lowered_operation(op) for op in update_ops]
 		tf_update_ops.append(tf.assign_add(global_step, 1))
 		train_op = tf.group(tf_update_ops)
-		saver = tf.train.Saver(
-			tf.global_variables(),
-			sharded=True,
-			max_to_keep=10,
-			keep_checkpoint_every_n_hours=2,
-			defer_build=False, save_relative_paths=True)
-		tf.add_to_collection(tf.GraphKeys.SAVERS, saver)
-		saver_listener = mtf.MtfCheckpointSaverListener(lowering)
-		saver_hook = tf.train.CheckpointSaverHook(
-			FLAGS.model_dir,
-			save_steps=1000,
-			saver=saver,
-			listeners=[saver_listener])
+		# saver = tf.train.Saver(
+		# 	tf.global_variables(),
+		# 	sharded=True,
+		# 	max_to_keep=10,
+		# 	keep_checkpoint_every_n_hours=2,
+		# 	defer_build=False, save_relative_paths=True)
+		# tf.add_to_collection(tf.GraphKeys.SAVERS, saver)
+		# saver_listener = mtf.MtfCheckpointSaverListener(lowering)
+		# saver_hook = tf.train.CheckpointSaverHook(
+		# 	FLAGS.model_dir,
+		# 	save_steps=1000,
+		# 	saver=saver,
+		# 	listeners=[saver_listener])
 
 		accuracy = tf.metrics.accuracy(
 			labels=labels, predictions=tf.argmax(tf_logits, axis=1))
@@ -147,13 +151,15 @@ def model_fn(features, labels, mode, params):
 		tf.identity(tf_loss, "cross_entropy")
 		tf.identity(accuracy[1], name="train_accuracy")
 
+		logging_hook = tf.train.LoggingTensorHook(every_n_iter=100,tensors={'loss': 'cross_entropy','acc':'train_accuracy'})
+
 		# Save accuracy scalar to Tensorboard output.
-		tf.summary.scalar("train_accuracy", accuracy[1])
+		# tf.summary.scalar("train_accuracy", accuracy[1])
 
 		# restore_hook must come before saver_hook
 		return tf.estimator.EstimatorSpec(
 			tf.estimator.ModeKeys.TRAIN, loss=tf_loss, train_op=train_op,
-			training_chief_hooks=[restore_hook, saver_hook])
+			training_chief_hooks=[restore_hook,logging_hook])
 
 	if mode == tf.estimator.ModeKeys.PREDICT:
 		predictions = {
@@ -198,7 +204,7 @@ def run_mnist():
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times
 		# during each training session.
-		ds = ds_batched.repeat(FLAGS.epochs_between_evals)
+		ds = ds_batched.repeat(FLAGS.train_epochs)
 		return ds
 
 	# def eval_input_fn():
@@ -206,8 +212,8 @@ def run_mnist():
 	# 		FLAGS.batch_size,drop_remainder=True).make_one_shot_iterator().get_next()
 
 	# Train and evaluate model.
-	for _ in range(FLAGS.train_epochs // FLAGS.epochs_between_evals):
-		mnist_classifier.train(input_fn=train_input_fn, hooks=None)
+	# for _ in range(FLAGS.train_epochs // FLAGS.epochs_between_evals):
+	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
 		# eval_results = mnist_classifier.evaluate(input_fn=eval_input_fn)
 		# print("\nEvaluation results:\n\t%s\n" % eval_results)
 
