@@ -36,7 +36,7 @@ os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
 tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet", "Estimator model_dir")
-tf.flags.DEFINE_integer("batch_size", 64,
+tf.flags.DEFINE_integer("batch_size", 32,
                         "Mini-batch size for the training. Note that this "
                         "is the global batch size and not the per-shard batch.")
 tf.flags.DEFINE_integer("hidden_size", 512, "Size of each hidden layer.")
@@ -104,10 +104,11 @@ def model_fn(features, labels, mode, params):
 
 	mesh_shape = mtf.convert_to_shape(FLAGS.mesh_shape)
 	layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
-	tf.logging.info("[auto mtf search] strategy: {}".format(layout_rules))
+	# layout_rules = {('ResidualBlock-8-filters1', 'b2'), ('ResidualBlock-3-filters3', 'b1'), ('ResidualBlockWithDown-0-filters3', 'b2'), ('ResidualBlockWithDown-1-filters2', 'b2'), ('ResidualBlock-2-filters2', 'b1'), ('ResidualBlockWithDown-2-filters2', 'b1'), ('ResidualBlock-10-filters2', 'b1'), ('ResidualBlockWithDown-3-filters3', 'b1'), ('ResidualBlock-7-filters2', 'b2'), ('ResidualBlock-0-filters2', 'b2'), ('ResidualBlock-1-filters1', 'b2'), ('ResidualBlockWithDown-2-filters1', 'b2'), ('ResidualBlockWithDown-1-filters3', 'b1'), ('ResidualBlockWithDown-0-filters1', 'b2'), ('ResidualBlock-2-filters1', 'b2'), ('ResidualBlock-6-filters3', 'b2'), ('ResidualBlock-4-filters2', 'b1'), ('ResidualBlock-1-filters3', 'b2'), ('ResidualBlock-9-filters2', 'b1'), ('ResidualBlock-11-filters2', 'b2'), ('ResidualBlock-1-filters2', 'b1'), ('ResidualBlock-5-filters1', 'b1'), ('ResidualBlock-11-filters3', 'b1'), ('classesnum', 'b2'), ('ResidualBlock-9-filters3', 'b2'), ('ResidualBlock-2-filters3', 'b2'), ('ResidualBlockWithDown-3-filters2', 'b2'), ('ResidualBlock-6-filters2', 'b1'), ('ResidualBlock-3-filters2', 'b2'), ('backbone-filters', 'b1'), ('ResidualBlock-10-filters1', 'b2'), ('ResidualBlock-8-filters2', 'b1'), ('ResidualBlock-5-filters3', 'b1'), ('ResidualBlock-4-filters1', 'b2'), ('ResidualBlock-7-filters1', 'b1'), ('ResidualBlock-7-filters3', 'b1'), ('ResidualBlock-11-filters1', 'b1'), ('ResidualBlock-10-filters3', 'b2'), ('ResidualBlockWithDown-2-filters3', 'b2'), ('ResidualBlock-5-filters2', 'b2'), ('ResidualBlock-3-filters1', 'b1'), ('ResidualBlock-0-filters1', 'b1'), ('ResidualBlock-0-filters3', 'b1'), ('ResidualBlock-6-filters1', 'b2'), ('ResidualBlock-9-filters1', 'b2'), ('ResidualBlockWithDown-0-filters2', 'b1'), ('ResidualBlockWithDown-3-filters1', 'b1'), ('ResidualBlockWithDown-1-filters1', 'b1')}
+	print("[auto mtf search] strategy: {}".format(layout_rules))
 	
 	mesh_size = mesh_shape.size
-	mesh_devices = ["gpu:2", "gpu:3"]
+	mesh_devices = ["gpu:0", "gpu:1"]
 	mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(
 		mesh_shape, layout_rules, mesh_devices)
 

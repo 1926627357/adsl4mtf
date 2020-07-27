@@ -1,6 +1,6 @@
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow as mtf
-white_list = [50,101,152]
+white_list = [18,34,50,101,152]
 
 
 
@@ -91,7 +91,11 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                         epsilon=1e-5,
                                         name="batch_norm_RBW_4"+'-'+str(order)
                                         )
-
+    identity = mtf.reshape(
+                            identity, 
+                            new_shape=[identity.shape.dims[0],identity.shape.dims[1],identity.shape.dims[2], x.shape.dims[3]],
+                            name="reshape_RBW"+str(order)
+                            )
     x = mtf.add(x,identity,output_shape=x.shape,name="add_RBW_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_RBW_3"+'-'+str(order))
     print(x.name)
@@ -207,12 +211,12 @@ def BasicBlock(x, order, out_channels, strides):
     x = mtf.layers.conv2d(
                             x,
                             output_dim=mtf.Dimension(
-                                                        name=name+'-'+str(order)+'-'+'filters3',
+                                                        name=name+'-'+str(order)+'-'+'filters2',
                                                         size=out_channels
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv1x1_BB_2"+'-'+str(order)
+                            name="conv3x3_BB_2"+'-'+str(order)
                             )
     print(x.name)
     print(x.shape)
@@ -228,6 +232,7 @@ def BasicBlock(x, order, out_channels, strides):
                             new_shape=[identity.shape.dims[0],identity.shape.dims[1],identity.shape.dims[2], x.shape.dims[3]],
                             name="reshape_BB"+str(order)
                             )
+    
     x = mtf.add(x,identity,output_shape=x.shape,name="add_BB_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_BB_2"+'-'+str(order))
     print(x.name)
@@ -274,7 +279,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3-2_BBW_2"+'-'+str(order)
+                            name="conv3x3_BBW_2"+'-'+str(order)
                             )
     print(x.name)
     print(x.shape)
@@ -304,7 +309,11 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                         epsilon=1e-5,
                                         name="batch_norm_BBW_3"+'-'+str(order)
                                         )
-
+    identity = mtf.reshape(
+                            identity, 
+                            new_shape=[identity.shape.dims[0],identity.shape.dims[1],identity.shape.dims[2], x.shape.dims[3]],
+                            name="reshape_BBW"+str(order)
+                            )
     x = mtf.add(x,identity,output_shape=x.shape,name="add_BBW_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_BBW_2"+'-'+str(order))
     print(x.name)
@@ -312,7 +321,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
     return x
 
 
-def backbone(x, layerlist, chalist, strilist, classes_dim):
+def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
     name = "backbone"
     print(x.name)
     print(x.shape)
@@ -346,11 +355,14 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
                                 )
     print(x.name)
     print(x.shape)
-    
+    shortcuttype1 = 0
+    shortcuttype2 = 0
     for index,(layer, channel, strides) in enumerate(zip(layerlist, chalist, strilist)):
-        x = ResidualBlockWithDown(x,order=index,out_channels=channel,strides=(strides,strides))
+        x = blocklist[0](x,order=shortcuttype1,out_channels=channel,strides=(strides,strides))
+        shortcuttype1+=1
         for tindex in range(layer-1):
-            x = ResidualBlock(x, order= index * layer +tindex+1,out_channels=channel,strides=(1,1))
+            x = blocklist[1](x, order= shortcuttype2,out_channels=channel,strides=(1,1))
+            shortcuttype2+=1
     
     x = mtf.einsum([x], output_shape=[list(x.shape.dims)[0],list(x.shape.dims)[3]], name="einsum_backbone")
 
@@ -366,13 +378,58 @@ def resnet_model(x, classes_dim, depth):
         print("Renet-{}".format(depth))
         raise ValueError
     else:
+        if depth==18:
+        # resnet18
+            x = backbone(
+                            x,
+                            layerlist=[2,2,2,2],
+                            chalist=[64,128,256,512],
+                            strilist=[1,2,2,2],
+                            classes_dim=classes_dim,
+                            blocklist=[BasicBlockWithDown,BasicBlock]
+                            )
+        if depth==34:
+        # resnet34
+            x = backbone(
+                            x,
+                            layerlist=[3,4,6,3],
+                            chalist=[64,128,256,512],
+                            strilist=[1,2,2,2],
+                            classes_dim=classes_dim,
+                            blocklist=[BasicBlockWithDown,BasicBlock]
+                            )
+
+
+
         if depth==50:
         # resnet50
             x = backbone(
                             x,
-                            layerlist=[2,2,2,2],
+                            layerlist=[3,4,6,3],
                             chalist=[256,512,1024,2048],
                             strilist=[1,2,2,2],
-                            classes_dim=classes_dim
+                            classes_dim=classes_dim,
+                            blocklist=[ResidualBlockWithDown,ResidualBlock]
+                            )
+
+        if depth==101:
+        # resnet101
+            x = backbone(
+                            x,
+                            layerlist=[3,4,23,3],
+                            chalist=[256,512,1024,2048],
+                            strilist=[1,2,2,2],
+                            classes_dim=classes_dim,
+                            blocklist=[ResidualBlockWithDown,ResidualBlock]
+                            )
+        if depth==152:
+        # resnet152
+            x = backbone(
+                            x,
+                            layerlist=[3,8,36,3],
+                            chalist=[256,512,1024,2048],
+                            strilist=[1,2,2,2],
+                            classes_dim=classes_dim,
+                            blocklist=[ResidualBlockWithDown,ResidualBlock]
                             )
     return x
