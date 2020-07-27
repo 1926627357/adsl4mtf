@@ -17,7 +17,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         size=out_chls
                                                         ),
                             filter_size=(1,1),
-                            strides=strides,
+                            strides=(1,1),
                             name="conv1x1_RBW_1"+'-'+str(order)
                             )
     print(x.name)
@@ -39,7 +39,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         size=out_chls
                                                         ),
                             filter_size=(3,3),
-                            strides=(1,1),
+                            strides=strides,
                             name="conv3x3_RBW_1"+'-'+str(order)
                             )
     print(x.name)
@@ -111,7 +111,7 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         size=out_chls
                                                         ),
                             filter_size=(1,1),
-                            strides=strides,
+                            strides=(1,1),
                             name="conv1x1_RB_1"+'-'+str(order)
                             )
     print(x.name)
@@ -132,7 +132,7 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         size=out_chls
                                                         ),
                             filter_size=(3,3),
-                            strides=(1,1),
+                            strides=strides,
                             name="conv3x3_RB_1"+'-'+str(order)
                             )
     print(x.name)
@@ -176,6 +176,142 @@ def ResidualBlock(x, order, out_channels, strides):
     print(x.shape)
     return x
 
+
+def BasicBlock(x, order, out_channels, strides):
+    name = "BasicBlock"
+    expansion = 1
+    out_chls = out_channels // expansion
+    identity = x
+
+    x = mtf.layers.conv2d(
+                            x, 
+                            output_dim=mtf.Dimension(
+                                                        name=name+'-'+str(order)+'-'+'filters1',
+                                                        size=out_chls
+                                                        ),
+                            filter_size=(3,3),
+                            strides=strides,
+                            name="conv3x3_BB_1"+'-'+str(order)
+                            )
+    print(x.name)
+    print(x.shape)
+    x,_ = mtf.layers.batch_norm(
+                                x,
+                                is_training=True,
+                                momentum=0.99,
+                                epsilon=1e-5,
+                                name="batch_norm_BB_1"+'-'+str(order)
+                                )
+    x = mtf.relu(x,name="relu_BB_1"+'-'+str(order))
+
+    x = mtf.layers.conv2d(
+                            x,
+                            output_dim=mtf.Dimension(
+                                                        name=name+'-'+str(order)+'-'+'filters3',
+                                                        size=out_channels
+                                                        ),
+                            filter_size=(3,3),
+                            strides=(1,1),
+                            name="conv1x1_BB_2"+'-'+str(order)
+                            )
+    print(x.name)
+    print(x.shape)
+    x,_ = mtf.layers.batch_norm(
+                                x,
+                                is_training=True,
+                                momentum=0.99,
+                                epsilon=1e-5,
+                                name="batch_norm_BB_2"+'-'+str(order)
+                                )
+    identity = mtf.reshape(
+                            identity, 
+                            new_shape=[identity.shape.dims[0],identity.shape.dims[1],identity.shape.dims[2], x.shape.dims[3]],
+                            name="reshape_BB"+str(order)
+                            )
+    x = mtf.add(x,identity,output_shape=x.shape,name="add_BB_1"+'-'+str(order))
+    x = mtf.relu(x,name="relu_BB_2"+'-'+str(order))
+    print(x.name)
+    print(x.shape)
+    return x
+
+
+
+def BasicBlockWithDown(x, order, out_channels, strides):
+    name = "BasicBlockWithDown"
+    expansion = 1
+    out_chls = out_channels // expansion
+    identity = x
+
+    x = mtf.layers.conv2d(
+                            x, 
+                            output_dim=mtf.Dimension(
+                                                        name=name+'-'+str(order)+'-'+'filters1',
+                                                        size=out_chls
+                                                        ),
+                            filter_size=(3,3),
+                            strides=(1,1),
+                            name="conv3x3_BBW_1"+'-'+str(order)
+                            )
+    print(x.name)
+    print(x.shape)
+    x,_ = mtf.layers.batch_norm(
+                                x,
+                                is_training=True,
+                                momentum=0.99,
+                                epsilon=1e-5,
+                                name="batch_norm_BBW_1"+'-'+str(order)
+                                )
+    
+    x = mtf.relu(x,name="relu_BBW_1"+'-'+str(order))
+    
+    
+
+    x = mtf.layers.conv2d(
+                            x,
+                            output_dim=mtf.Dimension(
+                                                        name=name+'-'+str(order)+'-'+'filters2',
+                                                        size=out_channels
+                                                        ),
+                            filter_size=(3,3),
+                            strides=strides,
+                            name="conv3x3-2_BBW_2"+'-'+str(order)
+                            )
+    print(x.name)
+    print(x.shape)
+    x,_ = mtf.layers.batch_norm(
+                                x,
+                                is_training=True,
+                                momentum=0.99,
+                                epsilon=1e-5,
+                                name="batch_norm_BBW_2"+'-'+str(order)
+                                )
+    identity = mtf.layers.conv2d(
+                                    identity,
+                                    output_dim=mtf.Dimension(
+                                                                name=name+'-'+str(order)+'-'+'filters3',
+                                                                size=out_channels
+                                                                ),
+                                    filter_size=(1,1),
+                                    strides=strides,
+                                    name="conv1x1_BBW_1"+'-'+str(order)
+                                    )
+    print(identity.name)
+    print(identity.shape)
+    identity,_ = mtf.layers.batch_norm(
+                                        identity,
+                                        is_training=True,
+                                        momentum=0.99,
+                                        epsilon=1e-5,
+                                        name="batch_norm_BBW_3"+'-'+str(order)
+                                        )
+
+    x = mtf.add(x,identity,output_shape=x.shape,name="add_BBW_1"+'-'+str(order))
+    x = mtf.relu(x,name="relu_BBW_2"+'-'+str(order))
+    print(x.name)
+    print(x.shape)
+    return x
+
+
 def backbone(x, layerlist, chalist, strilist, classes_dim):
     name = "backbone"
     print(x.name)
@@ -210,22 +346,6 @@ def backbone(x, layerlist, chalist, strilist, classes_dim):
                                 )
     print(x.name)
     print(x.shape)
-
-
-    # x = mtf.layers.conv2d(
-    #                         x,
-    #                         output_dim=mtf.Dimension(
-    #                                                     name=name+'-'+'filters-test1',
-    #                                                     size=64
-    #                                                     ),
-    #                         filter_size=(1,1),
-    #                         strides=(1,1),
-    #                         name="conv7x7_backbone_1"
-    #                         )
-    # print(x.name)
-    # print(x.shape)
-    # ResidualBlockWithDown_order = 0
-    # ResidualBlock_order = 0
     
     for index,(layer, channel, strides) in enumerate(zip(layerlist, chalist, strilist)):
         x = ResidualBlockWithDown(x,order=index,out_channels=channel,strides=(strides,strides))

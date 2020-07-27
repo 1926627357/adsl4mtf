@@ -17,7 +17,7 @@ filters = mtf.Dimension("filters",3)
 
 graph = mtf.Graph()
 mesh = mtf.Mesh(graph, "my_mesh")
-input = mtf.get_variable(mesh, "input", [batch_size, image_height, image_width, channels])
+input = mtf.get_variable(mesh, "input", [batch_size, image_height, image_width, channels],dtype=tf.float16)
 
 output = mtf.layers.conv2d(
                             input, 
@@ -26,6 +26,13 @@ output = mtf.layers.conv2d(
                             strides=(2,2),
                             name="conv2d-{}x{}".format(kh,kw)
                             )
+print("[intra variable]:",output)
 
-print(output.shape)
+variables = graph._all_variables
+print("[variable num]: {}".format(len(variables)))
+for v in variables:
+	print("[variable] : ({})".format(v))
+
+
+
 
