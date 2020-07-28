@@ -46,7 +46,7 @@ tf.flags.DEFINE_integer("epochs_between_evals", 1,
 tf.flags.DEFINE_integer("eval_steps", 0,
                         "Total number of evaluation steps. If `0`, evaluation "
                         "after training is skipped.")
-tf.flags.DEFINE_string("mesh_shape", "b1:1;b2:2", "mesh shape")
+tf.flags.DEFINE_string("mesh_shape", "b1:2;b2:2", "mesh shape")
 tf.flags.DEFINE_string("layout", "row_blocks:b1;col_blocks:b2",
                        "layout rules")
 
@@ -108,7 +108,7 @@ def model_fn(features, labels, mode, params):
 	print("[auto mtf search] strategy: {}".format(layout_rules))
 	
 	mesh_size = mesh_shape.size
-	mesh_devices = ["gpu:0", "gpu:1"]
+	mesh_devices = ["gpu:0", "gpu:1","gpu:2", "gpu:3"]
 	mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(
 		mesh_shape, layout_rules, mesh_devices)
 
