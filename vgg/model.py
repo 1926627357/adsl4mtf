@@ -57,7 +57,7 @@ def make_conv_layers(x, mode, batch_norm=True):
                             )
             
             if batch_norm:
-                x = mtf.layers.batch_norm(
+                x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
                                 momentum=0.99,
@@ -67,8 +67,6 @@ def make_conv_layers(x, mode, batch_norm=True):
             x = mtf.relu(x,name="relu"+'-'+str(conv2d_count))
             conv2d_count += 1
     return x
-
-def make_dense_layers(x, classes_dim):
 '''
     ...
      |
@@ -78,6 +76,8 @@ Dense-4096
      |
 Dense-classnum
 '''
+def make_dense_layers(x, classes_dim):
+
     
     dense_dim1 = mtf.Dimension(name="dense_dim1",size=4096)
     dense_dim2 = mtf.Dimension(name="dense_dim2",size=4096)
@@ -92,5 +92,19 @@ def VGG(x, classes_dim, depth, batch_norm=True):
         raise ValueError
     x = make_conv_layers(x, mode=vgg_dict[depth], batch_norm=batch_norm)
 
+    x = mtf.reshape(
+                        x, 
+                        new_shape=[
+                                    x.shape.dims[0],
+                                    mtf.Dimension(
+                                        name="reshape",
+                                        size=x.shape.dims[1].size*x.shape.dims[2].size*x.shape.dims[3].size
+                                    )
+                                    ],
+                        name="reshape"
+                        )
+
     x = make_dense_layers(x, classes_dim=classes_dim)
+    print(x.name)
+    print(x.shape)
     return x
