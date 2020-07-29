@@ -1,0 +1,20 @@
+[auto mtf search] strategy: 
+LayoutRules{
+    ('filters-10', 'b2'), 
+    ('dense_dim1', 'b2'), 
+    ('filters-0', 'b2'), 
+    ('filters-11', 'b1'), 
+    ('filters-5', 'b1'), 
+    ('classesnum', 'b2'), 
+    ('flatten', 'b1'), 
+    ('filters-2', 'b2'), 
+    ('filters-8', 'b2'), 
+    ('filters-6', 'b2'), 
+    ('filters-9', 'b1'), 
+    ('filters-12', 'b2'), 
+    ('dense_dim2', 'b1'), 
+    ('filters-4', 'b2'), 
+    ('filters-3', 'b1'), 
+    ('filters-7', 'b1'), 
+    ('filters-1', 'b1')
+    }

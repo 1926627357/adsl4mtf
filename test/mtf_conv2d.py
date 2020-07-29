@@ -34,5 +34,3 @@ for v in variables:
 	print("[variable] : ({})".format(v))
 
 
-
-

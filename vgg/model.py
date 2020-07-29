@@ -64,7 +64,7 @@ def make_conv_layers(x, mode, batch_norm=True):
                                 epsilon=1e-5,
                                 name="batch_norm"+'-'+str(conv2d_count)
                                 )
-            x = mtf.relu(x,name="relu"+'-'+str(conv2d_count))
+            x = mtf.relu(x,name="relu-conv"+'-'+str(conv2d_count))
             conv2d_count += 1
     return x
 '''
@@ -82,7 +82,9 @@ def make_dense_layers(x, classes_dim):
     dense_dim1 = mtf.Dimension(name="dense_dim1",size=4096)
     dense_dim2 = mtf.Dimension(name="dense_dim2",size=4096)
     x = mtf.layers.dense(x, dense_dim1, name="dense-0")
+    x = mtf.relu(x,name="relu-dense-0")
     x = mtf.layers.dense(x, dense_dim2, name="dense-1")
+    x = mtf.relu(x,name="relu-dense-1")
     x = mtf.layers.dense(x, classes_dim, name="dense-2")
     return x
 
@@ -97,11 +99,11 @@ def VGG(x, classes_dim, depth, batch_norm=True):
                         new_shape=[
                                     x.shape.dims[0],
                                     mtf.Dimension(
-                                        name="reshape",
+                                        name="flatten",
                                         size=x.shape.dims[1].size*x.shape.dims[2].size*x.shape.dims[3].size
                                     )
                                     ],
-                        name="reshape"
+                        name="flatten"
                         )
 
     x = make_dense_layers(x, classes_dim=classes_dim)

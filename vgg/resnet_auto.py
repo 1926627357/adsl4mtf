@@ -28,6 +28,7 @@ import mesh_tensorflow.auto_mtf
 import os
 from model import VGG
 from config import *
+depth = 16
 tf.compat.v1.disable_eager_execution()
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 os.environ["TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE"] = "1"
@@ -35,7 +36,7 @@ os.environ['TF_ENABLE_AUTO_MIXED_PRECISION'] = '1'
 os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
-tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet", "Estimator model_dir")
+tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/vgg{}".format(depth), "Estimator model_dir")
 tf.flags.DEFINE_integer("batch_size", 32,
                         "Mini-batch size for the training. Note that this "
                         "is the global batch size and not the per-shard batch.")
@@ -74,7 +75,7 @@ def mnist_model(image, labels, mesh):
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
 	# x = mtf.transpose(x, [batch_dim, rows_dim, cols_dim, channel_dim])
 	# print(x.shape)
-	logits = VGG(x, classes_dim=classes_dim,depth=16)
+	logits = VGG(x, classes_dim=classes_dim,depth=depth)
 	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:

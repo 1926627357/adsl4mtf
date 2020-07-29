@@ -1,6 +1,7 @@
 import tensorflow.compat.v1 as tf
+import os
 tf.compat.v1.disable_eager_execution()
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 batch_size = 64
 image_height = 5
 image_width = 5
@@ -18,4 +19,4 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
   sess.run(init)
   print("op:\n",sess.run(op).shape)
-# print(op)
+print(op)

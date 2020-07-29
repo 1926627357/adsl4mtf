@@ -29,18 +29,19 @@ import os
 from model import resnet_model
 from config import *
 tf.compat.v1.disable_eager_execution()
+depth = 18
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 os.environ["TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE"] = "1"
 os.environ['TF_ENABLE_AUTO_MIXED_PRECISION'] = '1'
 os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
-tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet", "Estimator model_dir")
+tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/resnet{}".format(depth), "Estimator model_dir")
 tf.flags.DEFINE_integer("batch_size", 32,
                         "Mini-batch size for the training. Note that this "
                         "is the global batch size and not the per-shard batch.")
 tf.flags.DEFINE_integer("hidden_size", 512, "Size of each hidden layer.")
-tf.flags.DEFINE_integer("train_epochs", 2, "Total number of training epochs.")
+tf.flags.DEFINE_integer("train_epochs", 1, "Total number of training epochs.")
 tf.flags.DEFINE_integer("epochs_between_evals", 1,
                         "# of epochs between evaluations.")
 tf.flags.DEFINE_integer("eval_steps", 0,
@@ -74,7 +75,7 @@ def mnist_model(image, labels, mesh):
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
 	# x = mtf.transpose(x, [batch_dim, rows_dim, cols_dim, channel_dim])
 	# print(x.shape)
-	logits = resnet_model(x, classes_dim=classes_dim,depth=50)
+	logits = resnet_model(x, classes_dim=classes_dim,depth=depth)
 	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:

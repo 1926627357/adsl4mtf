@@ -364,8 +364,19 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
             x = blocklist[1](x, order= shortcuttype2,out_channels=channel,strides=(1,1))
             shortcuttype2+=1
     
-    x = mtf.einsum([x], output_shape=[list(x.shape.dims)[0],list(x.shape.dims)[3]], name="einsum_backbone")
-
+    # x = mtf.einsum([x], output_shape=[list(x.shape.dims)[0],list(x.shape.dims)[3]], name="einsum_backbone")
+    x = mtf.layers.avg_pool2d(x,ksize=(x.shape.dims[1].size,x.shape.dims[2].size))
+    x = mtf.reshape(
+                        x, 
+                        new_shape=[
+                                    x.shape.dims[0],
+                                    mtf.Dimension(
+                                        name="flatten",
+                                        size=x.shape.dims[1].size*x.shape.dims[2].size*x.shape.dims[3].size
+                                    )
+                                    ],
+                        name="flatten"
+                        )
     logit = mtf.layers.dense(x, classes_dim, name="dense_backbone")
     print(logit.name)
     print(logit.shape)
