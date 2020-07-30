@@ -1,7 +1,7 @@
 import tensorflow.compat.v1 as tf
 import os
 tf.compat.v1.disable_eager_execution()
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
 batch_size = 64
 image_height = 5
 image_width = 5
