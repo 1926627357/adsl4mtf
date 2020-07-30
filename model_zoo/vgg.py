@@ -96,7 +96,7 @@ def make_dense_layers(x, classes_dim):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     return x
 
-def VGG(x, classes_dim, depth, batch_norm=True):
+def vgg(x, classes_dim, depth, batch_norm=True):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     if depth not in vgg_dict.keys():
         logger.error("VGG{} are not supported".format(depth))
@@ -117,4 +117,21 @@ def VGG(x, classes_dim, depth, batch_norm=True):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = make_dense_layers(x, classes_dim=classes_dim)
     
+    return x
+
+
+def vgg11(x, classes_dim, batch_norm=True):
+    x = vgg(x=x,classes_dim=classes_dim,depth=11,batch_norm=batch_norm)
+    return x
+
+def vgg13(x, classes_dim, batch_norm=True):
+    x = vgg(x=x,classes_dim=classes_dim,depth=13,batch_norm=batch_norm)
+    return x
+
+def vgg16(x, classes_dim, batch_norm=True):
+    x = vgg(x=x,classes_dim=classes_dim,depth=16,batch_norm=batch_norm)
+    return x
+
+def vgg19(x, classes_dim, batch_norm=True):
+    x = vgg(x=x,classes_dim=classes_dim,depth=19,batch_norm=batch_norm)
     return x

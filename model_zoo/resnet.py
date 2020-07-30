@@ -384,64 +384,60 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
     logger.debug("[output tensor] (name,shape):({},{})".format(logit.name,logit.shape))
     return logit
 
-def resnet_model(x, classes_dim, depth):
+
+def resnet18(x, classes_dim):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
-    if depth not in white_list:
-        logger.error("Renet{} are not supported".format(depth))
-        raise ValueError
-    else:
-        if depth==18:
-        # resnet18
-            x = backbone(
-                            x,
-                            layerlist=[2,2,2,2],
-                            chalist=[64,128,256,512],
-                            strilist=[1,2,2,2],
-                            classes_dim=classes_dim,
-                            blocklist=[BasicBlockWithDown,BasicBlock]
-                            )
-        if depth==34:
-        # resnet34
-            x = backbone(
-                            x,
-                            layerlist=[3,4,6,3],
-                            chalist=[64,128,256,512],
-                            strilist=[1,2,2,2],
-                            classes_dim=classes_dim,
-                            blocklist=[BasicBlockWithDown,BasicBlock]
-                            )
-
-
-
-        if depth==50:
-        # resnet50
-            x = backbone(
-                            x,
-                            layerlist=[3,4,6,3],
-                            chalist=[256,512,1024,2048],
-                            strilist=[1,2,2,2],
-                            classes_dim=classes_dim,
-                            blocklist=[ResidualBlockWithDown,ResidualBlock]
-                            )
-
-        if depth==101:
-        # resnet101
-            x = backbone(
-                            x,
-                            layerlist=[3,4,23,3],
-                            chalist=[256,512,1024,2048],
-                            strilist=[1,2,2,2],
-                            classes_dim=classes_dim,
-                            blocklist=[ResidualBlockWithDown,ResidualBlock]
-                            )
-        if depth==152:
-        # resnet152
-            x = backbone(
-                            x,
-                            layerlist=[3,8,36,3],
-                            chalist=[256,512,1024,2048],
-                            strilist=[1,2,2,2],
-                            classes_dim=classes_dim,
-                            blocklist=[ResidualBlockWithDown,ResidualBlock]
-                            )
+    x = backbone(
+                    x,
+                    layerlist=[2,2,2,2],
+                    chalist=[64,128,256,512],
+                    strilist=[1,2,2,2],
+                    classes_dim=classes_dim,
+                    blocklist=[BasicBlockWithDown,BasicBlock]
+                    )
     return x
+def resnet34(x, classes_dim):
+    logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
+    x = backbone(
+                    x,
+                    layerlist=[3,4,6,3],
+                    chalist=[64,128,256,512],
+                    strilist=[1,2,2,2],
+                    classes_dim=classes_dim,
+                    blocklist=[BasicBlockWithDown,BasicBlock]
+                    )
+    return x
+def resnet50(x, classes_dim):
+    logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
+    x = backbone(
+                    x,
+                    layerlist=[3,4,6,3],
+                    chalist=[256,512,1024,2048],
+                    strilist=[1,2,2,2],
+                    classes_dim=classes_dim,
+                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    )
+    return x
+def resnet101(x, classes_dim):
+    logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
+    x = backbone(
+                    x,
+                    layerlist=[3,4,23,3],
+                    chalist=[256,512,1024,2048],
+                    strilist=[1,2,2,2],
+                    classes_dim=classes_dim,
+                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    )
+    return x
+def resnet152(x, classes_dim):
+    logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
+    x = backbone(
+                    x,
+                    layerlist=[3,8,36,3],
+                    chalist=[256,512,1024,2048],
+                    strilist=[1,2,2,2],
+                    classes_dim=classes_dim,
+                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    )
+    return x
+
