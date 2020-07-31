@@ -12,7 +12,7 @@ classesnum = 10
 image_vec_length = image_height*image_width*num_channels
 record_length = 1+image_vec_length
 
-def load_dataset(dataset_root_dir, train_logic=True):
+def load_dataset(dataset_root_dir, use_fp16,train_logic=True):
     if train_logic:
         files = [os.path.join(dataset_root_dir,'train','data_batch_{}.bin'.format(i)) for i in range(1,6)]
     dataset = tf.data.FixedLengthRecordDataset(files.pop(0),record_bytes=record_length)
@@ -22,8 +22,11 @@ def load_dataset(dataset_root_dir, train_logic=True):
 
     def decode_image(inputstream):
         inputstream = tf.decode_raw(inputstream, tf.uint8)
-        image, label = tf.slice(inputstream,[1],[image_vec_length]), tf.slice(inputstream,[0],[1])
-        image = tf.cast(image, tf.float32)
+        image, _ = tf.slice(inputstream,[1],[image_vec_length]), tf.slice(inputstream,[0],[1])
+        if use_fp16:
+            image = tf.cast(image, tf.float16)
+        else:
+            image = tf.cast(image, tf.float32)
         image = tf.reshape(image, [32*32*3])
         image = image/255
         # label = tf.reshape(label, [])
@@ -31,7 +34,7 @@ def load_dataset(dataset_root_dir, train_logic=True):
         return image
     def decode_label(inputstream):
         inputstream = tf.decode_raw(inputstream, tf.uint8)
-        image, label = tf.slice(inputstream,[1],[image_vec_length]), tf.slice(inputstream,[0],[1])
+        _, label = tf.slice(inputstream,[1],[image_vec_length]), tf.slice(inputstream,[0],[1])
         # image = tf.cast(image, tf.float32)
         # image = tf.reshape(image, [32*32*3])
         # image = image/255

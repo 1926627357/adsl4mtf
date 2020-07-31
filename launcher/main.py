@@ -8,13 +8,20 @@ INFO: 1
 DEBUG: 0
 '''
 os.environ['GLOG_v'] = '0'
-sys.path.append(os.path.abspath('..'))
+
+sys.path.append(os.path.abspath('.'))
 
 
 import mesh_tensorflow as mtf
 from adsl4mtf.dataset import load_dataset  # local file import
 import tensorflow.compat.v1 as tf
+tf.logging.set_verbosity (tf.logging.INFO)
+
+
 from adsl4mtf.model_zoo import network
+import mesh_tensorflow.auto_mtf
+from mesh_tensorflow.auto_mtf import layout_optimizer
+from mesh_tensorflow.auto_mtf import memory_estimator
 # disable the eager graph mode in tf2.1
 tf.disable_v2_behavior()
 tf.compat.v1.disable_eager_execution()
@@ -24,14 +31,15 @@ import argparse
 parser = argparse.ArgumentParser(description='adsl mesh tensorflow performance benchmark script')
 parser.add_argument('--data_url', required=True, default=None, help='Location of data.')
 # parser.add_argument('--log_url', default=None, help='The path of the log')
-# parser.add_argument('--ckpt_path', default=None, help='Location of the model parameter checkpoint')
+parser.add_argument('--ckpt_path', default=None, help='Location of the model parameter checkpoint')
 parser.add_argument('--model', required=True, default='resnet50', help='the neural network used to train')
 parser.add_argument('--epoch', type=int, default=5, help='Train epoch size.')
 parser.add_argument('--batch_size', type=int, default=32, help='batch size of the input stream')
-parser.add_argument('--device_num', type=int, default=4, help='the number of devices used to train model')
+parser.add_argument('--num_gpus', type=int, default=4, help='the number of devices used to train model')
 parser.add_argument('--class_num', type=int, default=10, help='the classes num of label in dataset')
 parser.add_argument('--mesh_shape', default="b1:2;b2:2", help='the shape of the devices, like: \"b1:2;b2:2\"')
 parser.add_argument('--fp16', action='store_true', help='decide to use fp16 or not')
+parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt, unknown = parser.parse_known_args()
 
 
@@ -80,16 +88,21 @@ def model_fn(features, labels, mode, params):
 	
 	variables = graph._all_variables
 	for v in variables:
-        logger.debug("[parameter] (name,shape): ({},{})".format(v.name,v.shape))
-
+		logger.debug("[parameter] (name,shape): ({},{})".format(v.name,v.shape))
 	mesh_shape = mtf.convert_to_shape(args_opt.mesh_shape)
-	layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
-    logger.info("[auto mtf search] strategy: {}".format(layout_rules))
+	# layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
+	mesh_shape = mtf.convert_to_shape(mesh_shape)
+	estimator = memory_estimator.MemoryEstimator(graph, mesh_shape, [logits, loss])
+	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="NAIVE")
+	layout_rules =  mtf.convert_to_layout_rules(optimizer.solve())
 
 
-	mesh_devices = ["gpu:{}".format(i) for i in range(int(args_opt.device_num))]
-	mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(
-		mesh_shape, layout_rules, mesh_devices)
+
+	logger.info("[auto mtf search] strategy: {}".format(layout_rules))
+	mesh_devices = ["gpu:{}".format(i) for i in range(int(args_opt.num_gpus))]
+	mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(mesh_shape, layout_rules, mesh_devices)
+
+
 
 	if mode == tf.estimator.ModeKeys.TRAIN:
 		var_grads = mtf.gradients(
@@ -127,7 +140,8 @@ def model_fn(features, labels, mode, params):
 def run():
 	"""Run model training loop."""
 	mnist_classifier = tf.estimator.Estimator(
-		model_fn=model_fn)
+		model_fn=model_fn,
+		model_dir=args_opt.ckpt_path)
 
 	# Set up training and evaluation input functions.
 	def train_input_fn():
@@ -135,7 +149,13 @@ def run():
 		# When choosing shuffle buffer sizes, larger sizes result in better
 		# randomness, while smaller sizes use less memory. MNIST is a small
 		# enough dataset that we can easily shuffle the full epoch.
-		ds = load_dataset(args_opt.data_url)
+		if args_opt.cloud:
+			import moxing as mox
+			local_data_path = './data'
+			mox.file.copy_parallel(src_url=args_opt.data_url, dst_url=local_data_path)
+			ds = load_dataset(local_data_path,use_fp16=args_opt.fp16)
+		else:
+			ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
 		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times
@@ -144,6 +164,18 @@ def run():
 		return ds
 
 	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
-
-
+logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={} | cloud={}"\
+				.format(
+							args_opt.data_url,
+							args_opt.ckpt_path,
+							args_opt.model,
+							args_opt.epoch,
+							args_opt.batch_size,
+							args_opt.num_gpus,
+							args_opt.class_num,
+							args_opt.mesh_shape,
+							args_opt.fp16,
+							args_opt.cloud
+							)
+			)
 run()
