@@ -1,7 +1,7 @@
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow as mtf
 import adsl4mtf.log as logger
-
+from adsl4mtf.patch.conv2d import conv2d
 vgg_dict = {
     11: [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
     13: [64, 64, 'M', 128, 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
@@ -46,7 +46,7 @@ def make_conv_layers(x, mode, batch_norm=True):
             logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
             maxpool_count += 1
         else:
-            x = mtf.layers.conv2d(
+            x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name='filters'+'-'+str(conv2d_count),

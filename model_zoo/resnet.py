@@ -1,6 +1,7 @@
 import tensorflow.compat.v1 as tf
 import mesh_tensorflow as mtf
 import adsl4mtf.log as logger
+from adsl4mtf.patch.conv2d import conv2d
 white_list = [18,34,50,101,152]
 
 
@@ -11,7 +12,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     out_chls = out_channels // expansion
     identity = x
 
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x, 
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters1',
@@ -32,7 +33,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu_RBW_1"+'-'+str(order))
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters2',
@@ -54,7 +55,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu_RBW_2"+'-'+str(order))
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters3',
@@ -73,7 +74,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                 name="batch_norm_RBW_3"+'-'+str(order)
                                 )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    identity = mtf.layers.conv2d(
+    identity = conv2d(
                                     identity,
                                     output_dim=mtf.Dimension(
                                                                 name=name+'-'+str(order)+'-'+'filters3',
@@ -110,7 +111,7 @@ def ResidualBlock(x, order, out_channels, strides):
     out_chls = out_channels // expansion
     identity = x
 
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x, 
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters1',
@@ -131,7 +132,7 @@ def ResidualBlock(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu_RB_1"+'-'+str(order))
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters2',
@@ -152,7 +153,7 @@ def ResidualBlock(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu_RB_2"+'-'+str(order))
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters3',
@@ -190,7 +191,7 @@ def BasicBlock(x, order, out_channels, strides):
     out_chls = out_channels // expansion
     identity = x
 
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x, 
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters1',
@@ -211,7 +212,7 @@ def BasicBlock(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu_BB_1"+'-'+str(order))
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters2',
@@ -251,7 +252,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
     out_chls = out_channels // expansion
     identity = x
 
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x, 
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters1',
@@ -274,7 +275,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     
 
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+str(order)+'-'+'filters2',
@@ -293,7 +294,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                 name="batch_norm_BBW_2"+'-'+str(order)
                                 )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    identity = mtf.layers.conv2d(
+    identity = conv2d(
                                     identity,
                                     output_dim=mtf.Dimension(
                                                                 name=name+'-'+str(order)+'-'+'filters3',
@@ -328,7 +329,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
 def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
     name = "backbone"
     
-    x = mtf.layers.conv2d(
+    x = conv2d(
                             x,
                             output_dim=mtf.Dimension(
                                                         name=name+'-'+'filters',
