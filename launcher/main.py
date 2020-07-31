@@ -164,6 +164,8 @@ def run():
 		return ds
 
 	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
+
+logger.info("="*30,"[BEGINE]","="*30)
 logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={} | cloud={}"\
 				.format(
 							args_opt.data_url,
