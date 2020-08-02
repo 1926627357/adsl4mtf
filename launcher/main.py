@@ -7,7 +7,7 @@ WARNING: 2
 INFO: 1
 DEBUG: 0
 '''
-os.environ['GLOG_v'] = '0'
+os.environ['GLOG_v'] = '1'
 
 sys.path.append(os.path.abspath('.'))
 
@@ -165,7 +165,7 @@ def run():
 
 	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
 
-logger.info("="*30,"[BEGINE]","="*30)
+logger.info("=======================================[BEGINE]=======================================")
 logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={} | cloud={}"\
 				.format(
 							args_opt.data_url,
