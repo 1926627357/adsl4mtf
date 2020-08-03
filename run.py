@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser(description="launch the training script")
 parser.add_argument("--data_url",default='/home/haiqwa/dataset/cifar10',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
-parser.add_argument("--num_gpus",required=True,type=int,default=1,help="the num of devices used to train")
+parser.add_argument("--num_gpus",type=int,default=1,help="the num of devices used to train")
 parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt,_ = parser.parse_known_args()
 
@@ -26,7 +26,7 @@ for model in models:
 		data_url = local_data_path
 		ckpt_path = os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num))
 		epoch = 1
-		batch_size = 64
+		batch_size = 32
 		num_gpus = args_opt.num_gpus
 		# class_num = 10
 		# mesh_shape = 'b1:2\\;b2:2'

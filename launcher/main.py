@@ -167,17 +167,27 @@ def run():
 	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
 
 logger.info("=======================================[BEGINE]=======================================")
-logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={}"\
+logger.info('[Input args] {}'\
 				.format(
-							args_opt.data_url,
-							args_opt.ckpt_path,
-							args_opt.model,
-							args_opt.epoch,
-							args_opt.batch_size,
-							args_opt.num_gpus,
-							args_opt.class_num,
-							args_opt.mesh_shape,
-							args_opt.fp16
+							{
+								'data_url':args_opt.data_url,
+								'ckpt_path':args_opt.ckpt_path,
+								'model':args_opt.model,
+								'epoch':args_opt.epoch,
+								'batch_size':args_opt.batch_size,
+								'num_gpus':args_opt.num_gpus,
+								'class_num':args_opt.class_num,
+								'mesh_shape':args_opt.mesh_shape,
+								'fp16':str(args_opt.fp16)}
 							)
 			)
-run()
+logger.info('[configuration]model_{}_num_classes_{}_use_fp16_{}_batch_size_{}_parallel_mode_AUTO_PARALLEL_epoch_size_{}_device_num_{}'\
+				.format(
+					args_opt.model,
+					args_opt.class_num,
+					1 if args_opt.fp16 else 0,
+					args_opt.batch_size,
+					args_opt.epoch,
+					args_opt.num_gpus
+				))
+# run()
