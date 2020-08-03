@@ -20,34 +20,37 @@ else:
 
 models = ['vgg11','vgg13','vgg16','vgg19']
 class_nums = [10,1024,65536,65536*2]
-
+fp16Choices = [True,False]
 for model in models:
 	for class_num in class_nums:
-		data_url = local_data_path
-		ckpt_path = os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num))
-		epoch = 1
-		batch_size = 32
-		num_gpus = args_opt.num_gpus
-		# class_num = 10
-		# mesh_shape = 'b1:2\\;b2:2'
-		mesh_shape = 'b1:2'
-		cmd = "python adsl4mtf/launcher/main.py \
-					--data_url={} \
-					--ckpt_path={} \
-					--model={} \
-					--epoch={} \
-					--batch_size={} \
-					--num_gpus={} \
-					--class_num={} \
-					--mesh_shape={} ".format(
-						data_url,
-						ckpt_path,
-						model,
-						epoch,
-						batch_size,
-						num_gpus,
-						class_num,
-						mesh_shape
-					)
-		os.system(cmd)
+		for fp16 in fp16Choices:
+			data_url = local_data_path
+			ckpt_path = os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num))
+			epoch = 1
+			batch_size = 32
+			num_gpus = args_opt.num_gpus
+			# class_num = 10
+			# mesh_shape = 'b1:2\\;b2:2'
+			mesh_shape = 'b1:2\\;b2:4'
+			cmd = "python adsl4mtf/launcher/main.py \
+						--data_url={} \
+						--ckpt_path={} \
+						--model={} \
+						--epoch={} \
+						--batch_size={} \
+						--num_gpus={} \
+						--class_num={} \
+						--mesh_shape={} \
+						{}".format(
+							data_url,
+							ckpt_path,
+							model,
+							epoch,
+							batch_size,
+							num_gpus,
+							class_num,
+							mesh_shape,
+							'--fp16' if fp16 else ''
+						)
+			os.system(cmd)
 # print(cmd)

@@ -37,27 +37,27 @@ for filename in filepaths:
                 continue
             if '[auto mtf search]' in line:
                 pattern = r'\([^:()]*\)'
-                perfdict[key]['strategy'] = re.findall(pattern,line)[0]
+                perfdict[key]['strategy'] = re.findall(pattern,line)
                 continue
             if 'INFO:tensorflow:acc = ' in line:
                 pattern = r'[0-9\.]{1,}'
-                accuracy,loss,_ = re.findall(pattern,line)
-                accuracy=float(accuracy)
-                loss=float(loss)
                 if step==0:
                     perfdict[key]['performance']['accuracy']=[]
                     perfdict[key]['performance']['loss']=[]
                 else:
+                    accuracy,loss,_ = re.findall(pattern,line)
+                    accuracy=float(accuracy)
+                    loss=float(loss)
                     perfdict[key]['performance']['accuracy'].append(accuracy)
                     perfdict[key]['performance']['loss'].append(loss)
                 continue
             if 'INFO:tensorflow:loss =' in line:
-                pattern = r'[0-9\.]{1,}'
-                _,step,_ = re.findall(pattern,line)
-                step=int(step)
+                pattern = r'[0-9\.]{1,}' 
                 if step==0:
                     perfdict[key]['performance']['step']=[]
                 else:
+                    _,step,_ = re.findall(pattern,line)
+                    step=int(step)
                     perfdict[key]['performance']['step'].append(step)
                 continue
             if 'INFO:tensorflow:global_step/sec:' in line:
@@ -74,11 +74,12 @@ for filename in filepaths:
                 continue
 
 for key, value in perfdict.items():
-    subpath = os.path.join(args_opt.rootDir,key)
+    subpath = os.path.join(args_opt.rootDir,'output/'+key)
+    os.makedirs(subpath,exist_ok=True)
     strategy_path = os.path.join(subpath,'strategy')
     csv_path = os.path.join(subpath,key+'-log.csv')
     with open(strategy_path,'w') as fp:
-        for item in value['strategy']
+        for item in value['strategy']:
             fp.write(item+'\n')
     csvfile = CSV(
                     path=csv_path,

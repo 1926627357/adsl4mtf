@@ -190,4 +190,4 @@ logger.info('[configuration]model_{}_num_classes_{}_use_fp16_{}_batch_size_{}_pa
 					args_opt.epoch,
 					args_opt.num_gpus
 				))
-# run()
+run()
