@@ -167,7 +167,7 @@ def run():
 	mnist_classifier.train(input_fn=train_input_fn, hooks=None)
 
 logger.info("=======================================[BEGINE]=======================================")
-logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={} | cloud={}"\
+logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | batch_size={} | num_gpus={} | class_num={} | mesh_shape={} | fp16={}"\
 				.format(
 							args_opt.data_url,
 							args_opt.ckpt_path,
@@ -177,8 +177,7 @@ logger.info("[Input args] | data_url={} | ckpt_path={} | model={} | epoch={} | b
 							args_opt.num_gpus,
 							args_opt.class_num,
 							args_opt.mesh_shape,
-							args_opt.fp16,
-							args_opt.cloud
+							args_opt.fp16
 							)
 			)
 run()
