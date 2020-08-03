@@ -39,7 +39,7 @@ parser.add_argument('--num_gpus', type=int, default=4, help='the number of devic
 parser.add_argument('--class_num', type=int, default=10, help='the classes num of label in dataset')
 parser.add_argument('--mesh_shape', default="b1:2;b2:2", help='the shape of the devices, like: \"b1:2;b2:2\"')
 parser.add_argument('--fp16', action='store_true', help='decide to use fp16 or not')
-parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
+# parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt, unknown = parser.parse_known_args()
 
 
@@ -149,13 +149,14 @@ def run():
 		# When choosing shuffle buffer sizes, larger sizes result in better
 		# randomness, while smaller sizes use less memory. MNIST is a small
 		# enough dataset that we can easily shuffle the full epoch.
-		if args_opt.cloud:
-			import moxing as mox
-			local_data_path = './data'
-			mox.file.copy_parallel(src_url=args_opt.data_url, dst_url=local_data_path)
-			ds = load_dataset(local_data_path,use_fp16=args_opt.fp16)
-		else:
-			ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
+		# if args_opt.cloud:
+		# 	import moxing as mox
+		# 	local_data_path = './data'
+		# 	mox.file.copy_parallel(src_url=args_opt.data_url, dst_url=local_data_path)
+		# 	ds = load_dataset(local_data_path,use_fp16=args_opt.fp16)
+		# else:
+		# 	ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
+		ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
 		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times
