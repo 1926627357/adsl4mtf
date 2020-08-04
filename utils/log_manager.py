@@ -21,7 +21,9 @@ for filename in filepaths:
         contents = fp.readlines()
         for line in contents:
             if '[BEGINE]' in line:
-                step=0
+                begin1=True
+                begin2=True
+                
                 continue
             if '[Input args]' in line:
                 pattern = r'\{.*\}'
@@ -34,6 +36,8 @@ for filename in filepaths:
                 key = re.findall(pattern,line)[0]
                 perfdict[key] = dict()
                 perfdict[key]['performance'] = dict()
+                perfdict[key]['performance']['speed']=[]
+                perfdict[key]['performance']['throughput']=[]
                 continue
             if '[auto mtf search]' in line:
                 pattern = r'\([^:()]*\)'
@@ -41,9 +45,10 @@ for filename in filepaths:
                 continue
             if 'INFO:tensorflow:acc = ' in line:
                 pattern = r'[0-9\.]{1,}'
-                if step==0:
+                if begin1:
                     perfdict[key]['performance']['accuracy']=[]
                     perfdict[key]['performance']['loss']=[]
+                    begin1=False
                 else:
                     accuracy,loss,_ = re.findall(pattern,line)
                     accuracy=float(accuracy)
@@ -52,9 +57,10 @@ for filename in filepaths:
                     perfdict[key]['performance']['loss'].append(loss)
                 continue
             if 'INFO:tensorflow:loss =' in line:
-                pattern = r'[0-9\.]{1,}' 
-                if step==0:
+                pattern = r'[0-9\.]{1,}'
+                if begin2:
                     perfdict[key]['performance']['step']=[]
+                    begin2=False
                 else:
                     _,step,_ = re.findall(pattern,line)
                     step=int(step)
@@ -65,13 +71,11 @@ for filename in filepaths:
                 speed = re.findall(pattern,line)[0]
                 speed = float(speed)
                 throughput = speed*int(config['num_gpus'])*int(config['batch_size'])
-                if step==0:
-                    perfdict[key]['performance']['speed']=[]
-                    perfdict[key]['performance']['throughput']=[]
-                else:
-                    perfdict[key]['performance']['speed'].append(speed)
-                    perfdict[key]['performance']['throughput'].append(throughput)
+                
+                perfdict[key]['performance']['speed'].append(speed)
+                perfdict[key]['performance']['throughput'].append(throughput)
                 continue
+            
 
 for key, value in perfdict.items():
     subpath = os.path.join(args_opt.rootDir,'output/'+key)
