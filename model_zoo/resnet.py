@@ -400,6 +400,8 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist, float16=No
 
 
 def resnet18(x, classes_dim, float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -412,6 +414,8 @@ def resnet18(x, classes_dim, float16=None):
                     )
     return x
 def resnet34(x, classes_dim,float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -424,6 +428,8 @@ def resnet34(x, classes_dim,float16=None):
                     )
     return x
 def resnet50(x, classes_dim,float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -436,6 +442,8 @@ def resnet50(x, classes_dim,float16=None):
                     )
     return x
 def resnet101(x, classes_dim,float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -448,6 +456,8 @@ def resnet101(x, classes_dim,float16=None):
                     )
     return x
 def resnet152(x, classes_dim,float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,

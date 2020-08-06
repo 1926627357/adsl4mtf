@@ -2,7 +2,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(description="launch the training script")
-parser.add_argument("--data_url",default='/home/haiqwa/dataset/cifar10',help="the bucket path of dataset")
+parser.add_argument("--data_url",default='/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
 parser.add_argument("--num_gpus",type=int,default=1,help="the num of devices used to train")
@@ -18,8 +18,8 @@ else:
 	local_data_path = args_opt.data_url
 
 
-models = ['vgg19']
-class_nums = [10]
+models = ['resnet50']
+class_nums = [64]
 fp16Choices = [False]
 meshShapeDict={
 	1:'b1:1',

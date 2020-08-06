@@ -98,6 +98,8 @@ def make_dense_layers(x, classes_dim, float16=None):
     return x
 
 def vgg(x, classes_dim, depth, batch_norm=True, float16=None):
+    if float16:
+        x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     if depth not in vgg_dict.keys():
         logger.error("VGG{} are not supported".format(depth))

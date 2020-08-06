@@ -15,7 +15,7 @@ sys.path.append(os.path.abspath('.'))
 
 
 import mesh_tensorflow as mtf
-from adsl4mtf.dataset import load_dataset  # local file import
+from adsl4mtf.dataset import load_dataset,create_dataset  # local file import
 import tensorflow.compat.v1 as tf
 tf.logging.set_verbosity (tf.logging.INFO)
 
@@ -59,12 +59,12 @@ def model_backbone(image, labels, mesh):
 		loss: a mtf.Tensor with shape []
 	"""
 	batch_dim = mtf.Dimension("batch", args_opt.batch_size)
-	rows_dim = mtf.Dimension("rows_size", 32)
-	cols_dim = mtf.Dimension("cols_size", 32)
+	rows_dim = mtf.Dimension("rows_size", 224)
+	cols_dim = mtf.Dimension("cols_size", 224)
 	channel_dim = mtf.Dimension("image_channel", 3)
 	classes_dim = mtf.Dimension(name='classesnum',size=args_opt.class_num)
 	x = mtf.import_tf_tensor(
-		mesh, tf.reshape(image, [args_opt.batch_size, 32, 32, 3]),
+		mesh, tf.reshape(image, [args_opt.batch_size, 224, 224, 3]),
 		mtf.Shape(
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
 	if args_opt.fp16:
@@ -155,14 +155,9 @@ def run():
 		# When choosing shuffle buffer sizes, larger sizes result in better
 		# randomness, while smaller sizes use less memory. MNIST is a small
 		# enough dataset that we can easily shuffle the full epoch.
-		# if args_opt.cloud:
-		# 	import moxing as mox
-		# 	local_data_path = './data'
-		# 	mox.file.copy_parallel(src_url=args_opt.data_url, dst_url=local_data_path)
-		# 	ds = load_dataset(local_data_path,use_fp16=args_opt.fp16)
-		# else:
-		# 	ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
-		ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
+		
+		# ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
+		ds = create_dataset(RootDir=args_opt.data_url)
 		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times
