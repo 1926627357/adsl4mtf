@@ -18,9 +18,9 @@ else:
 	local_data_path = args_opt.data_url
 
 
-models = ['vgg11','vgg13','vgg16','vgg19']
-class_nums = [10,1024,65536,65536*2]
-fp16Choices = [True,False]
+models = ['vgg19']
+class_nums = [10]
+fp16Choices = [False]
 meshShapeDict={
 	1:'b1:1',
 	2:'b1:2',

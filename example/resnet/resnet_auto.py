@@ -101,7 +101,7 @@ def model_fn(features, labels, mode, params):
 	variables = graph._all_variables
 	tf.logging.info("[variable num]: {}".format(len(variables)))
 	for v in variables:
-		tf.logging.info("[variable] (name, shape): ({},{})".format(v.name,v.shape))
+		tf.logging.info("[variable] (name, shape): ({},{},{})".format(v.name,v.shape,v.dtype.master_dtype))
 
 	mesh_shape = mtf.convert_to_shape(FLAGS.mesh_shape)
 	layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])

@@ -2,7 +2,7 @@ import tensorflow.compat.v1 as tf
 import mesh_tensorflow as mtf
 white_list = [18,34,50,101,152]
 
-
+float16=mtf.VariableDType(tf.float32,tf.float32,tf.float32)
 
 def ResidualBlockWithDown(x, order, out_channels, strides):
     name = "ResidualBlockWithDown"
@@ -18,10 +18,11 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RBW_1"+'-'+str(order)
+                            name="conv1x1_RBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -40,10 +41,11 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_RBW_1"+'-'+str(order)
+                            name="conv3x3_RBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -61,10 +63,11 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1-2_RBW_2"+'-'+str(order)
+                            name="conv1x1-2_RBW_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -80,10 +83,11 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                                 ),
                                     filter_size=(1,1),
                                     strides=strides,
-                                    name="conv1x1_RBW_3"+'-'+str(order)
+                                    name="conv1x1_RBW_3"+'-'+str(order),
+                                    variable_dtype=float16
                                     )
     print(identity.name)
-    print(identity.shape)
+    print(identity.dtype)
     identity,_ = mtf.layers.batch_norm(
                                         identity,
                                         is_training=True,
@@ -99,7 +103,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     x = mtf.add(x,identity,output_shape=x.shape,name="add_RBW_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_RBW_3"+'-'+str(order))
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     return x
 
 def ResidualBlock(x, order, out_channels, strides):
@@ -116,10 +120,11 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RB_1"+'-'+str(order)
+                            name="conv1x1_RB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -137,10 +142,11 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_RB_1"+'-'+str(order)
+                            name="conv3x3_RB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -158,10 +164,11 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RB_2"+'-'+str(order)
+                            name="conv1x1_RB_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -177,7 +184,7 @@ def ResidualBlock(x, order, out_channels, strides):
     x = mtf.add(x,identity,output_shape=x.shape,name="add_RB_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_RB_3"+'-'+str(order))
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     return x
 
 
@@ -195,10 +202,11 @@ def BasicBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_BB_1"+'-'+str(order)
+                            name="conv3x3_BB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -216,10 +224,11 @@ def BasicBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv3x3_BB_2"+'-'+str(order)
+                            name="conv3x3_BB_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -236,7 +245,7 @@ def BasicBlock(x, order, out_channels, strides):
     x = mtf.add(x,identity,output_shape=x.shape,name="add_BB_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_BB_2"+'-'+str(order))
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     return x
 
 
@@ -255,10 +264,11 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv3x3_BBW_1"+'-'+str(order)
+                            name="conv3x3_BBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -279,10 +289,11 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_BBW_2"+'-'+str(order)
+                            name="conv3x3_BBW_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -298,10 +309,11 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                                 ),
                                     filter_size=(1,1),
                                     strides=strides,
-                                    name="conv1x1_BBW_1"+'-'+str(order)
+                                    name="conv1x1_BBW_1"+'-'+str(order),
+                                    variable_dtype=float16
                                     )
     print(identity.name)
-    print(identity.shape)
+    print(identity.dtype)
     identity,_ = mtf.layers.batch_norm(
                                         identity,
                                         is_training=True,
@@ -317,14 +329,14 @@ def BasicBlockWithDown(x, order, out_channels, strides):
     x = mtf.add(x,identity,output_shape=x.shape,name="add_BBW_1"+'-'+str(order))
     x = mtf.relu(x,name="relu_BBW_2"+'-'+str(order))
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     return x
 
 
 def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
     name = "backbone"
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x = mtf.layers.conv2d_with_blocks(
                             x,
                             output_dim=mtf.Dimension(
@@ -334,10 +346,11 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
                             filter_size=(7,7),
                             strides=(2,2),
                             # padding="VALID",
-                            name="conv7x7_backbone"
+                            name="conv7x7_backbone",
+                            variable_dtype=float16
                             )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x,_ = mtf.layers.batch_norm(
                                 x,
                                 is_training=True,
@@ -347,14 +360,14 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
                                 )
     x = mtf.relu(x,name="relu_backbone")
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     x = mtf.layers.max_pool2d(
                                 x,
                                 ksize=(2,2),
                                 name="maxpool_backbone"
                                 )
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     shortcuttype1 = 0
     shortcuttype2 = 0
     for index,(layer, channel, strides) in enumerate(zip(layerlist, chalist, strilist)):
@@ -377,14 +390,14 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
                                     ],
                         name="flatten"
                         )
-    logit = mtf.layers.dense(x, classes_dim, name="dense_backbone")
+    logit = mtf.layers.dense(x, classes_dim, name="dense_backbone",variable_dtype=float16)
     print(logit.name)
     print(logit.shape)
     return logit
 
 def resnet_model(x, classes_dim, depth):
     print(x.name)
-    print(x.shape)
+    print(x.dtype)
     if depth not in white_list:
         print("Renet-{}".format(depth))
         raise ValueError

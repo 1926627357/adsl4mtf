@@ -7,8 +7,10 @@ WARNING: 2
 INFO: 1
 DEBUG: 0
 '''
-os.environ['GLOG_v'] = '1'
-
+os.environ['GLOG_v'] = '0'
+os.environ["TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE"] = "1"
+os.environ['TF_ENABLE_AUTO_MIXED_PRECISION'] = '1'
+os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 sys.path.append(os.path.abspath('.'))
 
 
@@ -65,8 +67,12 @@ def model_backbone(image, labels, mesh):
 		mesh, tf.reshape(image, [args_opt.batch_size, 32, 32, 3]),
 		mtf.Shape(
 			[batch_dim, rows_dim, cols_dim, channel_dim]))
-	
-	logits = network[args_opt.model](x, classes_dim=classes_dim)
+	if args_opt.fp16:
+		float16=mtf.VariableDType(tf.float16,tf.float16,tf.float16)
+	else:
+		float16=None
+
+	logits = network[args_opt.model](x, classes_dim=classes_dim,float16=float16)
 	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:
@@ -88,7 +94,7 @@ def model_fn(features, labels, mode, params):
 	
 	variables = graph._all_variables
 	for v in variables:
-		logger.debug("[parameter] (name,shape): ({},{})".format(v.name,v.shape))
+		logger.debug("[parameter] (name,shape,dtype): ({},{},{})".format(v.name,v.shape,v.dtype.master_dtype))
 	mesh_shape = mtf.convert_to_shape(args_opt.mesh_shape)
 	# layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
 	mesh_shape = mtf.convert_to_shape(mesh_shape)

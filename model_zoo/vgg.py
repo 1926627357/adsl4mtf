@@ -33,7 +33,7 @@ maxpool stride=2, k=2
     |
 
 '''
-def make_conv_layers(x, mode, batch_norm=True):
+def make_conv_layers(x, mode, batch_norm=True, float16=None):
     maxpool_count = 0
     conv2d_count = 0
     for size in mode:
@@ -54,7 +54,8 @@ def make_conv_layers(x, mode, batch_norm=True):
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv3"+'-'+str(conv2d_count)
+                            name="conv3"+'-'+str(conv2d_count),
+                            variable_dtype=float16
                             )
             logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
             if batch_norm:
@@ -79,29 +80,29 @@ Dense-4096
      |
 Dense-classnum
 '''
-def make_dense_layers(x, classes_dim):
+def make_dense_layers(x, classes_dim, float16=None):
     
     
     dense_dim1 = mtf.Dimension(name="dense_dim1",size=4096)
     dense_dim2 = mtf.Dimension(name="dense_dim2",size=4096)
-    x = mtf.layers.dense(x, dense_dim1, name="dense-0")
+    x = mtf.layers.dense(x, dense_dim1, name="dense-0",variable_dtype=float16)
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu-dense-0")
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.dense(x, dense_dim2, name="dense-1")
+    x = mtf.layers.dense(x, dense_dim2, name="dense-1",variable_dtype=float16)
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu-dense-1")
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = mtf.layers.dense(x, classes_dim, name="dense-2")
+    x = mtf.layers.dense(x, classes_dim, name="dense-2",variable_dtype=float16)
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     return x
 
-def vgg(x, classes_dim, depth, batch_norm=True):
+def vgg(x, classes_dim, depth, batch_norm=True, float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     if depth not in vgg_dict.keys():
         logger.error("VGG{} are not supported".format(depth))
         raise ValueError
-    x = make_conv_layers(x, mode=vgg_dict[depth], batch_norm=batch_norm)
+    x = make_conv_layers(x, mode=vgg_dict[depth], batch_norm=batch_norm,float16=float16)
 
     x = mtf.reshape(
                         x, 
@@ -115,23 +116,23 @@ def vgg(x, classes_dim, depth, batch_norm=True):
                         name="flatten"
                         )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    x = make_dense_layers(x, classes_dim=classes_dim)
+    x = make_dense_layers(x, classes_dim=classes_dim,float16=float16)
     
     return x
 
 
-def vgg11(x, classes_dim, batch_norm=True):
-    x = vgg(x=x,classes_dim=classes_dim,depth=11,batch_norm=batch_norm)
+def vgg11(x, classes_dim, batch_norm=True,float16=None):
+    x = vgg(x=x,classes_dim=classes_dim,depth=11,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg13(x, classes_dim, batch_norm=True):
-    x = vgg(x=x,classes_dim=classes_dim,depth=13,batch_norm=batch_norm)
+def vgg13(x, classes_dim, batch_norm=True,float16=None):
+    x = vgg(x=x,classes_dim=classes_dim,depth=13,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg16(x, classes_dim, batch_norm=True):
-    x = vgg(x=x,classes_dim=classes_dim,depth=16,batch_norm=batch_norm)
+def vgg16(x, classes_dim, batch_norm=True,float16=None):
+    x = vgg(x=x,classes_dim=classes_dim,depth=16,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg19(x, classes_dim, batch_norm=True):
-    x = vgg(x=x,classes_dim=classes_dim,depth=19,batch_norm=batch_norm)
+def vgg19(x, classes_dim, batch_norm=True,float16=None):
+    x = vgg(x=x,classes_dim=classes_dim,depth=19,batch_norm=batch_norm,float16=float16)
     return x

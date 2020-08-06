@@ -6,7 +6,7 @@ white_list = [18,34,50,101,152]
 
 
 
-def ResidualBlockWithDown(x, order, out_channels, strides):
+def ResidualBlockWithDown(x, order, out_channels, strides,float16=None):
     name = "ResidualBlockWithDown"
     expansion = 4
     out_chls = out_channels // expansion
@@ -20,7 +20,8 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RBW_1"+'-'+str(order)
+                            name="conv1x1_RBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -41,7 +42,8 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_RBW_1"+'-'+str(order)
+                            name="conv3x3_RBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -63,7 +65,8 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1-2_RBW_2"+'-'+str(order)
+                            name="conv1x1-2_RBW_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -82,7 +85,8 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
                                                                 ),
                                     filter_size=(1,1),
                                     strides=strides,
-                                    name="conv1x1_RBW_3"+'-'+str(order)
+                                    name="conv1x1_RBW_3"+'-'+str(order),
+                                    variable_dtype=float16
                                     )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     identity,_ = mtf.layers.batch_norm(
@@ -105,7 +109,7 @@ def ResidualBlockWithDown(x, order, out_channels, strides):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     return x
 
-def ResidualBlock(x, order, out_channels, strides):
+def ResidualBlock(x, order, out_channels, strides,float16=None):
     name = "ResidualBlock"
     expansion = 4
     out_chls = out_channels // expansion
@@ -119,7 +123,8 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RB_1"+'-'+str(order)
+                            name="conv1x1_RB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -140,7 +145,8 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_RB_1"+'-'+str(order)
+                            name="conv3x3_RB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -161,7 +167,8 @@ def ResidualBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(1,1),
                             strides=(1,1),
-                            name="conv1x1_RB_2"+'-'+str(order)
+                            name="conv1x1_RB_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -185,7 +192,7 @@ def ResidualBlock(x, order, out_channels, strides):
     return x
 
 
-def BasicBlock(x, order, out_channels, strides):
+def BasicBlock(x, order, out_channels, strides,float16=None):
     name = "BasicBlock"
     expansion = 1
     out_chls = out_channels // expansion
@@ -199,7 +206,8 @@ def BasicBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_BB_1"+'-'+str(order)
+                            name="conv3x3_BB_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -220,7 +228,8 @@ def BasicBlock(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv3x3_BB_2"+'-'+str(order)
+                            name="conv3x3_BB_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -246,7 +255,7 @@ def BasicBlock(x, order, out_channels, strides):
 
 
 
-def BasicBlockWithDown(x, order, out_channels, strides):
+def BasicBlockWithDown(x, order, out_channels, strides,float16=None):
     name = "BasicBlockWithDown"
     expansion = 1
     out_chls = out_channels // expansion
@@ -260,7 +269,8 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=(1,1),
-                            name="conv3x3_BBW_1"+'-'+str(order)
+                            name="conv3x3_BBW_1"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -283,7 +293,8 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                         ),
                             filter_size=(3,3),
                             strides=strides,
-                            name="conv3x3_BBW_2"+'-'+str(order)
+                            name="conv3x3_BBW_2"+'-'+str(order),
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -302,7 +313,8 @@ def BasicBlockWithDown(x, order, out_channels, strides):
                                                                 ),
                                     filter_size=(1,1),
                                     strides=strides,
-                                    name="conv1x1_BBW_1"+'-'+str(order)
+                                    name="conv1x1_BBW_1"+'-'+str(order),
+                                    variable_dtype=float16
                                     )
     logger.debug("[output tensor] (name,shape):({},{})".format(identity.name,identity.shape))
     identity,_ = mtf.layers.batch_norm(
@@ -326,7 +338,7 @@ def BasicBlockWithDown(x, order, out_channels, strides):
     return x
 
 
-def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
+def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist, float16=None):
     name = "backbone"
     
     x = conv2d(
@@ -338,7 +350,8 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
                             filter_size=(7,7),
                             strides=(2,2),
                             # padding="VALID",
-                            name="conv7x7_backbone"
+                            name="conv7x7_backbone",
+                            variable_dtype=float16
                             )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x,_ = mtf.layers.batch_norm(
@@ -360,10 +373,10 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
     shortcuttype1 = 0
     shortcuttype2 = 0
     for index,(layer, channel, strides) in enumerate(zip(layerlist, chalist, strilist)):
-        x = blocklist[0](x,order=shortcuttype1,out_channels=channel,strides=(strides,strides))
+        x = blocklist[0](x,order=shortcuttype1,out_channels=channel,strides=(strides,strides),float16=float16)
         shortcuttype1+=1
         for tindex in range(layer-1):
-            x = blocklist[1](x, order= shortcuttype2,out_channels=channel,strides=(1,1))
+            x = blocklist[1](x, order= shortcuttype2,out_channels=channel,strides=(1,1),float16=float16)
             shortcuttype2+=1
     
     # x = mtf.einsum([x], output_shape=[list(x.shape.dims)[0],list(x.shape.dims)[3]], name="einsum_backbone")
@@ -381,12 +394,12 @@ def backbone(x, layerlist, chalist, strilist, classes_dim, blocklist):
                         name="flatten"
                         )
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
-    logit = mtf.layers.dense(x, classes_dim, name="dense_backbone")
+    logit = mtf.layers.dense(x, classes_dim, name="dense_backbone",variable_dtype=float16)
     logger.debug("[output tensor] (name,shape):({},{})".format(logit.name,logit.shape))
     return logit
 
 
-def resnet18(x, classes_dim):
+def resnet18(x, classes_dim, float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -394,10 +407,11 @@ def resnet18(x, classes_dim):
                     chalist=[64,128,256,512],
                     strilist=[1,2,2,2],
                     classes_dim=classes_dim,
-                    blocklist=[BasicBlockWithDown,BasicBlock]
+                    blocklist=[BasicBlockWithDown,BasicBlock],
+                    float16=float16
                     )
     return x
-def resnet34(x, classes_dim):
+def resnet34(x, classes_dim,float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -405,10 +419,11 @@ def resnet34(x, classes_dim):
                     chalist=[64,128,256,512],
                     strilist=[1,2,2,2],
                     classes_dim=classes_dim,
-                    blocklist=[BasicBlockWithDown,BasicBlock]
+                    blocklist=[BasicBlockWithDown,BasicBlock],
+                    float16=float16
                     )
     return x
-def resnet50(x, classes_dim):
+def resnet50(x, classes_dim,float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -416,10 +431,11 @@ def resnet50(x, classes_dim):
                     chalist=[256,512,1024,2048],
                     strilist=[1,2,2,2],
                     classes_dim=classes_dim,
-                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    blocklist=[ResidualBlockWithDown,ResidualBlock],
+                    float16=float16
                     )
     return x
-def resnet101(x, classes_dim):
+def resnet101(x, classes_dim,float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -427,10 +443,11 @@ def resnet101(x, classes_dim):
                     chalist=[256,512,1024,2048],
                     strilist=[1,2,2,2],
                     classes_dim=classes_dim,
-                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    blocklist=[ResidualBlockWithDown,ResidualBlock],
+                    float16=float16
                     )
     return x
-def resnet152(x, classes_dim):
+def resnet152(x, classes_dim,float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = backbone(
                     x,
@@ -438,7 +455,8 @@ def resnet152(x, classes_dim):
                     chalist=[256,512,1024,2048],
                     strilist=[1,2,2,2],
                     classes_dim=classes_dim,
-                    blocklist=[ResidualBlockWithDown,ResidualBlock]
+                    blocklist=[ResidualBlockWithDown,ResidualBlock],
+                    float16=float16
                     )
     return x
 
