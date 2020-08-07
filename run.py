@@ -32,8 +32,8 @@ for model in models:
 		for fp16 in fp16Choices:
 			data_url = local_data_path
 			ckpt_path = os.path.join(os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num)),'1' if fp16 else '0')
-			epoch = 1
-			batch_size = 32
+			epoch = 5
+			batch_size = 32*args_opt.num_gpus
 			num_gpus = args_opt.num_gpus
 			# class_num = 10
 			# mesh_shape = 'b1:2\\;b2:2'
