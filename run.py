@@ -18,9 +18,9 @@ else:
 	local_data_path = args_opt.data_url
 
 
-models = ['vgg11','vgg13','vgg16','vgg19']
-class_nums = [10,100,1024,65536]
-fp16Choices = [True,False]
+models = ['vgg19']
+class_nums = [100]
+fp16Choices = [False]
 meshShapeDict={
 	1:'b1:1',
 	2:'b1:2',
@@ -33,7 +33,7 @@ for model in models:
 			data_url = local_data_path
 			ckpt_path = os.path.join(os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num)),'1' if fp16 else '0')
 			epoch = 1
-			batch_size = 32*args_opt.num_gpus
+			batch_size = 32
 			num_gpus = args_opt.num_gpus
 			# class_num = 10
 			# mesh_shape = 'b1:2\\;b2:2'

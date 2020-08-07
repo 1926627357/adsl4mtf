@@ -85,7 +85,7 @@ def make_dense_layers(x, classes_dim, float16=None):
     
     dense_dim1 = mtf.Dimension(name="dense_dim1",size=4096)
     dense_dim2 = mtf.Dimension(name="dense_dim2",size=4096)
-    x = mtf.layers.dense(x, dense_dim1, name="dense-0",variable_dtype=float16)
+    x = mtf.layers.dense(x, dense_dim1, name="dense-0",reduced_dims=x.shape.dims[-3:],variable_dtype=float16)
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = mtf.relu(x,name="relu-dense-0")
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
@@ -106,18 +106,18 @@ def vgg(x, classes_dim, depth, batch_norm=False, float16=None):
         raise ValueError
     x = make_conv_layers(x, mode=vgg_dict[depth], batch_norm=batch_norm,float16=float16)
 
-    x = mtf.reshape(
-                        x, 
-                        new_shape=[
-                                    x.shape.dims[0],
-                                    mtf.Dimension(
-                                        name="flatten",
-                                        size=x.shape.dims[1].size*x.shape.dims[2].size*x.shape.dims[3].size
-                                    )
-                                    ],
-                        name="flatten"
-                        )
-    logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
+    # x = mtf.reshape(
+    #                     x, 
+    #                     new_shape=[
+    #                                 x.shape.dims[0],
+    #                                 mtf.Dimension(
+    #                                     name="flatten",
+    #                                     size=x.shape.dims[1].size*x.shape.dims[2].size*x.shape.dims[3].size
+    #                                 )
+    #                                 ],
+    #                     name="flatten"
+    #                     )
+    # logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     x = make_dense_layers(x, classes_dim=classes_dim,float16=float16)
     
     return x
