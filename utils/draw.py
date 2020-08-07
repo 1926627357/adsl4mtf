@@ -21,7 +21,7 @@ def draw_bar(ytime,ytime2,ytime3, title):
     if (lastmodel != pname):
         if( pnum > 0):
             plt.suptitle(lastmodel+ "_bactch_size_32_epoch_size_3",fontsize = 8)
-            plt.savefig("picture//"+ lastmodel+ "_bactch_size_32_epoch_size_3",format="pdf")
+            plt.savefig("picture/"+ lastmodel+ "_bactch_size_32_epoch_size_3",format="pdf")
             plt.show()
             pnum = 0
             lastmodel = pname
@@ -142,5 +142,5 @@ if __name__ == '__main__':
             pnum = pnum + 1
 
     plt.suptitle(lastmodel + "_bactch_size_32_epoch_size_3", fontsize=8)
-    plt.savefig("picture//" + lastmodel + "_bactch_size_32_epoch_size_3")
+    plt.savefig("picture/" + lastmodel + "_bactch_size_32_epoch_size_3")
     plt.show()

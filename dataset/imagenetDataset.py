@@ -32,8 +32,9 @@ def create_dataset(RootDir):
   		image /= 255.0  # normalize to [0,1] range
   		return image
 	AUTOTUNE = tf.data.experimental.AUTOTUNE
-	dataset_image = dataset_image.map(load_and_preprocess_image, AUTOTUNE)
+	dataset_image = dataset_image.map(load_and_preprocess_image, num_parallel_calls=AUTOTUNE)
 	dataset = tf.data.Dataset.zip((dataset_image, dataset_label))
+	dataset = dataset.cache().prefetch(tf.data.experimental.AUTOTUNE)
 	return dataset
 		
 # tf.disable_v2_behavior()
@@ -41,11 +42,15 @@ def create_dataset(RootDir):
 # image = read_image('/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/n07697537/')
 # print(image.shape)
 if __name__ == "__main__":
-	RootDir = '/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/'
+	RootDir = '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val/'
 	dataset = create_dataset(RootDir=RootDir)
-	dataset = dataset.batch(256)
+	dataset = dataset.batch(64)
 	import time
+	# t1=time.time()
+	image,label = next(iter(dataset))
 	t1=time.time()
+	image,label = next(iter(dataset))
+	image,label = next(iter(dataset))
 	image,label = next(iter(dataset))
 	t2=time.time()
 	print(t2-t1)
