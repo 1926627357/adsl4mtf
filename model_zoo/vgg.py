@@ -135,6 +135,6 @@ def vgg16(x, classes_dim, batch_norm=False,float16=None):
     x = vgg(x=x,classes_dim=classes_dim,depth=16,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg19(x, classes_dim, batch_norm=True,float16=None):
+def vgg19(x, classes_dim, batch_norm=False,float16=None):
     x = vgg(x=x,classes_dim=classes_dim,depth=19,batch_norm=batch_norm,float16=float16)
     return x
