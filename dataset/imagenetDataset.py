@@ -1,4 +1,3 @@
-from PIL import Image
 import os
 import random
 import numpy as np

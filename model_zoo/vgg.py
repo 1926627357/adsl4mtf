@@ -97,7 +97,7 @@ def make_dense_layers(x, classes_dim, float16=None):
     logger.debug("[output tensor] (name,shape):({},{})".format(x.name,x.shape))
     return x
 
-def vgg(x, classes_dim, depth, batch_norm=True, float16=None):
+def vgg(x, classes_dim, depth, batch_norm=False, float16=None):
     if float16:
         x = mtf.cast(x,dtype=tf.float16)
     logger.debug("[input tensor] (name,shape):({},{})".format(x.name,x.shape))
@@ -123,15 +123,15 @@ def vgg(x, classes_dim, depth, batch_norm=True, float16=None):
     return x
 
 
-def vgg11(x, classes_dim, batch_norm=True,float16=None):
+def vgg11(x, classes_dim, batch_norm=False,float16=None):
     x = vgg(x=x,classes_dim=classes_dim,depth=11,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg13(x, classes_dim, batch_norm=True,float16=None):
+def vgg13(x, classes_dim, batch_norm=False,float16=None):
     x = vgg(x=x,classes_dim=classes_dim,depth=13,batch_norm=batch_norm,float16=float16)
     return x
 
-def vgg16(x, classes_dim, batch_norm=True,float16=None):
+def vgg16(x, classes_dim, batch_norm=False,float16=None):
     x = vgg(x=x,classes_dim=classes_dim,depth=16,batch_norm=batch_norm,float16=float16)
     return x
 

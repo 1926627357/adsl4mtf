@@ -1,3 +1,2 @@
 mesh-tensorflow
 ortools
-Pillow
