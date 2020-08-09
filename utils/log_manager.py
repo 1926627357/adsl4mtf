@@ -70,7 +70,7 @@ for filename in filepaths:
                 pattern = r'[0-9\.]{1,}'
                 speed = re.findall(pattern,line)[0]
                 speed = float(speed)
-                throughput = speed*int(config['num_gpus'])*int(config['batch_size'])
+                throughput = speed*int(config['batch_size'])
                 speed = 1000/speed
                 perfdict[key]['performance']['speed'].append(speed)
                 perfdict[key]['performance']['throughput'].append(throughput)
