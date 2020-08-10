@@ -19,44 +19,46 @@ else:
 
 
 models = ['vgg11']
-class_nums = [10]
+class_nums = [100]
 fp16Choices = [False]
 meshShapeDict={
-	1:'b1:1',
-	2:'b1:2',
-	4:'b1:2\\;b2:2',
-	8:'b1:2\\;b2:4'
+	1:['b1:1'],
+	2:['b1:2'],
+	4:['b1:4','b1:2\\;b2:2'],
+	8:['b1:8','b1:2\\;b2:4','b1:2\\;b2:2\\;b3:2']
 }
 for model in models:
 	for class_num in class_nums:
 		for fp16 in fp16Choices:
-			data_url = local_data_path
-			ckpt_path = os.path.join(os.path.join(os.path.join(args_opt.ckpt_path,model),str(class_num)),'1' if fp16 else '0')
-			epoch = 5
-			batch_size = 32*args_opt.num_gpus
-			num_gpus = args_opt.num_gpus
-			# class_num = 10
-			# mesh_shape = 'b1:2\\;b2:2'
-			mesh_shape = meshShapeDict[num_gpus]
-			cmd = "python adsl4mtf/launcher/main.py \
-						--data_url={} \
-						--ckpt_path={} \
-						--model={} \
-						--epoch={} \
-						--batch_size={} \
-						--num_gpus={} \
-						--class_num={} \
-						--mesh_shape={} \
-						{}".format(
-							data_url,
-							ckpt_path,
-							model,
-							epoch,
-							batch_size,
-							num_gpus,
-							class_num,
-							mesh_shape,
-							'--fp16' if fp16 else ''
-						)
-			os.system(cmd)
+			for mesh_shape in meshShapeDict[args_opt.num_gpus]:
+				data_url = local_data_path
+				ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
+				
+				epoch = 1
+				batch_size = 32*args_opt.num_gpus
+				num_gpus = args_opt.num_gpus
+				# class_num = 10
+				# mesh_shape = 'b1:2\\;b2:2'
+				# mesh_shape = meshShapeDict[num_gpus]
+				cmd = "python adsl4mtf/launcher/main.py \
+							--data_url={} \
+							--ckpt_path={} \
+							--model={} \
+							--epoch={} \
+							--batch_size={} \
+							--num_gpus={} \
+							--class_num={} \
+							--mesh_shape={} \
+							{}".format(
+								data_url,
+								ckpt_path,
+								model,
+								epoch,
+								batch_size,
+								num_gpus,
+								class_num,
+								mesh_shape,
+								'--fp16' if fp16 else ''
+							)
+				os.system(cmd)
 # print(cmd)

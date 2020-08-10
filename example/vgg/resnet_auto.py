@@ -37,7 +37,7 @@ os.environ['TF_AUTO_MIXED_PRECISION_GRAPH_REWRITE_IGNORE_PERFORMANCE'] = '1'
 tf.flags.DEFINE_string("data_dir", "/home/haiqwa/dataset/cifar10",
                        "Path to directory containing the MNIST dataset")
 tf.flags.DEFINE_string("model_dir", "/home/haiqwa/output/vgg{}".format(depth), "Estimator model_dir")
-tf.flags.DEFINE_integer("batch_size", 32,
+tf.flags.DEFINE_integer("batch_size", 256,
                         "Mini-batch size for the training. Note that this "
                         "is the global batch size and not the per-shard batch.")
 tf.flags.DEFINE_integer("hidden_size", 512, "Size of each hidden layer.")
@@ -47,7 +47,7 @@ tf.flags.DEFINE_integer("epochs_between_evals", 1,
 tf.flags.DEFINE_integer("eval_steps", 0,
                         "Total number of evaluation steps. If `0`, evaluation "
                         "after training is skipped.")
-tf.flags.DEFINE_string("mesh_shape", "b1:2;b2:2", "mesh shape")
+tf.flags.DEFINE_string("mesh_shape", "b1:4", "mesh shape")
 tf.flags.DEFINE_string("layout", "row_blocks:b1;col_blocks:b2",
                        "layout rules")
 

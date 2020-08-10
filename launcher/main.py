@@ -72,7 +72,7 @@ def model_backbone(image, labels, mesh):
 	else:
 		float16=None
 
-	logits = network[args_opt.model](x, classes_dim=classes_dim,float16=float16)
+	logits = network[args_opt.model](x, classes_dim=classes_dim,float16=float16,batch_norm=True)
 	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:
