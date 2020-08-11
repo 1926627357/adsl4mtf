@@ -41,6 +41,9 @@ def create_dataset(RootDir):
 # tf.compat.v1.disable_eager_execution()
 # image = read_image('/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/n07697537/')
 # print(image.shape)
+
+# image = tf.read_file('/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/n07697537/n0769753700001159.jpg')
+# print(image)
 if __name__ == "__main__":
 	RootDir = '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val/'
 	dataset = create_dataset(RootDir=RootDir)
