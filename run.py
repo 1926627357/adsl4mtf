@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser(description="launch the training script")
 parser.add_argument("--data_url",default='/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
-parser.add_argument("--num_gpus",type=int,default=8,help="the num of devices used to train")
+parser.add_argument("--num_gpus",type=int,default=4,help="the num of devices used to train")
 parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt,_ = parser.parse_known_args()
 
@@ -19,18 +19,22 @@ else:
 
 
 models = ['vgg16']
-class_nums = [65536*9]
-fp16Choices = [False]
+class_nums = [100]
+fp16Choices = [True]
 meshShapeDict={
 	1:['b1:1'],
 	2:['b1:2'],
-	4:['b1:4'],
-	8:['b1:8']
+	4:['b1:2\\;b2:2'],
+	8:['b1:8\\;b2:4']
 }
+
+
+
 for model in models:
 	for class_num in class_nums:
 		for fp16 in fp16Choices:
 			for mesh_shape in meshShapeDict[args_opt.num_gpus]:
+				launch_name = 'WDlaunch' if model=='widedeep' else 'CVlaunch'
 				data_url = local_data_path
 				ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
 				
@@ -40,7 +44,7 @@ for model in models:
 				# class_num = 10
 				# mesh_shape = 'b1:2\\;b2:2'
 				# mesh_shape = meshShapeDict[num_gpus]
-				cmd = "python adsl4mtf/launcher/main.py \
+				cmd = "python adsl4mtf/launcher/{}.py \
 							--data_url={} \
 							--ckpt_path={} \
 							--model={} \
@@ -50,6 +54,7 @@ for model in models:
 							--class_num={} \
 							--mesh_shape={} \
 							{}".format(
+								launch_name,
 								data_url,
 								ckpt_path,
 								model,

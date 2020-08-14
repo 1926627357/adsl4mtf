@@ -3,7 +3,7 @@ tfrecord_filename = '/home/haiqwa/dataset/criteo/tfrecord/train.tfrecord'
 tf.disable_v2_behavior()
 def _parse_image_function(example_proto):
   input_dict = tf.io.parse_single_example(example_proto, image_feature_description)
-  return    tf.io.decode_raw(input_dict['ids'], out_type=tf.float32),\
+  return    tf.io.decode_raw(input_dict['ids'], out_type=tf.int32),\
             tf.io.decode_raw(input_dict['wts'], out_type=tf.float32),\
             input_dict['label']
 

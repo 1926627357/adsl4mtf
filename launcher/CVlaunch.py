@@ -15,7 +15,7 @@ sys.path.append(os.path.abspath('.'))
 
 
 import mesh_tensorflow as mtf
-from adsl4mtf.dataset import load_dataset,create_dataset  # local file import
+from adsl4mtf.dataset import imagenet_engine  # local file import
 import tensorflow.compat.v1 as tf
 tf.logging.set_verbosity (tf.logging.INFO)
 
@@ -99,7 +99,7 @@ def model_fn(features, labels, mode, params):
 	# layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
 	mesh_shape = mtf.convert_to_shape(mesh_shape)
 	estimator = memory_estimator.MemoryEstimator(graph, mesh_shape, [logits, loss])
-	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="NAIVE")
+	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="LIST")
 	layout_rules =  mtf.convert_to_layout_rules(optimizer.solve())
 
 
@@ -113,7 +113,7 @@ def model_fn(features, labels, mode, params):
 	if mode == tf.estimator.ModeKeys.TRAIN:
 		var_grads = mtf.gradients(
 			[loss], [v.outputs[0] for v in graph.trainable_variables])
-		optimizer = mtf.optimize.AdafactorOptimizer()
+		optimizer = mtf.optimize.SgdOptimizer(0.01)
 		# optimizer = tf.train.experimental.enable_mixed_precision_graph_rewrite(optimizer)
 		update_ops = optimizer.apply_grads(var_grads, graph.trainable_variables)
 
@@ -157,7 +157,7 @@ def run():
 		# enough dataset that we can easily shuffle the full epoch.
 		
 		# ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
-		ds = create_dataset(RootDir=args_opt.data_url)
+		ds = imagenet_engine(RootDir=args_opt.data_url)
 		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times

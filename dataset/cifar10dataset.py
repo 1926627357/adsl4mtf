@@ -12,7 +12,7 @@ classesnum = 10
 image_vec_length = image_height*image_width*num_channels
 record_length = 1+image_vec_length
 
-def load_dataset(dataset_root_dir, use_fp16,train_logic=True):
+def cifar_engine(dataset_root_dir, use_fp16=False,train_logic=True):
     if train_logic:
         files = [os.path.join(dataset_root_dir,'train','data_batch_{}.bin'.format(i)) for i in range(1,6)]
     dataset = tf.data.FixedLengthRecordDataset(files.pop(0),record_bytes=record_length)
@@ -47,7 +47,7 @@ def load_dataset(dataset_root_dir, use_fp16,train_logic=True):
     return dataset
     
 if __name__ == "__main__":
-    dataset = load_dataset(dataset_path)
+    dataset = cifar_engine(dataset_path)
     dataset = dataset.shuffle(buffer_size=10000)
     dataset = dataset.batch(32)
     dataset = dataset.repeat(10)

@@ -85,6 +85,7 @@ def widedeep(id_hldr, wt_hldr, vocab_dim, embed_dim, outdim, float16=None):
     
     result = mtf.add(wide_output,deep_output)
     result = mtf.reshape(result, new_shape=[wide_output.shape.dims[0],outdim],name='result_reshape')
+    result = mtf.reduce_sum(result,reduced_dim=outdim)
     logger.debug("[output tensor] (name,shape):({},{})".format(result.name, result.shape))
     return result
 
@@ -93,7 +94,7 @@ if __name__=="__main__":
     
     
     os.environ['GLOG_v'] = '0'
-    global_step = tf.train.get_global_step()
+    # global_step = tf.train.get_global_step()
     graph = mtf.Graph()
     mesh = mtf.Mesh(graph, "my_mesh")
     batch_dim = mtf.Dimension("batch",10)
@@ -109,41 +110,33 @@ if __name__=="__main__":
     id_hldr = mtf.import_tf_tensor(mesh, np.random.randn(batch_dim.size,field_dim.size).astype(np.int32), shape=[batch_dim,field_dim])
     wt_hldr = mtf.import_tf_tensor(mesh, np.random.randn(batch_dim.size,field_dim.size).astype(np.float32), shape=[batch_dim,field_dim])
     label = mtf.import_tf_tensor(mesh, np.array([1,0,1,0,1,0,1,0,1,0]).astype(np.float32), shape=[batch_dim])
-    result = widedeep(id_hldr,wt_hldr,vocab_dim,embed_dim,outdim)
-    result = mtf.reduce_mean(result,reduced_dim=outdim)
+
+    fp16=True
+    if fp16:
+        float16=mtf.VariableDType(tf.float16,tf.float16,tf.float16)
+        id_hldr=mtf.cast(id_hldr,dtype=tf.int32)
+        wt_hldr=mtf.cast(wt_hldr,dtype=tf.float16)
+    else:
+        float16=None
+    result = widedeep(id_hldr,wt_hldr,vocab_dim,embed_dim,outdim,float16)
+    
     # label = mtf.reshape(label,new_shape=[batch_dim, outdim])
     # output = mtf.layers.softmax_cross_entropy_with_logits(result, label,vocab_dim=outdim)
     # result = mtf.sigmoid(result)
     # result = -(label*mtf.log(result)+(1-label)*mtf.log(1-result))
     # result = mtf.reduce_sum(result)
+    result = mtf.cast(result,dtype=tf.float32)
     result = mtf.layers.sigmoid_cross_entropy_with_logits(result,label)
-    wide_loss = mtf.reduce_sum(result)
+    wide_loss = mtf.reduce_mean(result)
 
     
 
-    print("========",global_step)
+    # print("========",global_step)
     devices = ["gpu:0"]
     mesh_shape = [("all_processors", 1)]
     layout_rules = [("dim1", "all_processors")]
     mesh_impl = mtf.placement_mesh_impl.PlacementMeshImpl(
         mesh_shape, layout_rules, devices)
-
-    var_grads = mtf.gradients(
-			[wide_loss], [v.outputs[0] for v in graph.trainable_variables])
-    optimizer = mtf.optimize.SgdOptimizer(0.01)
-    update_ops = optimizer.apply_grads(var_grads, graph.trainable_variables)
-    lowering = mtf.Lowering(graph, {mesh:mesh_impl})
-    restore_hook = mtf.MtfRestoreHook(lowering)
-
-    tf_update_ops = [lowering.lowered_operation(op) for op in update_ops]
-    tf_update_ops.append(tf.assign_add(global_step, 1))
-    train_op = tf.group(tf_update_ops)
-
-    estimator=tf.estimator.EstimatorSpec(
-			tf.estimator.ModeKeys.TRAIN, loss=wide_loss, train_op=train_op,
-			training_chief_hooks=[restore_hook])
-
-    WDlaunch = tf.estimator.Estimator(
-		model_fn=estimator,
-		model_dir='./')
-    # print(log_z)
+    lowering = mtf.Lowering(graph, {mesh: mesh_impl})
+    wide_loss = lowering.export_to_tf_tensor(wide_loss)
+    print(wide_loss)

@@ -186,7 +186,7 @@ def random_split_trans2tfrecord(input_file_path, output_file_path, criteo_stats_
             example = tf.train.Example(features=tf.train.Features(
                                                                     feature={
                                                                     # Int64List储存int数据
-                                                                    'label': tf.train.Feature(int64_list = tf.train.Int64List(value=[label])), 
+                                                                    'label': tf.train.Feature(float_list = tf.train.FloatList(value=[label])), 
                                                                     # 储存byte二进制数据
                                                                     'ids':tf.train.Feature(bytes_list = tf.train.BytesList(value=[ids])),
                                                                     'wts':tf.train.Feature(bytes_list = tf.train.BytesList(value=[wts])),

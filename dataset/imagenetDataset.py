@@ -6,7 +6,7 @@ import pathlib
 # imagepath='/home/haiqwa/dataset/mininet/mini-imagenet-sp1/train/n07697537/n0153282900000005.jpg'
 
 
-def create_dataset(RootDir):
+def imagenet_engine(RootDir):
 	RootDir = pathlib.Path(RootDir)
 	all_image_paths = list(RootDir.glob('*/*'))
 	all_image_paths = [str(path) for path in all_image_paths]
@@ -46,7 +46,7 @@ def create_dataset(RootDir):
 # print(image)
 if __name__ == "__main__":
 	RootDir = '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val/'
-	dataset = create_dataset(RootDir=RootDir)
+	dataset = imagenet_engine(RootDir=RootDir)
 	dataset = dataset.batch(64)
 	import time
 	# t1=time.time()
