@@ -99,7 +99,7 @@ def model_fn(features, labels, mode, params):
 	# layout_rules = mtf.auto_mtf.layout(graph, mesh_shape, [logits, loss])
 	mesh_shape = mtf.convert_to_shape(mesh_shape)
 	estimator = memory_estimator.MemoryEstimator(graph, mesh_shape, [logits, loss])
-	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="LIST")
+	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="NAIVE")
 	layout_rules =  mtf.convert_to_layout_rules(optimizer.solve())
 
 
@@ -187,7 +187,7 @@ logger.info('[configuration]model_{}_num_classes_{}_use_fp16_{}_batch_size_{}_pa
 					args_opt.model,
 					args_opt.class_num,
 					1 if args_opt.fp16 else 0,
-					args_opt.batch_size,
+					args_opt.batch_size/args_opt.num_gpus,
 					args_opt.epoch,
 					args_opt.num_gpus
 				))

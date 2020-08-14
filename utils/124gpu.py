@@ -7,12 +7,12 @@ import csv
 
 num_classes = [10,1024,65536,131072]
 use_fp16 = [0,1]
-parallel = ["AUTO_PARALLEL","DATA_PARALLEL"]
+parallel = ["AUTO_PARALLEL"]
 device_num = [1,2,4,8]
 subnum = 4
 
 dir1 = "output/"
-dir2 = "output/"
+# dir2 = "output/"
 
 
 def buildfilename(modelname):
@@ -20,7 +20,7 @@ def buildfilename(modelname):
     for a in range(4):
         for b in range(2):
             for c in range(2):
-                strtmp = "model_" + modelname + "_num_classes_"+ str(num_classes[a]) + "_use_fp16_" + str(use_fp16[b]) + "_batch_size_32_parallel_mode_" + str(parallel[c]) +"_epoch_size_3_device_num_"
+                strtmp = "model_" + modelname + "_num_classes_"+ str(num_classes[a]) + "_use_fp16_" + str(use_fp16[b]) + "_batch_size_32_parallel_mode_" + str(parallel[c]) +"_epoch_size_5_device_num_"
                 strlist.append(strtmp)
     return strlist
 
@@ -45,6 +45,11 @@ def getdata(f,dtmp):
                 for row in reader:
                     if i == 3:
                         ylist.append(float(row['samples/second']))
+                        # print("[start]")
+                        # print(fcsv)
+                        # print(ylist)
+                        # print()
+
                     i = i + 1
 
     return ylist,ylen
@@ -71,9 +76,10 @@ def drawbar(modelname):
     pnum = 1
     for subpicname in fnamelist:
         y1 , y1len = getdata(subpicname,dir1)
-        y2 , y2len = getdata(subpicname,dir2)
+        # y2 , y2len = getdata(subpicname,dir2)
         linearbar = getLinear(y1[0])
-        if y1len or y2len:
+        # if y1len or y2len:
+        if y1len:
             plt.subplot(subnum, subnum, pnum)
             plt.subplots_adjust(left=0.06, top=0.92, right=0.96, bottom=0.04, wspace=0.55, hspace=0.55)
             plt.ylabel('samples/second', fontsize=6, labelpad=1)
@@ -86,17 +92,17 @@ def drawbar(modelname):
             # plt.ylim(0, 100000)
 
             x = list(range(len(y1)))
-            total_width, n = 0.4, 3
+            total_width, n = 0.4, 2
             width = total_width / n
 
             # draw 1
             for i in range(len(x)):
                 x[i] = x[i] - width
-            plt.bar(x, y1, width=width, label='old', fc='#F62217')
+            plt.bar(x, y1, width=width, label='mtf-perf', fc='#F62217')
             # draw 2
-            for i in range(len(x)):
-                x[i] = x[i] + width
-            plt.bar(x, y2, width=width, label='new', tick_label=y1, fc='#D4A017')
+            # for i in range(len(x)):
+            #     x[i] = x[i] + width
+            # plt.bar(x, y2, width=width, label='new', tick_label=y1, fc='#D4A017')
             # draw 3
             for i in range(len(x)):
                 x[i] = x[i] + width
@@ -112,7 +118,8 @@ def drawbar(modelname):
 
 
 if __name__ == '__main__':
-    picname = ["resnet18","resnet101","resnet50","vgg13","vgg16","vgg19"]
+    # 想要处理的模型的信息就放入到其中
+    picname = ["resnet18"]
     for p in picname:
         drawbar(p)
         print(p)

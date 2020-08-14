@@ -81,7 +81,9 @@ for key, value in perfdict.items():
     subpath = os.path.join(args_opt.rootDir,'output/'+key)
     os.makedirs(subpath,exist_ok=True)
     strategy_path = os.path.join(subpath,'strategy')
-    csv_path = os.path.join(subpath,key+'-log.csv')
+
+    csv_abspath = re.sub(r'_device_num_\d', '-log.csv', key)
+    csv_path = os.path.join(subpath,csv_abspath)
     with open(strategy_path,'w') as fp:
         for item in value['strategy']:
             fp.write(item+'\n')
