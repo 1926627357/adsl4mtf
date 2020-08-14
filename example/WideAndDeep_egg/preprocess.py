@@ -165,7 +165,7 @@ def random_split_trans2tfrecord(input_file_path, output_file_path, criteo_stats_
             if len(items) != (1 + dense_dim + slot_dim):
                 items_error_size_lineCount.append(i)
                 continue
-            label = float(items[0])
+            label = int(items[0])
             values = items[1:1 + dense_dim]
             cats = items[1 + dense_dim:]
 
@@ -177,14 +177,16 @@ def random_split_trans2tfrecord(input_file_path, output_file_path, criteo_stats_
             # ids_list.extend(ids)
             # wts_list.extend(wts)
             # label_list.append(label)
-            ids = np.array(ids,dtype=np.float32)
+            ids = np.array(ids,dtype=np.int32)
             ids = ids.tostring()
             wts = np.array(wts,dtype=np.float32)
             wts = wts.tostring()
+            if count % 1000000 == 0:
+                print("label: ",label)
             example = tf.train.Example(features=tf.train.Features(
                                                                     feature={
                                                                     # Int64List储存int数据
-                                                                    'label': tf.train.Feature(float_list = tf.train.FloatList(value=[label])), 
+                                                                    'label': tf.train.Feature(int64_list = tf.train.Int64List(value=[label])), 
                                                                     # 储存byte二进制数据
                                                                     'ids':tf.train.Feature(bytes_list = tf.train.BytesList(value=[ids])),
                                                                     'wts':tf.train.Feature(bytes_list = tf.train.BytesList(value=[wts])),
