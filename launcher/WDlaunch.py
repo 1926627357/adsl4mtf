@@ -48,7 +48,7 @@ args_opt, unknown = parser.parse_known_args()
 
 import adsl4mtf.log as logger
 
-def model_backbone(id_hldr, wt_hldr, labels, mesh):
+def model_backbone(features, labels, mesh):
 	"""The model.
 	Args:
 		image: tf.Tensor with shape [batch, 32*32]
@@ -58,12 +58,12 @@ def model_backbone(id_hldr, wt_hldr, labels, mesh):
 		logits: a mtf.Tensor with shape [batch, 10]
 		loss: a mtf.Tensor with shape []
 	"""
-
+	id_hldr, wt_hldr=features
 
 	batch_dim = mtf.Dimension("batch",args_opt.batch_size)
-    field_dim = mtf.Dimension("field",39)
-    vocab_dim = mtf.Dimension("vocab_size",20000)
-    embed_dim = mtf.Dimension("embed_size",80)
+	field_dim = mtf.Dimension("field",size=39)
+	vocab_dim = mtf.Dimension("vocab_size",20000)
+	embed_dim = mtf.Dimension("embed_size",80)
 	outdim = mtf.Dimension("outdim",1)
 	id_hldr = mtf.import_tf_tensor(
 		mesh, tf.reshape(id_hldr, [args_opt.batch_size, field_dim.size]),
@@ -76,7 +76,7 @@ def model_backbone(id_hldr, wt_hldr, labels, mesh):
 	if args_opt.fp16:
 		float16=mtf.VariableDType(tf.float16,tf.float16,tf.float16)
 		# id_hldr=mtf.cast(id_hldr,dtype=tf.int32)
-        wt_hldr=mtf.cast(wt_hldr,dtype=tf.float16)
+		wt_hldr=mtf.cast(wt_hldr,dtype=tf.float16)
 	else:
 		float16=None
 
@@ -88,7 +88,7 @@ def model_backbone(id_hldr, wt_hldr, labels, mesh):
 	else:
 		labels = mtf.import_tf_tensor(
 			mesh, tf.reshape(labels, [args_opt.batch_size]), mtf.Shape([batch_dim]))
-		loss = mtf.layers.sigmoid_cross_entropy_with_logits(logits,label)
+		loss = mtf.layers.sigmoid_cross_entropy_with_logits(logits,labels)
 		loss = mtf.reduce_mean(loss)
 	return logits, loss
 
@@ -135,9 +135,15 @@ def model_fn(features, labels, mode, params):
 		tf_update_ops = [lowering.lowered_operation(op) for op in update_ops]
 		tf_update_ops.append(tf.assign_add(global_step, 1))
 		train_op = tf.group(tf_update_ops)
-
+		
+		predicts = tf.sigmoid(tf_logits)
+		# predict = lowering.export_to_tf_tensor(predicts)
+		predicts = tf.where(predicts>0.5,tf.ones_like(predicts),tf.zeros_like(predicts))
+		# print("="*100)
+		# print(labels.shape)
+		# print(predicts.shape)
 		accuracy = tf.metrics.accuracy(
-			labels=labels, predictions=tf.argmax(tf_logits, axis=1))
+			labels=labels, predictions=predicts)
 
 		# Name tensors to be logged with LoggingTensorHook.
 		tf.identity(tf_loss, "cross_entropy")
@@ -164,7 +170,7 @@ def run():
 		# enough dataset that we can easily shuffle the full epoch.
 		
 		# ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
-		ds = ctr_engine(RootDir=args_opt.data_url)
+		ds = ctr_engine(filepath=args_opt.data_url)
 		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times

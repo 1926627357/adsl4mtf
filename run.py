@@ -1,11 +1,12 @@
 import os
 import argparse
-
+# '/home/haiqwa/dataset/criteo/tfrecord/train.tfrecord'
+# '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val'
 parser = argparse.ArgumentParser(description="launch the training script")
 parser.add_argument("--data_url",default='/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
-parser.add_argument("--num_gpus",type=int,default=2,help="the num of devices used to train")
+parser.add_argument("--num_gpus",type=int,default=1,help="the num of devices used to train")
 parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt,_ = parser.parse_known_args()
 
@@ -18,14 +19,14 @@ else:
 	local_data_path = args_opt.data_url
 
 
-models = ['vgg16']
-class_nums = [100]
-fp16Choices = [True]
+models = ['resnet18','resnet50','resnet101','resnet152']
+class_nums = [10,1000,10000,65536]
+fp16Choices = [True,False]
 meshShapeDict={
 	1:['b1:1'],
 	2:['b1:2'],
 	4:['b1:2\\;b2:2'],
-	8:['b1:8\\;b2:4']
+	8:['b1:2\\;b2:4']
 }
 
 
@@ -38,7 +39,7 @@ for model in models:
 				data_url = local_data_path
 				ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
 				
-				epoch = 1
+				epoch = 5
 				batch_size = 32*args_opt.num_gpus
 				num_gpus = args_opt.num_gpus
 				# class_num = 10

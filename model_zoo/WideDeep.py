@@ -126,6 +126,7 @@ if __name__=="__main__":
     # result = -(label*mtf.log(result)+(1-label)*mtf.log(1-result))
     # result = mtf.reduce_sum(result)
     result = mtf.cast(result,dtype=tf.float32)
+    probability = mtf.sigmoid(result)
     result = mtf.layers.sigmoid_cross_entropy_with_logits(result,label)
     wide_loss = mtf.reduce_mean(result)
 
@@ -139,4 +140,9 @@ if __name__=="__main__":
         mesh_shape, layout_rules, devices)
     lowering = mtf.Lowering(graph, {mesh: mesh_impl})
     wide_loss = lowering.export_to_tf_tensor(wide_loss)
+    result = lowering.export_to_tf_tensor(result)
+    predict = lowering.export_to_tf_tensor(probability)
+    predict = tf.where(predict>0.5,tf.ones_like(predict),tf.zeros_like(predict))
     print(wide_loss)
+    print(result)
+    print(predict)
