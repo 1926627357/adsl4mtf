@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description="launch the training script")
 parser.add_argument("--data_url",default='/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
-parser.add_argument("--num_gpus",type=int,default=4,help="the num of devices used to train")
+parser.add_argument("--num_gpus",type=int,default=1,help="the num of devices used to train")
 parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt,_ = parser.parse_known_args()
 
@@ -20,7 +20,7 @@ else:
 
 
 models = ['vgg11']
-class_nums = [65536]
+class_nums = [100]
 fp16Choices = [True]
 meshShapeDict={
 	1:['b1:1'],
