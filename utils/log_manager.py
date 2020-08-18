@@ -10,6 +10,7 @@ filepaths = []
 for _,_,files in os.walk(args_opt.rootDir):
     for filename in files:
         filepaths.append(os.path.join(args_opt.rootDir,filename))
+    break
 
 
 import re
@@ -79,6 +80,10 @@ for filename in filepaths:
 
 for key, value in perfdict.items():
     subpath = os.path.join(args_opt.rootDir,'output/'+key)
+    if os.path.exists(subpath):
+        import shutil
+        # if exited, remove it!
+        shutil.rmtree(subpath)
     os.makedirs(subpath,exist_ok=True)
     strategy_path = os.path.join(subpath,'strategy')
 
