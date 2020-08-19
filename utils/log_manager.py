@@ -92,15 +92,19 @@ for key, value in perfdict.items():
     with open(strategy_path,'w') as fp:
         for item in value['strategy']:
             fp.write(item+'\n')
-    csvfile = CSV(
-                    path=csv_path,
-                    columns=['step','step_cost_time(ms)','samples/second','loss'],
-                    values=[
-                        value['performance']['step'],
-                        value['performance']['speed'],
-                        value['performance']['throughput'],
-                        value['performance']['loss'],
-                    ])
+    if 'step' in value['performance'].keys() and\
+        'speed' in value['performance'].keys() and\
+        'throughput' in value['performance'].keys() and\
+        'loss' in value['performance'].keys():
+        csvfile = CSV(
+                        path=csv_path,
+                        columns=['step','step_cost_time(ms)','samples/second','loss'],
+                        values=[
+                            value['performance']['step'],
+                            value['performance']['speed'],
+                            value['performance']['throughput'],
+                            value['performance']['loss'],
+                        ])
     csvfile.dump()
 
 # print(blocks[1])
