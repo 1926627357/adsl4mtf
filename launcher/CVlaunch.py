@@ -72,7 +72,7 @@ def model_backbone(image, labels, mesh):
 	else:
 		float16=None
 
-	logits = network[args_opt.model](x, classes_dim=classes_dim,float16=float16,batch_norm=True)
+	logits = network[args_opt.model](x, classes_dim=classes_dim,float16=float16,batch_norm=False)
 	logits = mtf.cast(logits,dtype=tf.float32)
 
 	if labels is None:
@@ -102,7 +102,7 @@ def model_fn(features, labels, mode, params):
 	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="NAIVE")
 	layout_rules =  mtf.convert_to_layout_rules(optimizer.solve())
 
-
+	layout_rules=[('batch', 'b1')]
 
 	logger.info("[auto mtf search] strategy: {}".format(layout_rules))
 	mesh_devices = ["gpu:{}".format(i) for i in range(int(args_opt.num_gpus))]
@@ -137,7 +137,7 @@ def model_fn(features, labels, mode, params):
 		tf.identity(accuracy[1], name="train_accuracy")
 
 		logging_hook = tf.train.LoggingTensorHook(every_n_iter=100,tensors={'loss': 'cross_entropy','acc':'train_accuracy'})
-
+		# profiling_hook = tf.estimator.ProfilerHook(save_steps=20, output_dir='./profiling/')
 		# restore_hook must come before saver_hook
 		return tf.estimator.EstimatorSpec(
 			tf.estimator.ModeKeys.TRAIN, loss=tf_loss, train_op=train_op,
@@ -158,7 +158,10 @@ def run():
 		
 		# ds = load_dataset(args_opt.data_url,use_fp16=args_opt.fp16)
 		ds = imagenet_engine(RootDir=args_opt.data_url)
-		ds_batched = ds.cache().shuffle(buffer_size=args_opt.batch_size*2).batch(args_opt.batch_size,drop_remainder=True)
+		ds_batched = ds.cache()\
+			.shuffle(buffer_size=args_opt.batch_size*2)\
+				.batch(args_opt.batch_size,drop_remainder=True)\
+					.prefetch(buffer_size=args_opt.batch_size)
 
 		# Iterate through the dataset a set number (`epochs_between_evals`) of times
 		# during each training session.

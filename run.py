@@ -20,7 +20,7 @@ else:
 
 
 models = ['vgg11']
-class_nums = [100]
+class_nums = [1000]
 fp16Choices = [True]
 meshShapeDict={
 	1:['b1:1'],

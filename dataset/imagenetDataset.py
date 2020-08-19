@@ -47,7 +47,7 @@ def imagenet_engine(RootDir):
 if __name__ == "__main__":
 	RootDir = '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val/'
 	dataset = imagenet_engine(RootDir=RootDir)
-	dataset = dataset.batch(64)
+	dataset = dataset.batch(32)
 	import time
 	# t1=time.time()
 	image,label = next(iter(dataset))
@@ -56,6 +56,6 @@ if __name__ == "__main__":
 	image,label = next(iter(dataset))
 	image,label = next(iter(dataset))
 	t2=time.time()
-	print(t2-t1)
+	print((t2-t1)/3)
 	print(image.shape)
 	
