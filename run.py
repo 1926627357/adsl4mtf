@@ -29,42 +29,47 @@ meshShapeDict={
 	8:['b1:2\\;b2:4']
 }
 
-
-
-for model in models:
-	for class_num in class_nums:
-		for fp16 in fp16Choices:
-			for mesh_shape in meshShapeDict[args_opt.num_gpus]:
-				launch_name = 'WDlaunch' if model=='widedeep' else 'CVlaunch'
-				data_url = local_data_path
-				ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
-				
-				epoch = 3*args_opt.num_gpus
-				batch_size = 32*args_opt.num_gpus
-				num_gpus = args_opt.num_gpus
-				# class_num = 10
-				# mesh_shape = 'b1:2\\;b2:2'
-				# mesh_shape = meshShapeDict[num_gpus]
-				cmd = "python adsl4mtf/launcher/{}.py \
-							--data_url={} \
-							--ckpt_path={} \
-							--model={} \
-							--epoch={} \
-							--batch_size={} \
-							--num_gpus={} \
-							--class_num={} \
-							--mesh_shape={} \
-							{}".format(
-								launch_name,
-								data_url,
-								ckpt_path,
-								model,
-								epoch,
-								batch_size,
-								num_gpus,
-								class_num,
-								mesh_shape,
-								'--fp16' if fp16 else ''
-							)
-				os.system(cmd)
+gpu_visible_num={
+	1:[1],
+	2:[2],
+	4:[4],
+	8:[1,2,4,8]
+}
+for num_gpus in gpu_visible_num[args_opt.num_gpus]:
+	for model in models:
+		for class_num in class_nums:
+			for fp16 in fp16Choices:
+				for mesh_shape in meshShapeDict[num_gpus]:
+					launch_name = 'WDlaunch' if model=='widedeep' else 'CVlaunch'
+					data_url = local_data_path
+					ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
+					
+					epoch = 3*num_gpus
+					batch_size = 32*num_gpus
+					# num_gpus = args_opt.num_gpus
+					# class_num = 10
+					# mesh_shape = 'b1:2\\;b2:2'
+					# mesh_shape = meshShapeDict[num_gpus]
+					cmd = "python adsl4mtf/launcher/{}.py \
+								--data_url={} \
+								--ckpt_path={} \
+								--model={} \
+								--epoch={} \
+								--batch_size={} \
+								--num_gpus={} \
+								--class_num={} \
+								--mesh_shape={} \
+								{}".format(
+									launch_name,
+									data_url,
+									ckpt_path,
+									model,
+									epoch,
+									batch_size,
+									num_gpus,
+									class_num,
+									mesh_shape,
+									'--fp16' if fp16 else ''
+								)
+					os.system(cmd)
 # print(cmd)
