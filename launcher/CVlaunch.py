@@ -102,7 +102,7 @@ def model_fn(features, labels, mode, params):
 	optimizer = layout_optimizer.LayoutOptimizer(estimator,scheduler_alg="NAIVE")
 	layout_rules =  mtf.convert_to_layout_rules(optimizer.solve())
 
-	layout_rules=[('batch', 'b1')]
+	# layout_rules=[('batch', 'b1')]
 
 	logger.info("[auto mtf search] strategy: {}".format(layout_rules))
 	mesh_devices = ["gpu:{}".format(i) for i in range(int(args_opt.num_gpus))]
@@ -191,7 +191,7 @@ logger.info('[configuration]model_{}_num_classes_{}_use_fp16_{}_batch_size_{}_pa
 					args_opt.class_num,
 					1 if args_opt.fp16 else 0,
 					args_opt.batch_size/args_opt.num_gpus,
-					args_opt.epoch,
+					args_opt.epoch/args_opt.num_gpus,
 					args_opt.num_gpus
 				))
 run()

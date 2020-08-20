@@ -105,7 +105,7 @@ for key, value in perfdict.items():
                             value['performance']['throughput'],
                             value['performance']['loss'],
                         ])
-    csvfile.dump()
+        csvfile.dump()
 
 # print(blocks[1])
 

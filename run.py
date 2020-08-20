@@ -39,7 +39,7 @@ for model in models:
 				data_url = local_data_path
 				ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)))
 				
-				epoch = 5
+				epoch = 3*args_opt.num_gpus
 				batch_size = 32*args_opt.num_gpus
 				num_gpus = args_opt.num_gpus
 				# class_num = 10

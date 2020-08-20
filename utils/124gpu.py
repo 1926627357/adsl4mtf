@@ -11,7 +11,7 @@ parallel = ["AUTO_PARALLEL"]
 device_num = [1,2,4,8]
 subnum = 4
 
-dir1 = "output/"
+dir1 = "output/output/"
 # dir2 = "output/"
 
 
@@ -81,7 +81,7 @@ def drawbar(modelname):
     y_limitation = 1000
     def autolabel(rects):
         for rect in rects:
-            height = rects:
+            height = rect
             height = rect.get_height()
             plt.annotate('{}'.format(int(height)),
                             xy=(rect.get_x()+rect.get_width()/2,height if height<y_limitation-200 else y_limitation/2),
@@ -113,7 +113,7 @@ def drawbar(modelname):
             # draw 1
             for i in range(len(x)):
                 x[i] = x[i] - width
-            plt.bar(x, y1, width=width, label='mtf-perf', fc='#F62217')
+            rects1 = plt.bar(x, y1, width=width, label='mtf-perf', fc='#F62217')
             # draw 2
             # for i in range(len(x)):
             #     x[i] = x[i] + width
@@ -121,12 +121,13 @@ def drawbar(modelname):
             # draw 3
             for i in range(len(x)):
                 x[i] = x[i] + width
-            plt.bar(x, linearbar, width=width, label='o-linear', tick_label=y1, fc='#2B60DE')
+            rects2 = plt.bar(x, linearbar, width=width, label='o-linear', tick_label=y1, fc='#2B60DE')
 
             plt.xticks((0, 1, 2, 3), ('1', '2', '4', '8'))
             plt.legend(loc='upper left', fontsize=8)
             pnum += 1
-
+            autolabel(rects1)
+            autolabel(rects2)
     plt.suptitle(modelname + "_bactch_size_32_epoch_size_3", fontsize=8)
     plt.savefig("picture/" + modelname + "_bactch_size_32_epoch_size_5.pdf", format="pdf")
    # plt.show()
