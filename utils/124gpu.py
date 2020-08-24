@@ -67,7 +67,7 @@ def getLinear(t):
 def gettitle(s):
     num_class = re.findall(r"num_classes_(.+?)_", s)[0]
     use_fp16 = re.findall(r"use_fp16_(.+?)_", s)[0]
-    parallel = re.findall(r"parallel_mode_(.+?)_epoch", s)[0]
+    parallel = re.findall(r"parallel_mode_(.+?)", s)[0]
     title = "num_classes:" + num_class + " use_fp16:"+ use_fp16 + " "+ parallel
     return title
 
