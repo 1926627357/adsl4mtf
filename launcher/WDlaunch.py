@@ -62,7 +62,7 @@ def model_backbone(features, labels, mesh):
 
 	batch_dim = mtf.Dimension("batch",args_opt.batch_size)
 	field_dim = mtf.Dimension("field",size=39)
-	vocab_dim = mtf.Dimension("vocab_size",20000)
+	vocab_dim = mtf.Dimension("vocab_size",200000)
 	embed_dim = mtf.Dimension("embed_size",80)
 	outdim = mtf.Dimension("outdim",1)
 	id_hldr = mtf.import_tf_tensor(
@@ -80,17 +80,23 @@ def model_backbone(features, labels, mesh):
 	else:
 		float16=None
 
-	logits = network[args_opt.model](id_hldr, wt_hldr, vocab_dim, embed_dim, outdim,float16=float16)
+	logits,embedding_table = network[args_opt.model](id_hldr, wt_hldr, vocab_dim, embed_dim, outdim,float16=float16)
 	logits = mtf.cast(logits,dtype=tf.float32)
-
+	embedding_table = mtf.cast(embedding_table,dtype=tf.float32)
 	if labels is None:
-		loss = None
+		wide_loss = None
+		deep_loss = None
 	else:
 		labels = mtf.import_tf_tensor(
 			mesh, tf.reshape(labels, [args_opt.batch_size]), mtf.Shape([batch_dim]))
-		loss = mtf.layers.sigmoid_cross_entropy_with_logits(logits,labels)
-		loss = mtf.reduce_mean(loss)
-	return logits, loss
+		wide_loss = mtf.layers.sigmoid_cross_entropy_with_logits(logits,labels)
+		deep_loss = mtf.reduce_mean(mtf.square(embedding_table)) / 2
+		deep_loss = mtf.reduce_mean(wide_loss)+8e-5*deep_loss
+		wide_loss = mtf.reduce_mean(wide_loss)
+		
+
+
+	return logits, wide_loss+deep_loss
 
 def model_fn(features, labels, mode, params):
 	"""The model_fn argument for creating an Estimator."""

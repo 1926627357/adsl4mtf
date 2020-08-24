@@ -64,10 +64,14 @@ def widedeep(id_hldr, wt_hldr, vocab_dim, embed_dim, outdim, float16=None):
     logger.debug("[input tensor] (name,shape):({},{})".format(id_hldr.name,id_hldr.shape))
     logger.debug("[input tensor] (name,shape):({},{})".format(wt_hldr.name,wt_hldr.shape))
     if float16:
-        deep_output = mtf.layers.embedding(id_hldr, vocab_dim=vocab_dim, output_dim=embed_dim, variable_dtype=float16, name="deep_embedding")
+        embedding_table = mtf.layers.embedding_weights(id_hldr.mesh, vocab_dim, embed_dim, float16, "deep_embedding")
+        deep_output = mtf.gather(embedding_table, id_hldr, vocab_dim)
+        # deep_output = mtf.layers.embedding(id_hldr, vocab_dim=vocab_dim, output_dim=embed_dim, variable_dtype=float16, name="deep_embedding")
     else:
         fp32 = mtf.VariableDType(tf.float32,tf.float32,tf.float32)
-        deep_output = mtf.layers.embedding(id_hldr, vocab_dim=vocab_dim, output_dim=embed_dim, variable_dtype=fp32, name="deep_embedding")
+        embedding_table = mtf.layers.embedding_weights(id_hldr.mesh, vocab_dim, embed_dim, fp32, "deep_embedding")
+        deep_output = mtf.gather(embedding_table, id_hldr, vocab_dim)
+        # deep_output = mtf.layers.embedding(id_hldr, vocab_dim=vocab_dim, output_dim=embed_dim, variable_dtype=fp32, name="deep_embedding")
     logger.debug("[output tensor] (name,shape):({},{})".format(deep_output.name,deep_output.shape))
     expend_dim = mtf.Dimension('expend',size=1)
     embed_dim_one = mtf.Dimension('embed_dim_one',size=1)
@@ -87,7 +91,7 @@ def widedeep(id_hldr, wt_hldr, vocab_dim, embed_dim, outdim, float16=None):
     result = mtf.reshape(result, new_shape=[wide_output.shape.dims[0],outdim],name='result_reshape')
     result = mtf.reduce_sum(result,reduced_dim=outdim)
     logger.debug("[output tensor] (name,shape):({},{})".format(result.name, result.shape))
-    return result
+    return result,embedding_table
 
 
 if __name__=="__main__":
@@ -118,7 +122,7 @@ if __name__=="__main__":
         wt_hldr=mtf.cast(wt_hldr,dtype=tf.float16)
     else:
         float16=None
-    result = widedeep(id_hldr,wt_hldr,vocab_dim,embed_dim,outdim,float16)
+    result,embedding_table = widedeep(id_hldr,wt_hldr,vocab_dim,embed_dim,outdim,float16)
     
     # label = mtf.reshape(label,new_shape=[batch_dim, outdim])
     # output = mtf.layers.softmax_cross_entropy_with_logits(result, label,vocab_dim=outdim)
@@ -126,9 +130,12 @@ if __name__=="__main__":
     # result = -(label*mtf.log(result)+(1-label)*mtf.log(1-result))
     # result = mtf.reduce_sum(result)
     result = mtf.cast(result,dtype=tf.float32)
+    embedding_table = mtf.cast(embedding_table,dtype=tf.float32)
     probability = mtf.sigmoid(result)
     result = mtf.layers.sigmoid_cross_entropy_with_logits(result,label)
     wide_loss = mtf.reduce_mean(result)
+    deep_loss = mtf.reduce_mean(mtf.square(embedding_table)) / 2
+    deep_loss = mtf.reduce_mean(result)+8e-5*deep_loss
 
     
 
@@ -140,9 +147,11 @@ if __name__=="__main__":
         mesh_shape, layout_rules, devices)
     lowering = mtf.Lowering(graph, {mesh: mesh_impl})
     wide_loss = lowering.export_to_tf_tensor(wide_loss)
-    result = lowering.export_to_tf_tensor(result)
-    predict = lowering.export_to_tf_tensor(probability)
-    predict = tf.where(predict>0.5,tf.ones_like(predict),tf.zeros_like(predict))
+    # result = lowering.export_to_tf_tensor(result)
+    # predict = lowering.export_to_tf_tensor(probability)
+    # predict = tf.where(predict>0.5,tf.ones_like(predict),tf.zeros_like(predict))
+    deep_loss = lowering.export_to_tf_tensor(deep_loss)
     print(wide_loss)
-    print(result)
-    print(predict)
+    print(deep_loss)
+    # print(result)
+    # print(predict)

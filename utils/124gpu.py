@@ -20,7 +20,7 @@ def buildfilename(modelname):
     for a in range(4):
         for b in range(2):
             for c in range(1):
-                strtmp = "model_" + modelname + "_num_classes_"+ str(num_classes[a]) + "_use_fp16_" + str(use_fp16[b]) + "_batch_size_32.0_parallel_mode_" + str(parallel[c]) +"_epoch_size_3.0_device_num_"
+                strtmp = "model_" + modelname + "_num_classes_"+ str(num_classes[a]) + "_use_fp16_" + str(use_fp16[b]) + "_batch_size_32.0_parallel_mode_" + str(parallel[c]) +"_device_num_"
                 strlist.append(strtmp)
     return strlist
 

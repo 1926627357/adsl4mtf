@@ -79,7 +79,7 @@ for filename in filepaths:
             
 
 for key, value in perfdict.items():
-    subpath = os.path.join(args_opt.rootDir,'output/'+key)
+    subpath = os.path.join(args_opt.rootDir,'output',re.sub(r'_epoch_size_[0-9.]*','',key))
     if os.path.exists(subpath):
         import shutil
         # if exited, remove it!
@@ -87,7 +87,7 @@ for key, value in perfdict.items():
     os.makedirs(subpath,exist_ok=True)
     strategy_path = os.path.join(subpath,'strategy')
 
-    csv_abspath = re.sub(r'_device_num_\d', '-log.csv', key)
+    csv_abspath = re.sub(r'_epoch_size_[0-9.]*_device_num_\d', '-log.csv', key)
     csv_path = os.path.join(subpath,csv_abspath)
     with open(strategy_path,'w') as fp:
         for item in value['strategy']:
