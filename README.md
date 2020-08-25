@@ -12,6 +12,9 @@
 
 ## USAGE
 ### directory
+`adsl4mtf` is the directory of this project
+`output` used to store log file
+`picture` used to store pictures 
 ```
 /workspace
 |
