@@ -14,10 +14,10 @@ def _parse_image_function(example_proto):
             input_dict['label']
 def ctr_engine(filepath):
     # the input file is in tfrecord format
-
     
     
-    dataset = tf.data.TFRecordDataset(filepath)
+    
+    dataset = tf.data.TFRecordDataset(os.path.join(filepath,'train.tfrecord'))
     
     AUTOTUNE = tf.data.experimental.AUTOTUNE
     dataset = dataset.map(_parse_image_function, num_parallel_calls=AUTOTUNE)

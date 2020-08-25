@@ -1,12 +1,14 @@
 import os
 import argparse
-# '/home/haiqwa/dataset/criteo/tfrecord/train.tfrecord'
+# '/home/haiqwa/dataset/criteo/tfrecord/'
 # '/home/haiqwa/dataset/mininet/mini-imagenet-sp2/val'
 parser = argparse.ArgumentParser(description="launch the training script")
-parser.add_argument("--data_url",default='/home/haiqwa/dataset/criteo/tfrecord/train.tfrecord',help="the bucket path of dataset")
+parser.add_argument("--data_url",default='/home/haiqwa/dataset/criteo/tfrecord/',help="the bucket path of dataset")
 parser.add_argument("--train_url",default=None,help="the output file stored in")
 parser.add_argument("--ckpt_path",default='./ckpt',help="the root directory path of model checkpoint stored in")
 parser.add_argument("--num_gpus",type=int,default=1,help="the num of devices used to train")
+parser.add_argument("--models",required=True,help="the name of model. now supported model: vgg11~19,resnet18~resnet152,widedeep. splited by ','")
+parser.add_argument("--class_nums",required=True,help="to specify the class num of the model. splited by ','")
 parser.add_argument('--cloud', action='store_true', help='training in cloud or not')
 args_opt,_ = parser.parse_known_args()
 
@@ -19,8 +21,8 @@ else:
 	local_data_path = args_opt.data_url
 
 
-models = ['widedeep']
-class_nums = [10]
+models = args_opt.models.split(',')
+class_nums = [int(class_num) for class_num in args_opt.class_nums.split(',')]
 fp16Choices = [True]
 meshShapeDict={
 	1:['b1:1'],
@@ -28,7 +30,7 @@ meshShapeDict={
 	4:['b1:2\\;b2:2'],
 	8:['b1:2\\;b2:4']
 }
-
+# 这里代表如果我用8卡，则会去执行1，2，4，8卡的任务
 gpu_visible_num={
 	1:[1],
 	2:[2],
@@ -45,7 +47,7 @@ for num_gpus in gpu_visible_num[args_opt.num_gpus]:
 					ckpt_path = os.path.join(args_opt.ckpt_path,model,str(class_num),'1' if fp16 else '0',str(len(mesh_shape)),str(num_gpus))
 					
 					epoch = 1 if model=='widedeep' else 3*num_gpus
-					batch_size = 100*num_gpus
+					batch_size = 1000*num_gpus if model=='widedeep' else 32*num_gpus
 					# num_gpus = args_opt.num_gpus
 					# class_num = 10
 					# mesh_shape = 'b1:2\\;b2:2'
