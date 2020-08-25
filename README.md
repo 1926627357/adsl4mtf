@@ -34,8 +34,8 @@ In server:
 >                                           --class_nums=10,1000 &> output/xxx.log
 
 In modelarts:
-|:----:|:----:|
 |args|value|
+|:-:|:-:|
 |data_url|/bucket-8048/dataset/mindspore_train/mini-imagenet-sp2/val/|
 |num_gpus|8|
 |**models**|resnet18,resnet50|
