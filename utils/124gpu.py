@@ -135,7 +135,8 @@ def drawbar(modelname):
 
 if __name__ == '__main__':
     # 想要处理的模型的信息就放入到其中
-    picname = ["resnet18"]
+    # "resnet18","resnet50","resnet101","resnet152","vgg11","vgg13","vgg16","vgg19"
+    picname = ["resnet18","resnet50","resnet101","resnet152","vgg11","vgg13","vgg16","vgg19"]
     for p in picname:
         drawbar(p)
         print(p)
