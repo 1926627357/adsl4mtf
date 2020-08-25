@@ -52,13 +52,26 @@ In modelarts:
 ```
 [user@gpu8 /workspace]$ python adsl4mtf/utils/124gpu.py
 ```
+the output pictures will be stored in `/workspace/picture`
 
 ## MeshTF Performance
-All data below are got from V100 clusters in huawei cloud platform
-|args|value|
-|:-:|:-:|
-|||
+we measure the performance of mesh tensorflow in vgg and resnet models. And the training configurations are:
+|batch size|metric|dataset|precision|class num|
+|:-:|:-:|:-:|:-:|:-:|
+|32|samples/second|mini-imagenet|FP32|100|
+All data below are got from V100 clusters in huawei cloud platform.
+|model|1 GPU|2 GPU|4 GPU|8 GPU|
+|:-:|:-:|:-:|:-:|:-:|
+|vgg11|363|466|806|1180|
+|vgg13|242|451|367|672|
+|vgg16|205|381|389|606|
+|vgg19|179|334|337|550|
+|resnet18|469|577|880|1293|
+|resnet50|175|281|265|431|
+|resnet101|112|160|-|-|
+|resent152|79|114|-|-|
 
+auto mixed precision is not supported in mesh tensorflow.
 ## TODO
 * ~~log process programme~~
 * wide&deep
