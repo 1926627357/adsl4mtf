@@ -59,7 +59,9 @@ we measure the performance of mesh tensorflow in vgg and resnet models. And the 
 |batch size|metric|dataset|precision|class num|
 |:-:|:-:|:-:|:-:|:-:|
 |32|samples/second|mini-imagenet|FP32|100|
+
 All data below are got from V100 clusters in huawei cloud platform.
+
 |model|1 GPU|2 GPU|4 GPU|8 GPU|
 |:-:|:-:|:-:|:-:|:-:|
 |vgg11|363|466|806|1180|
