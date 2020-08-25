@@ -1,5 +1,13 @@
 # adsl4mtf
 
+## Requirement
+our performance script is based on `Tensorflow==2.1`. If you want to know how to install it, please access [tensorflow.install](https://www.tensorflow.org/install)
+
+other requiring packages are all listed in `pip-requirements.txt`, just input:
+```
+[user@gpu8 /workspace]$ pip install -r adsl4mtf/pip-requirements.txt
+```
+
 ## TODO
 * ~~log process programme~~
 * wide&deep
@@ -55,3 +63,8 @@ In modelarts:
 ```
 [user@gpu8 /workspace]$ python adsl4mtf/utils/124gpu.py
 ```
+
+## MeshTF Performance
+All data below are got from V100 clusters in huawei cloud platform
+|args|value|
+|:-:|:-:|

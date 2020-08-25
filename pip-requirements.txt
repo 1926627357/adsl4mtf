@@ -1,2 +1,4 @@
 mesh-tensorflow
 ortools
+pandas
+matplotlib
