@@ -7,17 +7,6 @@ other requiring packages are all listed in `pip-requirements.txt`, just input:
 ```
 [user@gpu8 /workspace]$ pip install -r adsl4mtf/pip-requirements.txt
 ```
-
-## TODO
-* ~~log process programme~~
-* wide&deep
-* ~~make a dict for mesh shape~~
-* ~~fp16 for resnet~~
-* ~~fp32 for vgg~~
-* ~~mini-dataset upload~~
-* ~~replace the cifar10 with the mini-imagenet~~
-* mesh shape={'b1':8} -> how to set the value of the class nums for model parallel
-
 ## USAGE
 ### directory
 1. `adsl4mtf` is the directory of this project
@@ -68,3 +57,14 @@ In modelarts:
 All data below are got from V100 clusters in huawei cloud platform
 |args|value|
 |:-:|:-:|
+|||
+
+## TODO
+* ~~log process programme~~
+* wide&deep
+* ~~make a dict for mesh shape~~
+* ~~fp16 for resnet~~
+* ~~fp32 for vgg~~
+* ~~mini-dataset upload~~
+* ~~replace the cifar10 with the mini-imagenet~~
+* mesh shape={'b1':8} -> how to set the value of the class nums for model parallel
