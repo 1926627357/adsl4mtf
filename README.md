@@ -52,6 +52,33 @@ In modelarts:
 ```
 [user@gpu8 /workspace]$ python adsl4mtf/utils/124gpu.py
 ```
+Before drawing pictures, you should set several configurations in the script
+```python
+# num_classes and the batch_size in buildfilename should be taken into account
+num_classes = [10,1000,10000,65536]
+use_fp16 = [0,1]
+parallel = ["AUTO_PARALLEL"]
+device_num = [1,2,4,8]
+subnum = 4
+dir1 = "output/output/"
+def buildfilename(modelname):
+    strlist = []
+    for a in range(4):
+        for b in range(2):
+            for c in range(1):
+                strtmp = "model_" + modelname + "_num_classes_"+ str(num_classes[a]) + "_use_fp16_" + str(use_fp16[b]) + "_batch_size_32.0_parallel_mode_" + str(parallel[c]) +"_device_num_"
+                strlist.append(strtmp)
+    return strlist
+
+...
+
+# config the models
+if __name__ == '__main__':
+    picname = ["resnet18","resnet50","resnet101","resnet152","vgg11","vgg13","vgg16","vgg19"]
+    for p in picname:
+        drawbar(p)
+        print(p)
+```
 the output pictures will be stored in `/workspace/picture`
 
 ## MeshTF Performance
