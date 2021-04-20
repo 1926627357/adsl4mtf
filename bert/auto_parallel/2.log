@@ -1,0 +1,1282 @@
+WARNING:tensorflow:From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+INFO:tensorflow:*** Input Training Files ***
+I0129 12:14:37.657156 140153615533888 run_pretraining.py:362] *** Input Training Files ***
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/69.tfrecord
+I0129 12:14:37.657306 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/69.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/42.tfrecord
+I0129 12:14:37.657380 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/42.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/20.tfrecord
+I0129 12:14:37.657444 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/20.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/4.tfrecord
+I0129 12:14:37.657505 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/4.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/75.tfrecord
+I0129 12:14:37.657564 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/75.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/74.tfrecord
+I0129 12:14:37.657622 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/74.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/45.tfrecord
+I0129 12:14:37.657679 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/45.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/38.tfrecord
+I0129 12:14:37.657763 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/38.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/66.tfrecord
+I0129 12:14:37.657825 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/66.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/22.tfrecord
+I0129 12:14:37.657884 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/22.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/79.tfrecord
+I0129 12:14:37.657944 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/79.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/14.tfrecord
+I0129 12:14:37.658049 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/14.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/62.tfrecord
+I0129 12:14:37.658102 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/62.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/3.tfrecord
+I0129 12:14:37.658157 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/3.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/80.tfrecord
+I0129 12:14:37.658210 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/80.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/23.tfrecord
+I0129 12:14:37.658263 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/23.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/32.tfrecord
+I0129 12:14:37.658317 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/32.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/26.tfrecord
+I0129 12:14:37.658370 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/26.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/85.tfrecord
+I0129 12:14:37.658423 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/85.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/50.tfrecord
+I0129 12:14:37.658476 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/50.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/56.tfrecord
+I0129 12:14:37.658536 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/56.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/94.tfrecord
+I0129 12:14:37.658590 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/94.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/72.tfrecord
+I0129 12:14:37.658643 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/72.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/44.tfrecord
+I0129 12:14:37.658695 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/44.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/84.tfrecord
+I0129 12:14:37.658775 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/84.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/73.tfrecord
+I0129 12:14:37.658835 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/73.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/71.tfrecord
+I0129 12:14:37.658893 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/71.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/57.tfrecord
+I0129 12:14:37.658952 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/57.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/7.tfrecord
+I0129 12:14:37.659056 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/7.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/51.tfrecord
+I0129 12:14:37.659108 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/51.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/91.tfrecord
+I0129 12:14:37.659160 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/91.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/37.tfrecord
+I0129 12:14:37.659210 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/37.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/76.tfrecord
+I0129 12:14:37.659262 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/76.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/15.tfrecord
+I0129 12:14:37.659313 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/15.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/52.tfrecord
+I0129 12:14:37.659365 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/52.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/35.tfrecord
+I0129 12:14:37.659416 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/35.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/2.tfrecord
+I0129 12:14:37.659467 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/2.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/30.tfrecord
+I0129 12:14:37.659519 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/30.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/5.tfrecord
+I0129 12:14:37.659570 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/5.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/25.tfrecord
+I0129 12:14:37.659622 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/25.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/99.tfrecord
+I0129 12:14:37.659673 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/99.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/88.tfrecord
+I0129 12:14:37.659757 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/88.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/13.tfrecord
+I0129 12:14:37.659820 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/13.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/41.tfrecord
+I0129 12:14:37.659878 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/41.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/60.tfrecord
+I0129 12:14:37.659936 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/60.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/97.tfrecord
+I0129 12:14:37.659995 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/97.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/54.tfrecord
+I0129 12:14:37.660095 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/54.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/48.tfrecord
+I0129 12:14:37.660144 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/48.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/96.tfrecord
+I0129 12:14:37.660192 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/96.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/81.tfrecord
+I0129 12:14:37.660241 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/81.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/9.tfrecord
+I0129 12:14:37.660289 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/9.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/10.tfrecord
+I0129 12:14:37.660338 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/10.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/90.tfrecord
+I0129 12:14:37.660386 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/90.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/18.tfrecord
+I0129 12:14:37.660434 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/18.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/29.tfrecord
+I0129 12:14:37.660483 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/29.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/64.tfrecord
+I0129 12:14:37.660531 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/64.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/8.tfrecord
+I0129 12:14:37.660579 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/8.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/11.tfrecord
+I0129 12:14:37.660628 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/11.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/1.tfrecord
+I0129 12:14:37.660676 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/1.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/31.tfrecord
+I0129 12:14:37.660745 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/31.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/92.tfrecord
+I0129 12:14:37.660807 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/92.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/47.tfrecord
+I0129 12:14:37.660865 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/47.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/77.tfrecord
+I0129 12:14:37.660924 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/77.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/89.tfrecord
+I0129 12:14:37.660991 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/89.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/68.tfrecord
+I0129 12:14:37.661090 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/68.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/67.tfrecord
+I0129 12:14:37.661139 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/67.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/53.tfrecord
+I0129 12:14:37.661188 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/53.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/27.tfrecord
+I0129 12:14:37.661236 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/27.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/19.tfrecord
+I0129 12:14:37.661285 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/19.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/28.tfrecord
+I0129 12:14:37.661334 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/28.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/6.tfrecord
+I0129 12:14:37.661382 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/6.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/98.tfrecord
+I0129 12:14:37.661431 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/98.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/70.tfrecord
+I0129 12:14:37.661479 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/70.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/59.tfrecord
+I0129 12:14:37.661528 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/59.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/24.tfrecord
+I0129 12:14:37.661576 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/24.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/36.tfrecord
+I0129 12:14:37.661624 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/36.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/93.tfrecord
+I0129 12:14:37.661673 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/93.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/82.tfrecord
+I0129 12:14:37.661725 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/82.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/87.tfrecord
+I0129 12:14:37.661802 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/87.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/21.tfrecord
+I0129 12:14:37.661861 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/21.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/58.tfrecord
+I0129 12:14:37.661919 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/58.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/40.tfrecord
+I0129 12:14:37.661977 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/40.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/55.tfrecord
+I0129 12:14:37.662064 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/55.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/16.tfrecord
+I0129 12:14:37.662112 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/16.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/49.tfrecord
+I0129 12:14:37.662165 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/49.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/46.tfrecord
+I0129 12:14:37.662214 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/46.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/78.tfrecord
+I0129 12:14:37.662263 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/78.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/43.tfrecord
+I0129 12:14:37.662311 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/43.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/95.tfrecord
+I0129 12:14:37.662359 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/95.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/86.tfrecord
+I0129 12:14:37.662408 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/86.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/61.tfrecord
+I0129 12:14:37.662457 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/61.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/17.tfrecord
+I0129 12:14:37.662505 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/17.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/39.tfrecord
+I0129 12:14:37.662553 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/39.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/33.tfrecord
+I0129 12:14:37.662602 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/33.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/83.tfrecord
+I0129 12:14:37.662650 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/83.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/65.tfrecord
+I0129 12:14:37.662698 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/65.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/34.tfrecord
+I0129 12:14:37.662778 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/34.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/12.tfrecord
+I0129 12:14:37.662837 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/12.tfrecord
+INFO:tensorflow:  /data/haiqwa-dataset/dataset/zhwiki/tfdir/63.tfrecord
+I0129 12:14:37.662896 140153615533888 run_pretraining.py:364]   /data/haiqwa-dataset/dataset/zhwiki/tfdir/63.tfrecord
+INFO:tensorflow:Using config: {'_model_dir': './output', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': gpu_options {
+  allow_growth: true
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+I0129 12:14:37.663396 140153615533888 estimator.py:216] Using config: {'_model_dir': './output', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': gpu_options {
+  allow_growth: true
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+INFO:tensorflow:Set train batch size = 32
+I0129 12:14:37.664190 140153615533888 run_pretraining.py:416] Set train batch size = 32
+INFO:tensorflow:Starting to train.
+I0129 12:14:37.664610 140153615533888 run_pretraining.py:424] Starting to train.
+WARNING:tensorflow:From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/training_util.py:236: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+W0129 12:14:37.670820 140153615533888 deprecation.py:323] From /home/haiqwa/anaconda3/envs/mtf/lib/python3.6/site-packages/tensorflow_core/python/training/training_util.py:236: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+WARNING:tensorflow:From run_pretraining.py:312: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+W0129 12:14:37.681945 140153615533888 deprecation.py:323] From run_pretraining.py:312: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+WARNING:tensorflow:From run_pretraining.py:329: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+W0129 12:14:37.702879 140153615533888 deprecation.py:323] From run_pretraining.py:329: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+WARNING:tensorflow:From run_pretraining.py:344: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+W0129 12:14:37.928157 140153615533888 deprecation.py:323] From run_pretraining.py:344: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+INFO:tensorflow:Calling model_fn.
+I0129 12:14:37.944010 140153615533888 estimator.py:1151] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I0129 12:14:37.944112 140153615533888 run_pretraining.py:133] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (32, 128)
+I0129 12:14:37.944202 140153615533888 run_pretraining.py:136]   name = input_ids, shape = (32, 128)
+INFO:tensorflow:  name = input_mask, shape = (32, 128)
+I0129 12:14:37.944282 140153615533888 run_pretraining.py:136]   name = input_mask, shape = (32, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (32, 20)
+I0129 12:14:37.944362 140153615533888 run_pretraining.py:136]   name = masked_lm_ids, shape = (32, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (32, 20)
+I0129 12:14:37.944436 140153615533888 run_pretraining.py:136]   name = masked_lm_positions, shape = (32, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (32, 20)
+I0129 12:14:37.944506 140153615533888 run_pretraining.py:136]   name = masked_lm_weights, shape = (32, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (32, 1)
+I0129 12:14:37.944576 140153615533888 run_pretraining.py:136]   name = next_sentence_labels, shape = (32, 1)
+INFO:tensorflow:  name = segment_ids, shape = (32, 128)
+I0129 12:14:37.944645 140153615533888 run_pretraining.py:136]   name = segment_ids, shape = (32, 128)
+INFO:tensorflow:[haiqwa-test] first_token_tensor shape: Shape[batch=32, hidden=768]
+I0129 12:14:38.699390 140153615533888 bert.py:306] [haiqwa-test] first_token_tensor shape: Shape[batch=32, hidden=768]
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/embeddings/word_embeddings,Shape[vocab=21248, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.005642 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/embeddings/word_embeddings,Shape[vocab=21248, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/embeddings/token_type_embeddings,Shape[token_type_vocab=2, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006077 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/embeddings/token_type_embeddings,Shape[token_type_vocab=2, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/embeddings/position_embeddings,Shape[max_position_embeddings=512, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006163 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/embeddings/position_embeddings,Shape[max_position_embeddings=512, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/embeddings/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006238 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/embeddings/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/embeddings/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006308 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/embeddings/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006381 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006448 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006516 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006584 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006658 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.006732 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006803 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006867 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.006936 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007000 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.007064 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.007127 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007194 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007257 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007323 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007387 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_0/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007452 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007522 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007591 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007654 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007718 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.007795 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007863 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007927 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.007995 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008059 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.008122 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.008185 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008251 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008320 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008387 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008450 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_1/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008512 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008576 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008641 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008707 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008782 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.008847 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008915 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.008981 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009051 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009115 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.009178 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.009242 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009308 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009373 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009438 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009502 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_2/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009566 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009629 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009694 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009766 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009832 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.009903 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.009971 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010035 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010103 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010165 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.010228 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.010293 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010358 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010422 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010488 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.010550 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_3/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010614 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010684 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010756 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010824 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010890 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.010955 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011021 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011084 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011151 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011215 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.011278 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.011342 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011406 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011476 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011543 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.011605 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_4/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.011670 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.011739 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.011806 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.011873 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.011938 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012003 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012069 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012131 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012198 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012267 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.012331 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.012396 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012460 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012525 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012590 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.012654 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_5/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012718 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012789 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012855 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012921 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.012986 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.013055 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013123 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013187 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013252 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013317 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.013380 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.013443 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013508 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013571 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013636 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.013697 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_6/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.013768 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.013838 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.013905 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.013970 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.014037 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.014102 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014171 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014234 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014299 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014364 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.014426 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.014490 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014555 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014624 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014689 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.014759 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_7/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.014825 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.014889 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.014956 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015023 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015088 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015152 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015220 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015284 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015348 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015415 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.015477 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.015540 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015606 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015671 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015739 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.015805 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_8/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015867 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015930 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.015996 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.016061 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.016127 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.016197 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016265 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016329 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016393 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016457 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.016521 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.016583 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016649 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016712 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016785 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.016849 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_9/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.016913 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.016982 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.017048 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.017114 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.017181 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.017245 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017311 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017375 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017440 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017503 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.017566 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.017630 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017693 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017768 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017836 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.017899 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_10/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.017964 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/query/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.018027 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/query/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.018091 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/key/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.018155 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/key/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.018220 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/value/kernel,Shape[hidden=768, num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+I0129 12:14:42.018285 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/value/bias,Shape[num_heads=12, attention_head=64],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018352 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/output/kernel,Shape[num_heads=12, attention_head=64, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018417 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/output/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018483 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018551 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/attention/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.018615 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_1/kernel,Shape[hidden=768, intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+I0129 12:14:42.018680 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_1/bias,Shape[intermediate=3072],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018750 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_2/kernel,Shape[intermediate=3072, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018818 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/dense_2/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018881 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.018944 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/encoder/block_11/feedforward/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/pooler/dense/kernel,Shape[_hidden=768, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019008 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/pooler/dense/kernel,Shape[_hidden=768, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (bert/pooler/dense_1/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019073 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (bert/pooler/dense_1/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/predictions/transform/dense/kernel,Shape[_hidden=768, hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019140 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/predictions/transform/dense/kernel,Shape[_hidden=768, hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/predictions/transform/dense_1/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019203 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/predictions/transform/dense_1/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/predictions/transform/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019267 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/predictions/transform/layer_norm/scale,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/predictions/transform/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+I0129 12:14:42.019330 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/predictions/transform/layer_norm/bias,Shape[hidden=768],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/predictions/output_bias,Shape[vocab=21248],<dtype: 'float32'>)
+I0129 12:14:42.019397 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/predictions/output_bias,Shape[vocab=21248],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/seq_relationship/kernel,Shape[hidden=768, class=2],<dtype: 'float32'>)
+I0129 12:14:42.019463 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/seq_relationship/kernel,Shape[hidden=768, class=2],<dtype: 'float32'>)
+INFO:tensorflow:[parameter] (name,shape,dtype): (cls/seq_relationship/bias,Shape[class=2],<dtype: 'float32'>)
+I0129 12:14:42.019524 140153615533888 run_pretraining.py:216] [parameter] (name,shape,dtype): (cls/seq_relationship/bias,Shape[class=2],<dtype: 'float32'>)
+INFO:tensorflow:layout rules: LayoutRules{('token_type_vocab', 'processor_rows'), ('vocab', 'processor_rows'), ('class', 'processor_rows'), ('intermediate', 'processor_rows'), ('num_heads', 'processor_rows'), ('_hidden', 'processor_rows')}
+I0129 12:14:42.019597 140153615533888 run_pretraining.py:217] layout rules: LayoutRules{('token_type_vocab', 'processor_rows'), ('vocab', 'processor_rows'), ('class', 'processor_rows'), ('intermediate', 'processor_rows'), ('num_heads', 'processor_rows'), ('_hidden', 'processor_rows')}
+INFO:tensorflow:Variable bert/embeddings/position_embeddings                          size 393216       slice_size 393216       Shape[max_position_embeddings=512, hidden=768]              
+I0129 12:15:00.211888 140153615533888 ops.py:5936] Variable bert/embeddings/position_embeddings                          size 393216       slice_size 393216       Shape[max_position_embeddings=512, hidden=768]              
+INFO:tensorflow:Variable bert/embeddings/token_type_embeddings                        size 1536         slice_size 768          Shape[token_type_vocab=2, hidden=768]                       
+I0129 12:15:00.212126 140153615533888 ops.py:5936] Variable bert/embeddings/token_type_embeddings                        size 1536         slice_size 768          Shape[token_type_vocab=2, hidden=768]                       
+INFO:tensorflow:Variable bert/embeddings/word_embeddings                              size 16318464     slice_size 8159232      Shape[vocab=21248, hidden=768]                              
+I0129 12:15:00.212229 140153615533888 ops.py:5936] Variable bert/embeddings/word_embeddings                              size 16318464     slice_size 8159232      Shape[vocab=21248, hidden=768]                              
+INFO:tensorflow:Variable bert/encoder/block_0/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.212327 140153615533888 ops.py:5936] Variable bert/encoder/block_0/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_0/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.212419 140153615533888 ops.py:5936] Variable bert/encoder/block_0/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_0/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.212509 140153615533888 ops.py:5936] Variable bert/encoder/block_0/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_0/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.212613 140153615533888 ops.py:5936] Variable bert/encoder/block_0/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_0/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.212701 140153615533888 ops.py:5936] Variable bert/encoder/block_0/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_0/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.212794 140153615533888 ops.py:5936] Variable bert/encoder/block_0/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_1/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.212881 140153615533888 ops.py:5936] Variable bert/encoder/block_1/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_1/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.212967 140153615533888 ops.py:5936] Variable bert/encoder/block_1/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_1/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213054 140153615533888 ops.py:5936] Variable bert/encoder/block_1/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_1/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213143 140153615533888 ops.py:5936] Variable bert/encoder/block_1/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_1/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.213227 140153615533888 ops.py:5936] Variable bert/encoder/block_1/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_1/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.213312 140153615533888 ops.py:5936] Variable bert/encoder/block_1/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_10/attention/key/kernel                   size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213398 140153615533888 ops.py:5936] Variable bert/encoder/block_10/attention/key/kernel                   size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_10/attention/output/kernel                size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.213490 140153615533888 ops.py:5936] Variable bert/encoder/block_10/attention/output/kernel                size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_10/attention/query/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213577 140153615533888 ops.py:5936] Variable bert/encoder/block_10/attention/query/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_10/attention/value/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213664 140153615533888 ops.py:5936] Variable bert/encoder/block_10/attention/value/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_10/feedforward/dense_1/kernel             size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.213754 140153615533888 ops.py:5936] Variable bert/encoder/block_10/feedforward/dense_1/kernel             size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_10/feedforward/dense_2/kernel             size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.213840 140153615533888 ops.py:5936] Variable bert/encoder/block_10/feedforward/dense_2/kernel             size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_11/attention/key/kernel                   size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.213925 140153615533888 ops.py:5936] Variable bert/encoder/block_11/attention/key/kernel                   size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_11/attention/output/kernel                size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.214011 140153615533888 ops.py:5936] Variable bert/encoder/block_11/attention/output/kernel                size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_11/attention/query/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214097 140153615533888 ops.py:5936] Variable bert/encoder/block_11/attention/query/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_11/attention/value/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214183 140153615533888 ops.py:5936] Variable bert/encoder/block_11/attention/value/kernel                 size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_11/feedforward/dense_1/kernel             size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.214267 140153615533888 ops.py:5936] Variable bert/encoder/block_11/feedforward/dense_1/kernel             size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_11/feedforward/dense_2/kernel             size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.214357 140153615533888 ops.py:5936] Variable bert/encoder/block_11/feedforward/dense_2/kernel             size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_2/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214444 140153615533888 ops.py:5936] Variable bert/encoder/block_2/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_2/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.214531 140153615533888 ops.py:5936] Variable bert/encoder/block_2/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_2/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214617 140153615533888 ops.py:5936] Variable bert/encoder/block_2/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_2/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214703 140153615533888 ops.py:5936] Variable bert/encoder/block_2/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_2/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.214794 140153615533888 ops.py:5936] Variable bert/encoder/block_2/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_2/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.214879 140153615533888 ops.py:5936] Variable bert/encoder/block_2/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_3/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.214970 140153615533888 ops.py:5936] Variable bert/encoder/block_3/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_3/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.215059 140153615533888 ops.py:5936] Variable bert/encoder/block_3/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_3/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.215146 140153615533888 ops.py:5936] Variable bert/encoder/block_3/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_3/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.215238 140153615533888 ops.py:5936] Variable bert/encoder/block_3/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_3/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.215323 140153615533888 ops.py:5936] Variable bert/encoder/block_3/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_3/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.215407 140153615533888 ops.py:5936] Variable bert/encoder/block_3/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_4/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.215493 140153615533888 ops.py:5936] Variable bert/encoder/block_4/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_4/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.215579 140153615533888 ops.py:5936] Variable bert/encoder/block_4/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_4/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.215665 140153615533888 ops.py:5936] Variable bert/encoder/block_4/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_4/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.215757 140153615533888 ops.py:5936] Variable bert/encoder/block_4/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_4/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.215844 140153615533888 ops.py:5936] Variable bert/encoder/block_4/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_4/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.215927 140153615533888 ops.py:5936] Variable bert/encoder/block_4/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_5/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216013 140153615533888 ops.py:5936] Variable bert/encoder/block_5/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_5/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.216105 140153615533888 ops.py:5936] Variable bert/encoder/block_5/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_5/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216192 140153615533888 ops.py:5936] Variable bert/encoder/block_5/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_5/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216276 140153615533888 ops.py:5936] Variable bert/encoder/block_5/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_5/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.216360 140153615533888 ops.py:5936] Variable bert/encoder/block_5/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_5/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.216444 140153615533888 ops.py:5936] Variable bert/encoder/block_5/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_6/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216530 140153615533888 ops.py:5936] Variable bert/encoder/block_6/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_6/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.216616 140153615533888 ops.py:5936] Variable bert/encoder/block_6/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_6/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216701 140153615533888 ops.py:5936] Variable bert/encoder/block_6/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_6/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.216793 140153615533888 ops.py:5936] Variable bert/encoder/block_6/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_6/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.216878 140153615533888 ops.py:5936] Variable bert/encoder/block_6/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_6/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.216966 140153615533888 ops.py:5936] Variable bert/encoder/block_6/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_7/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217052 140153615533888 ops.py:5936] Variable bert/encoder/block_7/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_7/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.217139 140153615533888 ops.py:5936] Variable bert/encoder/block_7/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_7/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217225 140153615533888 ops.py:5936] Variable bert/encoder/block_7/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_7/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217310 140153615533888 ops.py:5936] Variable bert/encoder/block_7/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_7/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.217395 140153615533888 ops.py:5936] Variable bert/encoder/block_7/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_7/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.217479 140153615533888 ops.py:5936] Variable bert/encoder/block_7/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_8/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217564 140153615533888 ops.py:5936] Variable bert/encoder/block_8/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_8/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.217650 140153615533888 ops.py:5936] Variable bert/encoder/block_8/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_8/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217741 140153615533888 ops.py:5936] Variable bert/encoder/block_8/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_8/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.217836 140153615533888 ops.py:5936] Variable bert/encoder/block_8/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_8/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.217921 140153615533888 ops.py:5936] Variable bert/encoder/block_8/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_8/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.218006 140153615533888 ops.py:5936] Variable bert/encoder/block_8/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/encoder/block_9/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.218092 140153615533888 ops.py:5936] Variable bert/encoder/block_9/attention/key/kernel                    size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_9/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+I0129 12:15:00.218178 140153615533888 ops.py:5936] Variable bert/encoder/block_9/attention/output/kernel                 size 589824       slice_size 294912       Shape[num_heads=12, attention_head=64, hidden=768]          
+INFO:tensorflow:Variable bert/encoder/block_9/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.218265 140153615533888 ops.py:5936] Variable bert/encoder/block_9/attention/query/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_9/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+I0129 12:15:00.218351 140153615533888 ops.py:5936] Variable bert/encoder/block_9/attention/value/kernel                  size 589824       slice_size 294912       Shape[hidden=768, num_heads=12, attention_head=64]          
+INFO:tensorflow:Variable bert/encoder/block_9/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+I0129 12:15:00.218434 140153615533888 ops.py:5936] Variable bert/encoder/block_9/feedforward/dense_1/kernel              size 2359296      slice_size 1179648      Shape[hidden=768, intermediate=3072]                        
+INFO:tensorflow:Variable bert/encoder/block_9/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+I0129 12:15:00.218518 140153615533888 ops.py:5936] Variable bert/encoder/block_9/feedforward/dense_2/kernel              size 2359296      slice_size 1179648      Shape[intermediate=3072, hidden=768]                        
+INFO:tensorflow:Variable bert/pooler/dense/kernel                                     size 589824       slice_size 294912       Shape[_hidden=768, hidden=768]                              
+I0129 12:15:00.218601 140153615533888 ops.py:5936] Variable bert/pooler/dense/kernel                                     size 589824       slice_size 294912       Shape[_hidden=768, hidden=768]                              
+INFO:tensorflow:Variable cls/predictions/output_bias                                  size 21248        slice_size 10624        Shape[vocab=21248]                                          
+I0129 12:15:00.218688 140153615533888 ops.py:5936] Variable cls/predictions/output_bias                                  size 21248        slice_size 10624        Shape[vocab=21248]                                          
+INFO:tensorflow:Variable cls/predictions/transform/dense/kernel                       size 589824       slice_size 294912       Shape[_hidden=768, hidden=768]                              
+I0129 12:15:00.218778 140153615533888 ops.py:5936] Variable cls/predictions/transform/dense/kernel                       size 589824       slice_size 294912       Shape[_hidden=768, hidden=768]                              
+INFO:tensorflow:Variable cls/seq_relationship/bias                                    size 2            slice_size 1            Shape[class=2]                                              
+I0129 12:15:00.218860 140153615533888 ops.py:5936] Variable cls/seq_relationship/bias                                    size 2            slice_size 1            Shape[class=2]                                              
+INFO:tensorflow:Variable cls/seq_relationship/kernel                                  size 1536         slice_size 768          Shape[hidden=768, class=2]                                  
+I0129 12:15:00.218944 140153615533888 ops.py:5936] Variable cls/seq_relationship/kernel                                  size 1536         slice_size 768          Shape[hidden=768, class=2]                                  
+INFO:tensorflow:Variable stacked/bert/embeddings/layer_norm/scale                     size 59904        slice_size 59904        Shape[stacked=78, hidden=768]                               
+I0129 12:15:00.219027 140153615533888 ops.py:5936] Variable stacked/bert/embeddings/layer_norm/scale                     size 59904        slice_size 59904        Shape[stacked=78, hidden=768]                               
+INFO:tensorflow:    bert/embeddings/layer_norm/scale
+I0129 12:15:00.219088 140153615533888 ops.py:5936]     bert/embeddings/layer_norm/scale
+INFO:tensorflow:    bert/embeddings/layer_norm/bias
+I0129 12:15:00.219144 140153615533888 ops.py:5936]     bert/embeddings/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_0/attention/output/bias
+I0129 12:15:00.219197 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_0/attention/layer_norm/scale
+I0129 12:15:00.219249 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_0/attention/layer_norm/bias
+I0129 12:15:00.219300 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_0/feedforward/dense_2/bias
+I0129 12:15:00.219351 140153615533888 ops.py:5936]     bert/encoder/block_0/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_0/feedforward/layer_norm/scale
+I0129 12:15:00.219402 140153615533888 ops.py:5936]     bert/encoder/block_0/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_0/feedforward/layer_norm/bias
+I0129 12:15:00.219453 140153615533888 ops.py:5936]     bert/encoder/block_0/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_1/attention/output/bias
+I0129 12:15:00.219503 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_1/attention/layer_norm/scale
+I0129 12:15:00.219553 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_1/attention/layer_norm/bias
+I0129 12:15:00.219604 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_1/feedforward/dense_2/bias
+I0129 12:15:00.219659 140153615533888 ops.py:5936]     bert/encoder/block_1/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_1/feedforward/layer_norm/scale
+I0129 12:15:00.219711 140153615533888 ops.py:5936]     bert/encoder/block_1/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_1/feedforward/layer_norm/bias
+I0129 12:15:00.219768 140153615533888 ops.py:5936]     bert/encoder/block_1/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_2/attention/output/bias
+I0129 12:15:00.219820 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_2/attention/layer_norm/scale
+I0129 12:15:00.219870 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_2/attention/layer_norm/bias
+I0129 12:15:00.219921 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_2/feedforward/dense_2/bias
+I0129 12:15:00.219972 140153615533888 ops.py:5936]     bert/encoder/block_2/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_2/feedforward/layer_norm/scale
+I0129 12:15:00.220023 140153615533888 ops.py:5936]     bert/encoder/block_2/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_2/feedforward/layer_norm/bias
+I0129 12:15:00.220073 140153615533888 ops.py:5936]     bert/encoder/block_2/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_3/attention/output/bias
+I0129 12:15:00.220124 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_3/attention/layer_norm/scale
+I0129 12:15:00.220174 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_3/attention/layer_norm/bias
+I0129 12:15:00.220225 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_3/feedforward/dense_2/bias
+I0129 12:15:00.220274 140153615533888 ops.py:5936]     bert/encoder/block_3/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_3/feedforward/layer_norm/scale
+I0129 12:15:00.220325 140153615533888 ops.py:5936]     bert/encoder/block_3/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_3/feedforward/layer_norm/bias
+I0129 12:15:00.220376 140153615533888 ops.py:5936]     bert/encoder/block_3/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_4/attention/output/bias
+I0129 12:15:00.220426 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_4/attention/layer_norm/scale
+I0129 12:15:00.220477 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_4/attention/layer_norm/bias
+I0129 12:15:00.220527 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_4/feedforward/dense_2/bias
+I0129 12:15:00.220578 140153615533888 ops.py:5936]     bert/encoder/block_4/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_4/feedforward/layer_norm/scale
+I0129 12:15:00.220628 140153615533888 ops.py:5936]     bert/encoder/block_4/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_4/feedforward/layer_norm/bias
+I0129 12:15:00.220678 140153615533888 ops.py:5936]     bert/encoder/block_4/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_5/attention/output/bias
+I0129 12:15:00.220732 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_5/attention/layer_norm/scale
+I0129 12:15:00.220785 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_5/attention/layer_norm/bias
+I0129 12:15:00.220836 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_5/feedforward/dense_2/bias
+I0129 12:15:00.220886 140153615533888 ops.py:5936]     bert/encoder/block_5/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_5/feedforward/layer_norm/scale
+I0129 12:15:00.220942 140153615533888 ops.py:5936]     bert/encoder/block_5/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_5/feedforward/layer_norm/bias
+I0129 12:15:00.220994 140153615533888 ops.py:5936]     bert/encoder/block_5/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_6/attention/output/bias
+I0129 12:15:00.221045 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_6/attention/layer_norm/scale
+I0129 12:15:00.221096 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_6/attention/layer_norm/bias
+I0129 12:15:00.221147 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_6/feedforward/dense_2/bias
+I0129 12:15:00.221197 140153615533888 ops.py:5936]     bert/encoder/block_6/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_6/feedforward/layer_norm/scale
+I0129 12:15:00.221247 140153615533888 ops.py:5936]     bert/encoder/block_6/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_6/feedforward/layer_norm/bias
+I0129 12:15:00.221298 140153615533888 ops.py:5936]     bert/encoder/block_6/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_7/attention/output/bias
+I0129 12:15:00.221349 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_7/attention/layer_norm/scale
+I0129 12:15:00.221399 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_7/attention/layer_norm/bias
+I0129 12:15:00.221450 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_7/feedforward/dense_2/bias
+I0129 12:15:00.221499 140153615533888 ops.py:5936]     bert/encoder/block_7/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_7/feedforward/layer_norm/scale
+I0129 12:15:00.221550 140153615533888 ops.py:5936]     bert/encoder/block_7/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_7/feedforward/layer_norm/bias
+I0129 12:15:00.221600 140153615533888 ops.py:5936]     bert/encoder/block_7/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_8/attention/output/bias
+I0129 12:15:00.221651 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_8/attention/layer_norm/scale
+I0129 12:15:00.221701 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_8/attention/layer_norm/bias
+I0129 12:15:00.221758 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_8/feedforward/dense_2/bias
+I0129 12:15:00.221809 140153615533888 ops.py:5936]     bert/encoder/block_8/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_8/feedforward/layer_norm/scale
+I0129 12:15:00.221859 140153615533888 ops.py:5936]     bert/encoder/block_8/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_8/feedforward/layer_norm/bias
+I0129 12:15:00.221910 140153615533888 ops.py:5936]     bert/encoder/block_8/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_9/attention/output/bias
+I0129 12:15:00.221961 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_9/attention/layer_norm/scale
+I0129 12:15:00.222011 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_9/attention/layer_norm/bias
+I0129 12:15:00.222062 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_9/feedforward/dense_2/bias
+I0129 12:15:00.222112 140153615533888 ops.py:5936]     bert/encoder/block_9/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_9/feedforward/layer_norm/scale
+I0129 12:15:00.222167 140153615533888 ops.py:5936]     bert/encoder/block_9/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_9/feedforward/layer_norm/bias
+I0129 12:15:00.222218 140153615533888 ops.py:5936]     bert/encoder/block_9/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_10/attention/output/bias
+I0129 12:15:00.222269 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_10/attention/layer_norm/scale
+I0129 12:15:00.222320 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_10/attention/layer_norm/bias
+I0129 12:15:00.222371 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_10/feedforward/dense_2/bias
+I0129 12:15:00.222421 140153615533888 ops.py:5936]     bert/encoder/block_10/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_10/feedforward/layer_norm/scale
+I0129 12:15:00.222471 140153615533888 ops.py:5936]     bert/encoder/block_10/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_10/feedforward/layer_norm/bias
+I0129 12:15:00.222522 140153615533888 ops.py:5936]     bert/encoder/block_10/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_11/attention/output/bias
+I0129 12:15:00.222573 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/output/bias
+INFO:tensorflow:    bert/encoder/block_11/attention/layer_norm/scale
+I0129 12:15:00.222623 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_11/attention/layer_norm/bias
+I0129 12:15:00.222673 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/layer_norm/bias
+INFO:tensorflow:    bert/encoder/block_11/feedforward/dense_2/bias
+I0129 12:15:00.222727 140153615533888 ops.py:5936]     bert/encoder/block_11/feedforward/dense_2/bias
+INFO:tensorflow:    bert/encoder/block_11/feedforward/layer_norm/scale
+I0129 12:15:00.222780 140153615533888 ops.py:5936]     bert/encoder/block_11/feedforward/layer_norm/scale
+INFO:tensorflow:    bert/encoder/block_11/feedforward/layer_norm/bias
+I0129 12:15:00.222831 140153615533888 ops.py:5936]     bert/encoder/block_11/feedforward/layer_norm/bias
+INFO:tensorflow:    bert/pooler/dense_1/bias
+I0129 12:15:00.222882 140153615533888 ops.py:5936]     bert/pooler/dense_1/bias
+INFO:tensorflow:    cls/predictions/transform/dense_1/bias
+I0129 12:15:00.222932 140153615533888 ops.py:5936]     cls/predictions/transform/dense_1/bias
+INFO:tensorflow:    cls/predictions/transform/layer_norm/scale
+I0129 12:15:00.222983 140153615533888 ops.py:5936]     cls/predictions/transform/layer_norm/scale
+INFO:tensorflow:    cls/predictions/transform/layer_norm/bias
+I0129 12:15:00.223033 140153615533888 ops.py:5936]     cls/predictions/transform/layer_norm/bias
+INFO:tensorflow:Variable stacked/bert/encoder/block_0/attention/query/bias            size 27648        slice_size 13824        Shape[stacked=36, num_heads=12, attention_head=64]          
+I0129 12:15:00.223118 140153615533888 ops.py:5936] Variable stacked/bert/encoder/block_0/attention/query/bias            size 27648        slice_size 13824        Shape[stacked=36, num_heads=12, attention_head=64]          
+INFO:tensorflow:    bert/encoder/block_0/attention/query/bias
+I0129 12:15:00.223180 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_0/attention/key/bias
+I0129 12:15:00.223233 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_0/attention/value/bias
+I0129 12:15:00.223285 140153615533888 ops.py:5936]     bert/encoder/block_0/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_1/attention/query/bias
+I0129 12:15:00.223336 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_1/attention/key/bias
+I0129 12:15:00.223392 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_1/attention/value/bias
+I0129 12:15:00.223444 140153615533888 ops.py:5936]     bert/encoder/block_1/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_2/attention/query/bias
+I0129 12:15:00.223496 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_2/attention/key/bias
+I0129 12:15:00.223547 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_2/attention/value/bias
+I0129 12:15:00.223597 140153615533888 ops.py:5936]     bert/encoder/block_2/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_3/attention/query/bias
+I0129 12:15:00.223648 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_3/attention/key/bias
+I0129 12:15:00.223698 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_3/attention/value/bias
+I0129 12:15:00.223755 140153615533888 ops.py:5936]     bert/encoder/block_3/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_4/attention/query/bias
+I0129 12:15:00.223806 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_4/attention/key/bias
+I0129 12:15:00.223857 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_4/attention/value/bias
+I0129 12:15:00.223907 140153615533888 ops.py:5936]     bert/encoder/block_4/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_5/attention/query/bias
+I0129 12:15:00.223958 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_5/attention/key/bias
+I0129 12:15:00.224008 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_5/attention/value/bias
+I0129 12:15:00.224058 140153615533888 ops.py:5936]     bert/encoder/block_5/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_6/attention/query/bias
+I0129 12:15:00.224108 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_6/attention/key/bias
+I0129 12:15:00.224158 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_6/attention/value/bias
+I0129 12:15:00.224208 140153615533888 ops.py:5936]     bert/encoder/block_6/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_7/attention/query/bias
+I0129 12:15:00.224258 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_7/attention/key/bias
+I0129 12:15:00.224309 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_7/attention/value/bias
+I0129 12:15:00.224359 140153615533888 ops.py:5936]     bert/encoder/block_7/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_8/attention/query/bias
+I0129 12:15:00.224409 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_8/attention/key/bias
+I0129 12:15:00.224460 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_8/attention/value/bias
+I0129 12:15:00.224510 140153615533888 ops.py:5936]     bert/encoder/block_8/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_9/attention/query/bias
+I0129 12:15:00.224561 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_9/attention/key/bias
+I0129 12:15:00.224611 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_9/attention/value/bias
+I0129 12:15:00.224661 140153615533888 ops.py:5936]     bert/encoder/block_9/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_10/attention/query/bias
+I0129 12:15:00.224715 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_10/attention/key/bias
+I0129 12:15:00.224773 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_10/attention/value/bias
+I0129 12:15:00.224824 140153615533888 ops.py:5936]     bert/encoder/block_10/attention/value/bias
+INFO:tensorflow:    bert/encoder/block_11/attention/query/bias
+I0129 12:15:00.224874 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/query/bias
+INFO:tensorflow:    bert/encoder/block_11/attention/key/bias
+I0129 12:15:00.224925 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/key/bias
+INFO:tensorflow:    bert/encoder/block_11/attention/value/bias
+I0129 12:15:00.224976 140153615533888 ops.py:5936]     bert/encoder/block_11/attention/value/bias
+INFO:tensorflow:Variable stacked/bert/encoder/block_0/feedforward/dense_1/bias        size 36864        slice_size 18432        Shape[stacked=12, intermediate=3072]                        
+I0129 12:15:00.225057 140153615533888 ops.py:5936] Variable stacked/bert/encoder/block_0/feedforward/dense_1/bias        size 36864        slice_size 18432        Shape[stacked=12, intermediate=3072]                        
+INFO:tensorflow:    bert/encoder/block_0/feedforward/dense_1/bias
+I0129 12:15:00.225117 140153615533888 ops.py:5936]     bert/encoder/block_0/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_1/feedforward/dense_1/bias
+I0129 12:15:00.225170 140153615533888 ops.py:5936]     bert/encoder/block_1/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_2/feedforward/dense_1/bias
+I0129 12:15:00.225221 140153615533888 ops.py:5936]     bert/encoder/block_2/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_3/feedforward/dense_1/bias
+I0129 12:15:00.225273 140153615533888 ops.py:5936]     bert/encoder/block_3/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_4/feedforward/dense_1/bias
+I0129 12:15:00.225324 140153615533888 ops.py:5936]     bert/encoder/block_4/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_5/feedforward/dense_1/bias
+I0129 12:15:00.225374 140153615533888 ops.py:5936]     bert/encoder/block_5/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_6/feedforward/dense_1/bias
+I0129 12:15:00.225425 140153615533888 ops.py:5936]     bert/encoder/block_6/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_7/feedforward/dense_1/bias
+I0129 12:15:00.225476 140153615533888 ops.py:5936]     bert/encoder/block_7/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_8/feedforward/dense_1/bias
+I0129 12:15:00.225526 140153615533888 ops.py:5936]     bert/encoder/block_8/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_9/feedforward/dense_1/bias
+I0129 12:15:00.225575 140153615533888 ops.py:5936]     bert/encoder/block_9/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_10/feedforward/dense_1/bias
+I0129 12:15:00.225626 140153615533888 ops.py:5936]     bert/encoder/block_10/feedforward/dense_1/bias
+INFO:tensorflow:    bert/encoder/block_11/feedforward/dense_1/bias
+I0129 12:15:00.225677 140153615533888 ops.py:5936]     bert/encoder/block_11/feedforward/dense_1/bias
+INFO:tensorflow:Trainable Variables            count: 83      Total size: 102974722        Total slice_size: 51713921       
+I0129 12:15:00.225736 140153615533888 ops.py:5936] Trainable Variables            count: 83      Total size: 102974722        Total slice_size: 51713921       
+INFO:tensorflow:All Variables                  count: 243     Total size: 308924166        Total slice_size: 155141763      
+I0129 12:15:00.228912 140153615533888 ops.py:5936] All Variables                  count: 243     Total size: 308924166        Total slice_size: 155141763      
+INFO:tensorflow:Counters:
+allconcat: 2.82e+07
+ allconcat/0: 2.82e+07
+  allconcat/0/reshape_op: 2.82e+07
+allreduce: 4.61e+08
+ allreduce/[0]: 4.61e+08
+  allreduce/[0]/einsum_op: 4.61e+08
+  allreduce/[0]/reduce_op: 5.63e+03
+einsum: 1.31e+12
+einsum_unique: 1.31e+12
+output: 1.36e+10
+ output/AddOperation: 3.12e+09
+ output/BinaryOpWithBroadcasting: 2.33e+08
+ output/BroadcastOperation: 4.19e+08
+ output/Constant: 8
+ output/EinsumOperation: 5.13e+09
+ output/ImportOperation: 2.86e+04
+ output/MinMaxOperation: 2
+ output/OneHotOperation: 1.01e+08
+ output/PadOperation: 7.86e+05
+ output/RandomOperation: 2.33e+08
+ output/ReduceOperation: 3.45e+06
+ output/ReshapeOperation: 3.31e+08
+ output/ScalarAddOperation: 2.56e+08
+ output/ScalarMultiplyOperation: 1.97e+09
+ output/SliceOperation: 1.97e+05
+ output/SlicewiseOperation: 1.43e+09
+ output/StackOperation: 6.02e+05
+ output/StackedVariable: 6.02e+05
+ output/StopGradient: 8.91e+07
+ output/UnstackOperation: 6.02e+05
+ output/Variable: 3.1e+08
+output_unique: 1.12e+10
+ output_unique/AddOperation: 2.48e+09
+ output_unique/BinaryOpWithBroadcasting: 1.54e+08
+ output_unique/BroadcastOperation: 2.61e+08
+ output_unique/Constant: 4
+ output_unique/EinsumOperation: 4.18e+09
+ output_unique/ImportOperation: 1.43e+04
+ output_unique/MinMaxOperation: 1
+ output_unique/OneHotOperation: 1.01e+08
+ output_unique/PadOperation: 3.93e+05
+ output_unique/RandomOperation: 1.54e+08
+ output_unique/ReduceOperation: 2.95e+06
+ output_unique/ReshapeOperation: 1.66e+08
+ output_unique/ScalarAddOperation: 2.55e+08
+ output_unique/ScalarMultiplyOperation: 1.81e+09
+ output_unique/SliceOperation: 9.83e+04
+ output_unique/SlicewiseOperation: 1.27e+09
+ output_unique/StackOperation: 4.22e+05
+ output_unique/StackedVariable: 4.22e+05
+ output_unique/StopGradient: 8.91e+07
+ output_unique/UnstackOperation: 4.22e+05
+ output_unique/Variable: 3.09e+08
+variables: 3.09e+08
+ variables/trainable: 1.03e+08
+ variables/untrainable: 2.06e+08
+I0129 12:15:00.267354 140153615533888 ops.py:5936] Counters:
+allconcat: 2.82e+07
+ allconcat/0: 2.82e+07
+  allconcat/0/reshape_op: 2.82e+07
+allreduce: 4.61e+08
+ allreduce/[0]: 4.61e+08
+  allreduce/[0]/einsum_op: 4.61e+08
+  allreduce/[0]/reduce_op: 5.63e+03
+einsum: 1.31e+12
+einsum_unique: 1.31e+12
+output: 1.36e+10
+ output/AddOperation: 3.12e+09
+ output/BinaryOpWithBroadcasting: 2.33e+08
+ output/BroadcastOperation: 4.19e+08
+ output/Constant: 8
+ output/EinsumOperation: 5.13e+09
+ output/ImportOperation: 2.86e+04
+ output/MinMaxOperation: 2
+ output/OneHotOperation: 1.01e+08
+ output/PadOperation: 7.86e+05
+ output/RandomOperation: 2.33e+08
+ output/ReduceOperation: 3.45e+06
+ output/ReshapeOperation: 3.31e+08
+ output/ScalarAddOperation: 2.56e+08
+ output/ScalarMultiplyOperation: 1.97e+09
+ output/SliceOperation: 1.97e+05
+ output/SlicewiseOperation: 1.43e+09
+ output/StackOperation: 6.02e+05
+ output/StackedVariable: 6.02e+05
+ output/StopGradient: 8.91e+07
+ output/UnstackOperation: 6.02e+05
+ output/Variable: 3.1e+08
+output_unique: 1.12e+10
+ output_unique/AddOperation: 2.48e+09
+ output_unique/BinaryOpWithBroadcasting: 1.54e+08
+ output_unique/BroadcastOperation: 2.61e+08
+ output_unique/Constant: 4
+ output_unique/EinsumOperation: 4.18e+09
+ output_unique/ImportOperation: 1.43e+04
+ output_unique/MinMaxOperation: 1
+ output_unique/OneHotOperation: 1.01e+08
+ output_unique/PadOperation: 3.93e+05
+ output_unique/RandomOperation: 1.54e+08
+ output_unique/ReduceOperation: 2.95e+06
+ output_unique/ReshapeOperation: 1.66e+08
+ output_unique/ScalarAddOperation: 2.55e+08
+ output_unique/ScalarMultiplyOperation: 1.81e+09
+ output_unique/SliceOperation: 9.83e+04
+ output_unique/SlicewiseOperation: 1.27e+09
+ output_unique/StackOperation: 4.22e+05
+ output_unique/StackedVariable: 4.22e+05
+ output_unique/StopGradient: 8.91e+07
+ output_unique/UnstackOperation: 4.22e+05
+ output_unique/Variable: 3.09e+08
+variables: 3.09e+08
+ variables/trainable: 1.03e+08
+ variables/untrainable: 2.06e+08
+WARNING:tensorflow:From run_pretraining.py:231: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+W0129 12:15:00.267497 140153615533888 deprecation.py:323] From run_pretraining.py:231: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+INFO:tensorflow:tf_update_ops: [<tf.Operation 'assign_618/group_deps_83' type=NoOp>, <tf.Operation 'assign_619/group_deps_160' type=NoOp>, <tf.Tensor 'AssignAdd:0' shape=() dtype=int64_ref>]
+I0129 12:15:00.268622 140153615533888 run_pretraining.py:238] tf_update_ops: [<tf.Operation 'assign_618/group_deps_83' type=NoOp>, <tf.Operation 'assign_619/group_deps_160' type=NoOp>, <tf.Tensor 'AssignAdd:0' shape=() dtype=int64_ref>]
+INFO:tensorflow:Done calling model_fn.
+I0129 12:15:00.635462 140153615533888 estimator.py:1153] Done calling model_fn.
+INFO:tensorflow:Create CheckpointSaverHook.
+I0129 12:15:00.636495 140153615533888 basic_session_run_hooks.py:546] Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+I0129 12:15:04.837608 140153615533888 monitored_session.py:246] Graph was finalized.
+2021-01-29 12:15:04.837993: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA
+2021-01-29 12:15:04.840996: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2021-01-29 12:15:05.166683: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.582GHz coreCount: 28 deviceMemorySize: 10.92GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-01-29 12:15:05.168471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 1 with properties: 
+pciBusID: 0000:04:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.582GHz coreCount: 28 deviceMemorySize: 10.92GiB deviceMemoryBandwidth: 451.17GiB/s
+2021-01-29 12:15:05.168897: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-01-29 12:15:05.171761: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2021-01-29 12:15:05.174094: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2021-01-29 12:15:05.175132: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2021-01-29 12:15:05.178290: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2021-01-29 12:15:05.180444: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2021-01-29 12:15:05.186547: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2021-01-29 12:15:05.192634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0, 1
+2021-01-29 12:15:05.192694: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2021-01-29 12:15:05.196591: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-01-29 12:15:05.196617: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0 1 
+2021-01-29 12:15:05.196632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N Y 
+2021-01-29 12:15:05.196641: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 1:   Y N 
+2021-01-29 12:15:05.203939: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10481 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)
+2021-01-29 12:15:05.207789: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10481 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:04:00.0, compute capability: 6.1)
+INFO:tensorflow:Running local_init_op.
+I0129 12:15:11.189615 140153615533888 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0129 12:15:11.516047 140153615533888 session_manager.py:507] Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into ./output/model.ckpt.
+I0129 12:15:25.117204 140153615533888 basic_session_run_hooks.py:613] Saving checkpoints for 0 into ./output/model.ckpt.
+INFO:tensorflow:Before copy master to slices.
+I0129 12:15:30.333149 140153615533888 ops.py:5767] Before copy master to slices.
+INFO:tensorflow:Done with copy master to slices.
+I0129 12:15:31.840353 140153615533888 ops.py:5769] Done with copy master to slices.
+2021-01-29 12:15:44.565453: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+INFO:tensorflow:loss = 10.724539, step = 1
+I0129 12:15:46.367163 140153615533888 basic_session_run_hooks.py:262] loss = 10.724539, step = 1
+INFO:tensorflow:global_step/sec: 1.21759
+I0129 12:17:08.496104 140153615533888 basic_session_run_hooks.py:700] global_step/sec: 1.21759
+INFO:tensorflow:loss = 7.1362853, step = 101 (82.130 sec)
+I0129 12:17:08.497569 140153615533888 basic_session_run_hooks.py:260] loss = 7.1362853, step = 101 (82.130 sec)
+INFO:tensorflow:global_step/sec: 2.29564
+I0129 12:17:52.056890 140153615533888 basic_session_run_hooks.py:700] global_step/sec: 2.29564
+INFO:tensorflow:loss = 6.412656, step = 201 (43.560 sec)
+I0129 12:17:52.058012 140153615533888 basic_session_run_hooks.py:260] loss = 6.412656, step = 201 (43.560 sec)
+INFO:tensorflow:global_step/sec: 2.28227
+I0129 12:18:35.873172 140153615533888 basic_session_run_hooks.py:700] global_step/sec: 2.28227
+INFO:tensorflow:loss = 6.8711276, step = 301 (43.817 sec)
+I0129 12:18:35.874800 140153615533888 basic_session_run_hooks.py:260] loss = 6.8711276, step = 301 (43.817 sec)
+INFO:tensorflow:global_step/sec: 2.26302
+I0129 12:19:20.061769 140153615533888 basic_session_run_hooks.py:700] global_step/sec: 2.26302
+INFO:tensorflow:loss = 6.700692, step = 401 (44.188 sec)
+I0129 12:19:20.063079 140153615533888 basic_session_run_hooks.py:260] loss = 6.700692, step = 401 (44.188 sec)
+INFO:tensorflow:Saving checkpoints for 500 into ./output/model.ckpt.
+I0129 12:20:03.890063 140153615533888 basic_session_run_hooks.py:613] Saving checkpoints for 500 into ./output/model.ckpt.
+INFO:tensorflow:Loss for final step: 5.8117657.
+I0129 12:20:08.185267 140153615533888 estimator.py:375] Loss for final step: 5.8117657.
+INFO:tensorflow:Finished training up to step 500. Elapsed seconds 330.
+I0129 12:20:08.186791 140153615533888 run_pretraining.py:430] Finished training up to step 500. Elapsed seconds 330.
+{'class', 'batch', 'vocab', 'intermediate', 'seq', 'num_heads', 'memory_seq', 'attention_head', 'token_type_vocab', 'max_pred_seq', '_hidden', 'hidden'}
