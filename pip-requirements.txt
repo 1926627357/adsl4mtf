@@ -2,3 +2,4 @@ mesh-tensorflow
 ortools
 pandas
 matplotlib
+tensorflow_datasets
