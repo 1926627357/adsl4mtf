@@ -81,7 +81,7 @@ flags.DEFINE_bool("clip_gradients", True, "Apply gradient clipping.")
 
 flags.DEFINE_string("optimizer", "adam", "adam/adafactor")
 
-flags.DEFINE_integer("num_train_steps", 500, "Number of training steps.")
+flags.DEFINE_integer("num_train_steps", 2000, "Number of training steps.")
 
 flags.DEFINE_integer("num_warmup_steps", 100, "Number of warmup steps.")
 flags.DEFINE_integer("gpu_num", 4, "Number of gpu devices.")
@@ -143,13 +143,15 @@ def model_fn_builder(bert_config, init_checkpoint, learning_rate,
             mesh_shape_map = {
                 1:[("processor_rows", 1)],
                 2:[("processor_rows", 2)],
-                4:[("processor_rows", 2), ("processor_cols", 2)]
+                4:[("processor_rows", 2), ("processor_cols", 2)],
+                8:[("processor_rows", 2), ("processor_cols", 4)]
             }
         elif FLAGS.mode=="data_parallel":
             mesh_shape_map = {
                 1:[("processor_rows", 1)],
                 2:[("processor_rows", 2)],
-                4:[("processor_rows", 4)]
+                4:[("processor_rows", 4)],
+                8:[("processor_rows", 8)]
             }
         else:
             raise ValueError
